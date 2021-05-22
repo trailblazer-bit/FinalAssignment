@@ -4,3 +4,4 @@
 ## 项目类型：WPF
 ## .Net框架：.NetFramework 4.72
 ## MySql版本：MySql 8.0
+## 其他：待定
