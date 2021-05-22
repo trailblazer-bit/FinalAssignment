@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gao\\Source\\Repos\\FinalAssignment\\Test\\Test\\Test.csproj": {}
+    "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gao\\Source\\Repos\\FinalAssignment\\Test\\Test\\Test.csproj": {
+    "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gao\\Source\\Repos\\FinalAssignment\\Test\\Test\\Test.csproj",
+        "projectUniqueName": "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "C:\\Users\\Gao\\Source\\Repos\\FinalAssignment\\Test\\Test\\Test.csproj",
+        "projectPath": "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gao\\Source\\Repos\\FinalAssignment\\Test\\Test\\obj\\",
+        "outputPath": "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
