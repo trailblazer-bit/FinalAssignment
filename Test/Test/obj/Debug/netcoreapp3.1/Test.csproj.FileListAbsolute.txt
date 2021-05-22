@@ -1,0 +1,13 @@
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.exe
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.deps.json
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.runtimeconfig.json
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.runtimeconfig.dev.json
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.dll
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\bin\Debug\netcoreapp3.1\Test.pdb
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.csprojAssemblyReference.cache
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfoInputs.cache
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.AssemblyInfo.cs
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.csproj.CoreCompileInputs.cache
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.dll
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.pdb
+C:\Users\Gao\Source\Repos\FinalAssignment\Test\Test\obj\Debug\netcoreapp3.1\Test.genruntimeconfig.cache
