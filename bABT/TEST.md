@@ -1,2 +1,0 @@
-# mhycnm
-## roridaisuki
