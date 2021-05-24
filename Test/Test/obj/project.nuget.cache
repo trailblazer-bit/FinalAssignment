@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3rz0Jl9E8Y2OGEj9YIcjddCppioKgfQMULuLfxSEdr8zrL9LsAbabnD9eVxRWz85k6hi4MhMq7CCzBGGSKsOZw==",
+  "dgSpecHash": "f5LcfSyyTVX8EOX0kxAevAx58Ww0URdcaMd28XL4wxTjJuCacwsZA9ZZC1suQYP1ei+cePQkFWSmgKRJUpnmpA==",
   "success": true,
-  "projectFilePath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\Test\\Test\\Test.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\86158\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Gao\\source\\repos\\FinalAssignment\\Test\\Test\\Test.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
