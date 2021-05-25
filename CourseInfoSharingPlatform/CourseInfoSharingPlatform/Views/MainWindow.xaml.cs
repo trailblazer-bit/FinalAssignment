@@ -23,7 +23,6 @@ namespace CourseInfoSharingPlatform
         public MainWindow()
         {
             InitializeComponent();
-            new loginPage().Show();
         }
     }
 }
