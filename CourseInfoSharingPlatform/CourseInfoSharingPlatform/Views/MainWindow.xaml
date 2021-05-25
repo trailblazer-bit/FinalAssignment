@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:CourseInfoSharingPlatform"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="0,0,0.333,-0.333">
+        <Label Content="Label" HorizontalAlignment="Left" Margin="331,90,0,0" VerticalAlignment="Top" Height="62" Width="135"/>
+
     </Grid>
 </Window>

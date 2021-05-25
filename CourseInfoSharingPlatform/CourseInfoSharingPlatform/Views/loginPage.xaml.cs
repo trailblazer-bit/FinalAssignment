@@ -10,20 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CourseInfoSharingPlatform.Views;
-namespace CourseInfoSharingPlatform
+
+namespace CourseInfoSharingPlatform.Views
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// loginPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class loginPage : Window
     {
-        public MainWindow()
+        public loginPage()
         {
             InitializeComponent();
-            new loginPage().Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //验证
         }
     }
 }
