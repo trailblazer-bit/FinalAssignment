@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CourseDataConverter.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Views\QueryCourseView.xaml.cs">
       <DependentUpon>QueryCourseView.xaml</DependentUpon>
     </Compile>

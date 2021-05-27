@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,21 @@ namespace CourseInfoSharingPlatform.Views
         public QueryCourseView()
         {
             InitializeComponent();
+            InitialCourseList();
+        }
+
+        private void InitialCourseList()
+        {
+            List<Course> courses = new List<Course>()
+            {
+                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.2,Tags=new List<String>{ "给分不少" ,"作业不多","作业真多"  } },
+                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.4,Tags=new List<String>{ "给分不少" ,"作业不多" } },
+                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.7,Tags=new List<String>{ "给分不少" ,"作业不多" } },
+                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.9,Tags=new List<String>{ "给分不少" ,"作业不多" } },
+            };
+
+
+            this.listBoxCourses.ItemsSource = courses;
         }
     }
 }
