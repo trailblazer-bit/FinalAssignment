@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CourseInfoSharingPlatform.Views;
-namespace CourseInfoSharingPlatform
+
+namespace CourseInfoSharingPlatform.Views
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// StuMainPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StuMainPage : Window
     {
-        public MainWindow()
+        public StuMainPage()
         {
             InitializeComponent();
-            new StuMainPage().Show();
         }
     }
 }
