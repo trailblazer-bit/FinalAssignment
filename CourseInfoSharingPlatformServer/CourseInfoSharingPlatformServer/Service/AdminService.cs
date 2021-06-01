@@ -7,5 +7,7 @@ namespace CourseInfoSharingPlatformServer.Service
 {
     public class AdminService
     {
+
+
     }
 }
