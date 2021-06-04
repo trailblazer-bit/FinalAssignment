@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dao\" />
     <Folder Include="Service\" />
   </ItemGroup>
 
