@@ -16,10 +16,11 @@
         </Grid.Background>
         <Grid Height="98" Margin="0,10,0,0" VerticalAlignment="Top" Width="793.333" >
             <Label Content="欢迎" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="78" Width="516.123" FontSize="48" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <Menu HorizontalAlignment="Left" Height="98" Margin="604,0,0,0" VerticalAlignment="Top" Width="98" Grid.Column="1" >
-                <MenuItem  Height="98" Width="100" FontFamily="Microsoft YaHei UI" RenderTransformOrigin="1.487,0.782">
+            
+<Menu HorizontalAlignment="Left" Height="98" Margin="604,0,0,0" VerticalAlignment="Top" Width="98" Grid.Column="1" >
+                <MenuItem  Height="98" Width="100" FontFamily="Microsoft YaHei UI" RenderTransformOrigin="1.487,0.782" >
                     <MenuItem.Background>
-                        <ImageBrush   Stretch="Uniform" ImageSource="1576340717419.jpg"/>
+                        <ImageBrush   Stretch="Uniform" ImageSource="1576340717419.jpg" />
                     </MenuItem.Background>
                     <MenuItem Header="个人主页"/>
                     <Separator/>

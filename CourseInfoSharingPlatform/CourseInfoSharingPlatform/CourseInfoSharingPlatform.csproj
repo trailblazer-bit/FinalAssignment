@@ -65,12 +65,25 @@
     </ApplicationDefinition>
     <Compile Include="Converters\CourseDataConverter.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Views\LogonPage.xaml.cs">
+      <DependentUpon>LogonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\QueryCourseView.xaml.cs">
       <DependentUpon>QueryCourseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StuMainPage.xaml.cs">
+      <DependentUpon>StuMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StuCourseCollection.xaml.cs">
+      <DependentUpon>StuCourseCollection.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\loginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LogonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +103,14 @@
     <Page Include="Views\QueryCourseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StuMainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StuCourseCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
