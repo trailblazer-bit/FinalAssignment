@@ -19,5 +19,16 @@ namespace CourseInfoSharingPlatformServer.Models
         public string Major { get; set; }
 
         public List<Course> LikeCourses { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is User user &&
+                   UserName == user.UserName;
+        }
+
+        public User()
+        {
+            LikeCourses = new List<Course>();
+        }
     }
 }

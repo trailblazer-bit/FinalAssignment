@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5MAL91dGUtMIroELuTtB39bgXgBXK8iaTR6hpPJ8Ihc8LV1iZw2wCdy09r1pe/RzX7u7ns1ugQHbWXl9W9yjDw==",
+  "dgSpecHash": "bzok6a/Quhp1bnsnfPqOwe9ce8o8V300hMPjyab8pup3RFFAIQTHHdgLf5Q1GnIXBsYpH2AHgvnPmqUzDmv2FQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\86158\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Gao\\Desktop\\c#\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

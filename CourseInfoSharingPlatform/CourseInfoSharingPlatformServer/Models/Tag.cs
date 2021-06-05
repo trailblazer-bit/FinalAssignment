@@ -11,7 +11,13 @@ namespace CourseInfoSharingPlatformServer.Models
     {
         public int TagId { get; set; }
         public string Detail { get; set; }
-        public bool LikeNum { get; set; }
+        public int LikeNum { get; set; }
         public Question RelatedQuestion { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Tag tag &&
+                   TagId == tag.TagId;
+        }
     }
 }
