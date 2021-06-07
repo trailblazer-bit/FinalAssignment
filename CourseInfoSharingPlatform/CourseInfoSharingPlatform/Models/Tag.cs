@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseInfoSharingPlatformServer.Models
+namespace CourseInfoSharingPlatform.Models
 {
-    [Table("TAG")]
     public class Tag
     {
         public int TagId { get; set; }

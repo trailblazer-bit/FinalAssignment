@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace CourseInfoSharingPlatformServer.Service
 {
+
+    //处理和标签有关的操作
     public class TagService
     {
+
     }
 }

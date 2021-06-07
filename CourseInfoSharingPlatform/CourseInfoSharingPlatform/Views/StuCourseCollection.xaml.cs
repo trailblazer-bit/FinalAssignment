@@ -30,10 +30,17 @@ namespace CourseInfoSharingPlatform.Views
 
             List<Course> courses = new List<Course>()
             {
-                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.2,Tags=new List<String>{ "给分不少" ,"作业不多","作业真多"  } },
-                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.4,Tags=new List<String>{ "给分不少" ,"作业不多" } },
-                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.7,Tags=new List<String>{ "给分不少" ,"作业不多" } },
-                new Course(){Name="Python程序设计",CNo="123",CType="公选课",TeacherName="张三",Score=4.9,Tags=new List<String>{ "给分不少" ,"作业不多" } },
+                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.2,
+                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
+
+                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.4,
+                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
+
+                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.7,
+                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"} } },
+
+                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.9,
+                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
             };
 
 

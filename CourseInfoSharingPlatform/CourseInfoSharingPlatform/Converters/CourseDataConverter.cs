@@ -16,7 +16,7 @@ namespace CourseInfoSharingPlatform.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "评分:" + value.ToString();
+            return "评分: " + value.ToString();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -28,7 +28,7 @@ namespace CourseInfoSharingPlatform.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "课头号:" + (string)value;
+            return "课头号: " + (string)value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -41,7 +41,7 @@ namespace CourseInfoSharingPlatform.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "课程类型:" + (string)value;
+            return "课程类型: " + (string)value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -54,7 +54,7 @@ namespace CourseInfoSharingPlatform.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "任课老师:" + (string)value;
+            return "任课老师: " + (string)value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

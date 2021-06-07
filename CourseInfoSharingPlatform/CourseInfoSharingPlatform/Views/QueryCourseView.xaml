@@ -25,19 +25,19 @@
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
                         <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Margin="60,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Grid.Row="1" Grid.RowSpan="2" >
+                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Click="Button_Click" Grid.Row="1" Grid.RowSpan="2" >
                         详情
                     </Button>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1">
-                        <TextBlock  Text="{Binding CNo,Converter={StaticResource cnoC}}" FontSize="14" Margin="20,0,0,0"/>
-                        <TextBlock Text="{Binding CType,Converter={StaticResource ctypeC}}" FontSize="14" Margin="20,0,0,0"/>
+                        <TextBlock  Text="{Binding CourseId,Converter={StaticResource cnoC}}" FontSize="14" Margin="20,0,0,0"/>
+                        <TextBlock Text="{Binding Type,Converter={StaticResource ctypeC}}" FontSize="14" Margin="20,0,0,0"/>
                         <TextBlock  Text="{Binding TeacherName,Converter={StaticResource tnC}}" FontSize="14" Margin="20,0,0,0"/>
                     </StackPanel>
 
-                    <ItemsControl ItemsSource="{Binding Tags}" Grid.Row="2">
+                    <ItemsControl ItemsSource="{Binding tags}" Grid.Row="2">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="10,0,0,0"/>
@@ -46,22 +46,11 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border Background="#EEE" Margin="5,5"   CornerRadius="5">
-                                    <TextBlock Text="{Binding}" Margin="12,3"/>
+                                    <TextBlock Text="{Binding Detail}" Foreground="#607d8b"  Margin="12,3"/>
                                 </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <!--<StackPanel DataContext="{Binding Tags}" Orientation="Horizontal" Grid.Row="2" Margin="10,0,0,0">
-                        <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                            <TextBlock Text="{Binding TagName}" Margin="12,3"/>
-                        </Border>
-                        <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                            <TextBlock Text="{Binding TagName}" Margin="12,3"/>
-                        </Border>
-                        <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                            <TextBlock Text="{Binding TagName}" Margin="12,3" />
-                        </Border>
-                    </StackPanel>-->
                 </Grid>
             </Border>
         </DataTemplate>
@@ -121,39 +110,6 @@
         <Border Grid.Row="1" CornerRadius="5" Margin="10" Background="LightBlue" BorderBrush="LightBlue" BorderThickness="2">
             <ListBox x:Name="listBoxCourses" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                      ItemTemplate="{StaticResource courseDetailViewTemplate }">
-                <!--<Border Margin="-5,-5,-50,0" Height="128"  BorderBrush="#EEE" BorderThickness="0,0,0,3">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="5*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="3*"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Python程序设计"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
-                            <TextBlock Text="评分:5.0" Margin="60,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Grid.Row="1" Grid.RowSpan="2" >
-                            详情
-                        </Button>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1">
-                            <TextBlock  Text="课头号:123" FontSize="14" Margin="20,0,0,0"/>
-                            <TextBlock Text="课程类型:公选课" FontSize="14" Margin="20,0,0,0"/>
-                            <TextBlock  Text="任课老师:张三" FontSize="14" Margin="20,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10,0,0,0">
-                            <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                                <TextBlock Text="给分多" Margin="12,3"/>
-                            </Border>
-                            <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                                <TextBlock Text="作业少" Margin="12,3"/>
-                            </Border>
-                            <Border Background="#EEE" Margin="10,5" CornerRadius="5">
-                                <TextBlock Text="给分多" Margin="12,3" />
-                            </Border>
-                        </StackPanel>
-                    </Grid>
-                </Border>-->
             </ListBox>
         </Border>
 
