@@ -13,5 +13,11 @@ namespace CourseInfoSharingPlatformServer.Models
         [Key]
         public string AdminName { get; set; }
         public string Password { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Admin admin &&
+                   AdminName == admin.AdminName;
+        }
     }
 }

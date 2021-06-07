@@ -16,5 +16,11 @@ namespace CourseInfoSharingPlatformServer.Models
         public bool IsReported { get; set; }
         public User RelatedUser { get; set; }
         public Question RelatedQuestion { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Comment comment &&
+                   CommentId == comment.CommentId;
+        }
     }
 }

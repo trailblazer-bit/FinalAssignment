@@ -22,6 +22,12 @@ namespace CourseInfoSharingPlatformServer.Models
         public List<User> UserWhoLikedCourse { get; set; }
 
         [NotMapped]
-        public List<Tag> tags { get; set; }
+        public List<Tag> Tags { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Course course &&
+                   CourseId == course.CourseId;
+        }
     }
 }

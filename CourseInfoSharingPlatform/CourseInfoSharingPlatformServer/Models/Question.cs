@@ -17,5 +17,11 @@ namespace CourseInfoSharingPlatformServer.Models
         public Course RelatedCourse { get; set; }
         public List<Tag> QuestionTags { get; set; }
         public User RelatedUser { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Question question &&
+                   QuestionId == question.QuestionId;
+        }
     }
 }
