@@ -63,3 +63,36 @@ D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharin
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\LogonPage.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuMainPage.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe.config
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.pdb
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignColors.dll
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\loginPage.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\LogonPage.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MainWindow.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\QueryCourseView.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuMainPage.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\App.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform_MarkupCompile.cache
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform_MarkupCompile.lref
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\App.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\loginPage.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\LogonPage.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MainWindow.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\QueryCourseView.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuMainPage.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.baml
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.g.resources
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.Properties.Resources.resources
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csproj.GenerateResource.cache
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csproj.CoreCompileInputs.cache
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csproj.CopyComplete
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.exe
+C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.pdb
