@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
-6299996370
+81097511474
 
-231953281826
+27-469813061
 15-1766205855
-Views\loginPage.xaml;Views\LogonPage.xaml;Views\MainWindow.xaml;Views\QueryCourseView.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
+Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportView.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
 
-False
+True
 

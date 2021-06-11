@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
 CourseInfoSharingPlatform
 none
 false
 DEBUG;TRACE
-C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
-6299996370
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
+81097511474
 
-22-1499326103
-15259985979
-Views\loginPage.xaml;Views\LogonPage.xaml;Views\MainWindow.xaml;Views\QueryCourseView.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
+26372546306
+15-1766205855
+Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportView.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
 
 False
 

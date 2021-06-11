@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseInfoSharingPlatformServer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210610153358_demo")]
+    [Migration("20210611010738_demo")]
     partial class demo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

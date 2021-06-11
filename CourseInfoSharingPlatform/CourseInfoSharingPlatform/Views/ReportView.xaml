@@ -1,0 +1,56 @@
+﻿<Window x:Class="CourseInfoSharingPlatform.Views.ReportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="举报" Height="500" Width="400" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" >
+    <Window.Resources>
+
+        <!--关闭按钮模板-->
+        <ControlTemplate TargetType="Button" x:Key="CloseBtnTemplate">
+            <Border Background="Transparent">
+                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="tb" Property="Foreground" Value="#2962ff"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="tb" Property="Foreground" Value="#263238"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Border Margin="5" Background="White" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+            <Border.Effect>
+                <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Template="{StaticResource CloseBtnTemplate}" Click="closeBtn_Click" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                        Foreground="#263238"  Content="&#xe607;"/>
+                <TextBlock Grid.Row="1"  Text="举报" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30"/>
+                <TextBox Grid.Row="2" Margin="8 0 0 0" materialDesign:HintAssist.Hint="请输入举报理由"              
+                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" Width="350" Height="200" TextWrapping="Wrap"
+                         VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#b0bec5"
+                        x:Name="reportReason" />
+                <Button Grid.Row="3" VerticalAlignment="Bottom" Width="100" BorderBrush="#2962ff"  Background="#2962ff" HorizontalAlignment="Center" Content="举报"/>
+            </Grid>
+
+        </Border>
+    </ScrollViewer>
+</Window>
+
