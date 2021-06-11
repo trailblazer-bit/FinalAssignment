@@ -1,4 +1,6 @@
-﻿using CourseInfoSharingPlatformServer.Models;
+﻿using CourseInfoSharingPlatformServer.Dao;
+using CourseInfoSharingPlatformServer.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,62 +11,73 @@ namespace EFDemo.Dao
 {
     class CourseDao
     {
-        // 根据课头号增加课程
+        private static Context context = ContextUtil.Context;
+        // 根据课头号查询课程
         public static Course SelectCourseById(string id)
         {
-            Course course = null;
-
+            var course = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
+                .SingleOrDefault(c => c.CourseId.Equals(id));
             return course;
         }
 
         // 查询所有课程
         public static List<Course> SelectAllCourse()
         {
-            List<Course> courses = null;
-
+            var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags).ToList();
             return courses;
         }
 
         // 根据课程类型查询课程
         public static List<Course> SelectCourseByType(string type)
         {
-            List<Course> courses = null;
-
+            var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
+                .Where(c => c.Type.Equals(type)).ToList();
             return courses;
         }
 
         // 根据授课老师名查询课程
         public static List<Course> SelectCourseByTeacherName(string name)
         {
-            List<Course> courses = null;
-
+            var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
+            .Where(c => c.TeacherName.Equals(name)).ToList();
             return courses;
         }
 
         // 根据课程名查询课程
         public static List<Course> SelectCourseByCourseName(string name)
         {
-            List<Course> courses = null;
-
+            var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
+                .Where(c => c.Name.Equals(name)).ToList();
             return courses;
         }
 
         // 增添课程
-        public static bool AddCourse(Course course) 
+        public static bool AddCourse(Course course)
         {
-            bool flag = false;
+            var c = SelectCourseById(course.CourseId);
+            if (c != null) return false;
+            context.Courses.Add(course);
+            int flag = context.SaveChanges();
+            if (flag > 0) return true;
+            return false;
+        }
 
+        // 删除课程
+        public static bool DeleteCourse(string id)
+        {
+            var queryCourse = context.Courses.Where(c => c.CourseId.Equals(id)).SingleOrDefault();
+            if (queryCourse == null) return false;
 
-            return flag;
+            context.Courses.Remove(queryCourse);
+            context.SaveChanges();
+            return true;
         }
 
         // 修改课程
         public static bool UpdateCourse(Course course)
         {
-            bool flag = false;
-
-
-            return flag;
+            if (!DeleteCourse(course.CourseId)) return false;
+            return AddCourse(course);
         }
     }
 }
