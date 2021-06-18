@@ -1,0 +1,12 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\84125\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\84125\\.nuget\\packages"
+    ],
+    "configProperties": {
+      "System.GC.Server": true,
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+}

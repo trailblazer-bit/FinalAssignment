@@ -3,44 +3,103 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views"
         mc:Ignorable="d"
-        Title="StuMainPage" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
+        Title="StuMainPage" >
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <Style TargetType="RadioButton" x:Key="NavButtonStyle">
+                <Setter Property="Foreground" Value="White"></Setter>
+                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Border Background="Transparent" CornerRadius="8" Name="back">
+                                <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,4" Foreground="Wheat" FontSize="20">
+
+                                </ContentControl>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="back" Property="Background"   Value="#66ccFF"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+
+
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Width="{Binding ActualWidth, ElementName =border, Mode=OneWay}" HorizontalAlignment="Stretch">
+        <Grid.Background >
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFBDD1E2" Offset="1"/>
                 <GradientStop Color="#FF8564E6" Offset="0.018"/>
                 <GradientStop Color="#FF91A6EF" Offset="0.699"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid Height="98" Margin="0,10,0,0" VerticalAlignment="Top" Width="793.333" >
-            <Label Content="欢迎" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="78" Width="516.123" FontSize="48" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            
-<Menu HorizontalAlignment="Left" Height="98" Margin="604,0,0,0" VerticalAlignment="Top" Width="98" Grid.Column="1" >
-                <MenuItem  Height="98" Width="100" FontFamily="Microsoft YaHei UI" RenderTransformOrigin="1.487,0.782" >
-                    <MenuItem.Background>
-                        <ImageBrush   Stretch="Uniform" ImageSource="1576340717419.jpg" />
-                    </MenuItem.Background>
-                    <MenuItem Header="个人主页"/>
-                    <Separator/>
-                    <MenuItem Header="个人信息"/>
-                    <Separator/>
-                    <MenuItem Header="我的课程"/>
-                    <Separator/>
-                    <MenuItem Header="课程查询"/>
-                    <Separator/>
-                    <MenuItem Header="修改密码"/>
-                    <Separator/>
-                    <MenuItem Header="切换用户"/>
-                    <Separator/>
-                    <MenuItem Header="设置"/>
-                    <Separator/>
-                    <MenuItem Header="退出登录"/>
-                </MenuItem>
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="98"></RowDefinition>
+                <RowDefinition Height="35">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+               
+                <StackPanel Margin="20">
+                    <TextBlock Text="欢迎！" Foreground="White" FontSize="32"></TextBlock>
+                </StackPanel>
+            </StackPanel>
 
-            </Menu>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Menu HorizontalAlignment="Right" Height="50" Margin="604,0,0,0" VerticalAlignment="Top" Width="50"  >
+                    <MenuItem  Height="50" Width="50" FontFamily="Microsoft YaHei UI" RenderTransformOrigin="1.487,0.782" >
+                        <MenuItem.Background>
+                            <ImageBrush ImageSource="/CourseInfoSharingPlatform;component/Resources/Images/搜索.png" Stretch="Uniform" />
+                        </MenuItem.Background>
+                        <MenuItem Header="个人主页"/>
+                        <Separator/>
+                        <MenuItem Header="个人信息"/>
+                        <Separator/>
+                        <MenuItem Header="我的课程"/>
+                        <Separator/>
+                        <MenuItem Header="课程查询"/>
+                        <Separator/>
+                        <MenuItem Header="修改密码"/>
+                        <Separator/>
+                        <MenuItem Header="切换用户"/>
+                        <Separator/>
+                        <MenuItem Header="设置"/>
+                        <Separator/>
+                        <MenuItem Header="退出登录"/>
+                    </MenuItem>
 
-        </Grid>
+                </Menu>
+                <TextBlock Text="用户名" FontSize="22" Margin="10,0,10,0" TextAlignment="Center" VerticalAlignment="Center">
+                    
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <RadioButton Content="首页" Style="{StaticResource NavButtonStyle}" IsChecked="True" >
+                    
+                </RadioButton>
+                <RadioButton Content="课程服务" Style="{StaticResource NavButtonStyle}" IsChecked="True">
+                    
+                </RadioButton>
+                <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}" IsChecked="True">
+                    
+                </RadioButton>
+                <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}" IsChecked="True">
+                    
+                </RadioButton>
+            </StackPanel>
+
     </Grid>
 </Window>

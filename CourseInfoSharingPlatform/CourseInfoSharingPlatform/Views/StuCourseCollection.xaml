@@ -28,9 +28,18 @@
                         <TextBlock Text="{Binding Name}"  FontWeight="Black"  FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Margin="600,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Grid.Row="1" Grid.RowSpan="2" >
+                    <Grid Grid.Row="1" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column ="0" >
                         详情
                     </Button>
+                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="1" >
+                        删除
+                    </Button>
+                    </Grid>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1">
                         <TextBlock  Text="{Binding CourseId,Converter={StaticResource cnoC}}" FontSize="14" Margin="20,0,0,0"/>
                         <TextBlock Text="{Binding Type,Converter={StaticResource ctypeC}}" FontSize="14" Margin="20,0,0,0"/>
