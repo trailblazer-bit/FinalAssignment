@@ -1,0 +1,91 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views">
+    <!--返回按钮模板-->
+    <ControlTemplate TargetType="Button" x:Key="BackBtnTemplate">
+        <Border Background="Transparent">
+            <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#2962ff"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--关闭按钮模板-->
+    <ControlTemplate TargetType="Button" x:Key="CloseBtnTemplate">
+        <Border Background="Transparent">
+            <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#2962ff"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#263238"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!-- 评论，举报,回复按钮模板-->
+    <ControlTemplate TargetType="Button" x:Key="CommentBtnTemplate">
+        <Border Background="Transparent" BorderBrush="Transparent">
+            <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                            FontSize="20"  Foreground="#aec4c7"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#aec4c7"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--点赞按钮模板(单选按钮)-->
+    <ControlTemplate TargetType="CheckBox" x:Key="LikeBtnTemplate">
+        <Border Background="Transparent" BorderBrush="Transparent">
+            <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=CheckBox,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                            FontSize="20"  Foreground="#aec4c7"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="tb" Property="Foreground" Value="#aec4c7"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#607d8b"/>
+                <Setter TargetName="tb" Property="Cursor" Value="Hand"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--提问题按钮模板-->
+    <ControlTemplate TargetType="Button" x:Key="QuizBtnTemplate">
+        <Border Background="Transparent" BorderBrush="Transparent">
+            <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                            FontSize="20"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="tb" Property="Foreground" Value="#304ffe"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>

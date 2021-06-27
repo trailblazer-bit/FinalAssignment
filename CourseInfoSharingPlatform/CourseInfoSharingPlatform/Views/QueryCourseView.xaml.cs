@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatform.Models;
+﻿using CourseInfoSharingPlatform.HttpClient;
+using CourseInfoSharingPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,30 +28,39 @@ namespace CourseInfoSharingPlatform.Views
             InitialCourseList();
         }
 
+        //初始化课程列表
         private void InitialCourseList()
         {
-            courses = new List<Course>()
-            {
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.2,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.4,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.7,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"} } },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.9,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-            };
-
-
+            courses = CourseHttpClient.GetCourseList();
             this.listBoxCourses.ItemsSource = courses;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            courses[0].Name = "张三";
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+        //课程详情按钮
+        private void specificCourseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var o = e.OriginalSource as Button;
+            Course c = o.DataContext as Course;
+            //Console.WriteLine(c.CourseId);
+
+            CourseDetailedInfoView courseDetailedInfoView = new CourseDetailedInfoView();
+            courseDetailedInfoView.courseGrid.DataContext = CourseHttpClient.GetCourseById(c.CourseId);
+            courseDetailedInfoView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Visibility = Visibility.Hidden;
+            courseDetailedInfoView.ShowDialog();
+            this.Visibility = Visibility.Visible;
+            //this.Close();
+        }
+
+        //返回按钮
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

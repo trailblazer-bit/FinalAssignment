@@ -18,64 +18,12 @@
         <local:CourseBookConverter x:Key="cbookC"/>
         <local:TagLikeNumConverter x:Key="tagLikeNum"/>
         <local:QuestionLikeNumConverter x:Key="questionLikeNum"/>
-
-        <!--返回按钮模板-->
-        <ControlTemplate TargetType="Button" x:Key="BackBtnTemplate">
-            <Border Background="Transparent">
-                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#2962ff"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <!--点赞,评论，举报按钮模板-->
-        <ControlTemplate TargetType="Button" x:Key="CommentBtnTemplate">
-            <Border Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                            FontSize="20"  Foreground="#aec4c7"
-                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#aec4c7"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-        <!--提问题按钮模板-->
-        <ControlTemplate TargetType="Button" x:Key="QuizBtnTemplate">
-            <Border Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                            FontSize="20"
-                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#304ffe"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
+        <local:CommentNumConverter x:Key="commentNum"/>
+        <local:RelatedUserConverter x:Key="relatedUserName"/>
     </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden" x:Name="scrollViewer">
-        <Border Margin="5" Background="White" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border Margin="5" Background="#eceff1" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
             <Border.Effect>
                 <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0"/>
             </Border.Effect>
@@ -91,7 +39,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" Background="#eceff1">
+                <Border Grid.Row="0" CornerRadius="10">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
@@ -102,7 +50,7 @@
                             <ColumnDefinition Width="60"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Text="课程信息"   Margin="270,0,0,0"  VerticalAlignment="Center" FontSize="28" IsEnabled="False" RenderTransformOrigin="0.684,0.48" FontWeight="Bold" Foreground="#000000"/>
-                        <Button Grid.Column="1" Template="{StaticResource BackBtnTemplate}" 
+                        <Button Grid.Column="1" Template="{StaticResource BackBtnTemplate}"  Click="backBtn_Click"
                                  Height="40" Width="40" Foreground="#263238"   Content="&#xe65f;" Grid.RowSpan="2"/>
                         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="{DynamicResource MaterialDesignDivider}" Height="2" HorizontalAlignment="Stretch" 
                         SnapsToDevicePixels="True" />
@@ -110,20 +58,28 @@
                 </Border>
 
                 <!--课程信息展示部分-->
-                <Grid Grid.Row="1" Background="#eceff1">
+                <Grid Grid.Row="1" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
                         <RowDefinition  Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="50"/>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <TextBlock  Text="{Binding Name}" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"  FontSize="26" Margin="20 0 0 0" VerticalAlignment="Center" />
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Grid.Column="0" Text="{Binding Name}" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" FontSize="26" Margin="20 0 0 0" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="1" Text="{Binding Score,Converter={StaticResource scoreC}}" Style="{StaticResource MaterialDesignCaptionTextBlock}"   FontSize="22" VerticalAlignment="Center"/>
+                    </Grid>
+                    <!--<StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock  Text="{Binding Name}" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" FontSize="26" Margin="20 0 0 0" VerticalAlignment="Center" />
                         <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="250,10,10,0"  FontSize="22" VerticalAlignment="Center"/>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <!--课程基本信息-->
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -139,7 +95,7 @@
                     <StackPanel Grid.Row="3" Orientation="Vertical">
                         <TextBlock Text="课程大纲" Margin="20,10,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}"  FontSize="18" VerticalAlignment="Center" />
                         <Border BorderBrush="#eceff1">
-                            <TextBlock  Margin="24,8,24,16"
+                            <TextBlock  Margin="35,8,35,16"
                                        TextWrapping="Wrap"  FontSize="16" LineHeight="25" Foreground="#b0b1c5"
                                        Text="{Binding Introduction}"/>
                         </Border>
@@ -185,9 +141,17 @@
 
                     <!--课程评价-->
                     <StackPanel Grid.Row="5" Orientation="Horizontal">
-                        <TextBlock Text="评价: " Margin="20,0,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" FontSize="18" VerticalAlignment="Top" />
-                        <materialDesign:RatingBar  Value="0" x:Name="userRate" VerticalAlignment="Top" Foreground="#ff8f00"/>
-                        <Button  Margin="350,5,0,4" Content="收藏" Opacity="1" Background="#ff5722" BorderBrush="#ff5722">
+                        <TextBlock Text="评价: " Margin="20,10,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" FontSize="18" VerticalAlignment="Top" />
+                        <materialDesign:RatingBar  Value="0" x:Name="userRate" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="#ff8f00"/>
+                        <StackPanel  Margin="30,0,0,0">
+                            <ProgressBar Height="5" Width="100"  Background="#ffa000" Margin="0,2,0,2">
+                            </ProgressBar>
+                            <ProgressBar Height="5" Width="10" HorizontalAlignment="Left" Background="#ffa000"  Margin="0,2,0,2"/>
+                            <ProgressBar Height="5" Width="40" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
+                            <ProgressBar Height="5" Width="30" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
+                            <ProgressBar Height="5" Width="20" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
+                        </StackPanel>
+                        <Button  Margin="240,5,0,4" Content="收藏" Opacity="1" Background="#ff5722" BorderBrush="#ff5722">
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -196,7 +160,7 @@
                 <Border  Grid.Row="2" Background="{DynamicResource MaterialDesignDivider}" Height="2" HorizontalAlignment="Stretch" 
                         SnapsToDevicePixels="True" />
 
-                <Border Grid.Row="3" Background="#eceff1" >
+                <Border Grid.Row="3" >
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="问答区"  Margin="280,0,0,0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="25" Style="{StaticResource MaterialDesignHeadline2TextBlock}" IsEnabled="False" RenderTransformOrigin="0.684,0.48" Foreground="#000000"/>
                         <Button  Template="{StaticResource QuizBtnTemplate}" Click="quizBtn_Click"  Foreground="#304ffe"   Width="40" Height="40" Margin="210,0,0,0"  Content="&#xe62e;">
@@ -209,7 +173,7 @@
                         SnapsToDevicePixels="True" />
 
                 <!--问题展示部分-->
-                <Border Grid.Row="5" Background="#eceff1" >
+                <Border Grid.Row="5" CornerRadius="10" >
                     <ItemsControl  ItemsSource="{Binding  QuestionList}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -229,9 +193,12 @@
                                             <RowDefinition/>
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Text="{Binding RelatedUser.UserName}" FontFamily="Microsoft Yahei" FontSize="17" VerticalAlignment="Center" Margin="10,10,0,0"/>
-                                        <TextBlock Grid.Row="1" FontSize="15" LineHeight="30"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
+                                        <!--问题提出者-->
+                                        <TextBlock Grid.Row="0" Text="{Binding RelatedUser.UserName, Converter={StaticResource relatedUserName}}" FontFamily="Microsoft Yahei" FontSize="17" VerticalAlignment="Center" Margin="10,10,0,0"/>
+                                        <!--问题内容-->
+                                        <TextBlock Grid.Row="1" FontSize="14" LineHeight="30"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
+                                        <!--问题标签-->
                                         <ItemsControl Grid.Row="2" ItemsSource="{Binding QuestionTags}" Margin="0,-5,0,0">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -265,22 +232,24 @@
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
-
+                                        <!--点赞，评论，举报图标及相应的数字-->
                                         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,-10,0,0">
                                             <UniformGrid Columns="2" Margin="10,0,0,0">
-                                                <Button  Template="{StaticResource CommentBtnTemplate}" Click="likeBtn_Click"  Content="&#xe668;"  Margin="10,0,0,5">
-                                                </Button>
-                                                <TextBlock Text="{Binding LikeNum,Converter={StaticResource questionLikeNum}}" Foreground="#006064" Margin="-5,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="15"/>
+                                                <!--<Button  Template="{StaticResource CommentBtnTemplate}" Click="likeBtn_Click"  Content="&#xe668;"  Margin="10,0,0,5">
+                                                </Button>-->
+                                                <CheckBox  Template="{StaticResource LikeBtnTemplate}" Click="likeBtn_Click"  Content="&#xe668;"  Margin="10,0,0,5">
+                                                </CheckBox>
+                                                <TextBlock Text="{Binding LikeNum,Converter={StaticResource questionLikeNum}}" Foreground="#006064" Margin="-2,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="12"/>
                                             </UniformGrid>
                                             <UniformGrid Columns="2" Margin="10,0,0,0">
                                                 <Button  Template="{StaticResource CommentBtnTemplate}" Click="commentBtn_Click"  Content="&#xe647;"   Margin="10,0,0,5">
                                                 </Button>
-                                                <TextBlock Text="评论5" Foreground="#006064"   Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="15"/>
+                                                <TextBlock Text="{Binding CommentList.Count,Converter={StaticResource commentNum}}" Foreground="#006064"   Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="12"/>
                                             </UniformGrid>
                                             <UniformGrid Columns="2" Margin="10,0,0,0">
                                                 <Button  Template="{StaticResource CommentBtnTemplate}" Click="reportBtn_Click"  Content="&#xe648;"   Margin="10,0,0,5">
                                                 </Button>
-                                                <TextBlock Text="举报" Foreground="#006064" Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="15"/>
+                                                <TextBlock Text="举报" Foreground="#006064" Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="12"/>
                                             </UniformGrid>
                                         </StackPanel>
                                     </Grid>
@@ -291,7 +260,7 @@
                 </Border>
 
                 <!--提问区-->
-                <Border Grid.Row="6" Background="#eceff1">
+                <Border Grid.Row="6">
                     <Border  Margin="0,10,0,0" Width="580" Background="White" 
                             VerticalAlignment="Center" CornerRadius="10">
                         <Grid>
@@ -307,9 +276,8 @@
                         </Grid>
                     </Border>
                 </Border>
-
                 <!--空余部分-->
-                <Border  Grid.Row="7" Background="#eceff1"/>
+                <Border  Grid.Row="7" />
             </Grid>
         </Border>
     </ScrollViewer>

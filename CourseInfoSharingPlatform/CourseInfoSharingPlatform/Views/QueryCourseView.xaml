@@ -6,7 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:local="clr-namespace:CourseInfoSharingPlatform.Converters"
         mc:Ignorable="d"
-        Title="QueryCourseView" Height="750" Width="600" ResizeMode="NoResize">
+         Title="课程查询" Height="750" Width="580" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
     <!--资源-->
     <Window.Resources>
         <!--数据转换-->
@@ -14,7 +15,6 @@
         <local:CNoConverter x:Key="cnoC"/>
         <local:CTYpeConverter x:Key="ctypeC"/>
         <local:TeacherNameConverter x:Key="tnC"/>
-
         <!--课程详细条目，数据展示模板-->
         <DataTemplate x:Key="courseDetailViewTemplate">
             <Border Margin="-5,-5,-50,0" Height="128"  BorderBrush="#EEE" BorderThickness="0,0,0,3">
@@ -26,15 +26,15 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
-                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Margin="60,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Margin="50,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Click="Button_Click" Grid.Row="1" Grid.RowSpan="2" >
+                    <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Click="specificCourseBtn_Click" Grid.Row="1" Grid.RowSpan="2" >
                         详情
                     </Button>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1">
-                        <TextBlock  Text="{Binding CourseId,Converter={StaticResource cnoC}}" FontSize="14" Margin="20,0,0,0"/>
-                        <TextBlock Text="{Binding Type,Converter={StaticResource ctypeC}}" FontSize="14" Margin="20,0,0,0"/>
-                        <TextBlock  Text="{Binding TeacherName,Converter={StaticResource tnC}}" FontSize="14" Margin="20,0,0,0"/>
+                        <TextBlock  Text="{Binding CourseId,Converter={StaticResource cnoC}}" FontSize="13" Margin="15,0,0,0"/>
+                        <TextBlock Text="{Binding Type,Converter={StaticResource ctypeC}}" FontSize="13" Margin="15,0,0,0"/>
+                        <TextBlock  Text="{Binding TeacherName,Converter={StaticResource tnC}}" FontSize="13" Margin="15,0,0,0"/>
                     </StackPanel>
 
                     <ItemsControl ItemsSource="{Binding tags}" Grid.Row="2">
@@ -56,79 +56,111 @@
         </DataTemplate>
     </Window.Resources>
 
-
     <!--界面布局部分-->
-    <Grid Background="#eeeeee">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="12*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+    <Border  CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
 
-            <!--查询部分-->
-            <Border Height="40" Margin="20 0 0 0" BorderThickness="2" BorderBrush="LightBlue"
-                    CornerRadius="10">
-                <TextBox Grid.Column="0" Margin="20 0 0 0"
-                         materialDesign:HintAssist.Hint="请输入查询信息"
-                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                         BorderThickness="0"
-                         MinWidth="200" FontSize="18"
-                         VerticalAlignment="Center"  />
+            <!--返回按钮-->
+            <Border Grid.Row="0" Background="#eeeeee" CornerRadius="10 10 0 0">
+                <Button Template="{StaticResource BackBtnTemplate}"  Click="backBtn_Click"
+                        Height="50" Width="50" Foreground="#263238" HorizontalAlignment="Right"  VerticalAlignment="Top" Content="&#xe65f;"/>
             </Border>
-            <Button Grid.Column="1" Background="#9e9e9e" BorderBrush="#9e9e9e" 
+
+            <Grid Grid.Row="1" Background="#eeeeee">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--查询部分-->
+                    <Border CornerRadius="10" Grid.Column="0" Height="40" Margin="20 0 0 0" BorderThickness="2" BorderBrush="LightBlue">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" Margin="20 0 0 0"
+                             materialDesign:HintAssist.Hint="请输入查询信息"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="200" FontSize="18"
+                             VerticalAlignment="Center"  />
+                            <ComboBox Grid.Column="1" materialDesign:ColorZoneAssist.Mode="Custom"  Margin="10,0,10,0" materialDesign:HintAssist.Hint="查询条件" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True">
+                                <ComboBoxItem>
+                                    课头号
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    课程类型
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    课程名
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    课程老师
+                                </ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+
+                    <!--查询按钮-->
+                    <Button Grid.Column="1" Background="#9e9e9e" BorderBrush="#9e9e9e" 
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    Width="80"
+                    Width="60"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-                查询
-            </Button>
-            <ListBox Grid.Row="1" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="RadioButtonGroupChoiceChipAccentOutline">
-                <ListBoxItem>
-                    按课头号
-                </ListBoxItem>
-                <ListBoxItem IsSelected="True">
-                    按课程类型
-                </ListBoxItem>
-                <ListBoxItem>
-                    按课程名
-                </ListBoxItem>
-                <ListBoxItem >
-                    按课程老师
-                </ListBoxItem>
-            </ListBox>
-        </Grid>
+                        查询
+                    </Button>
+                    <!--课程排序依据-->
+                    <ListBox Grid.Row="1" Grid.ColumnSpan="3" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="RadioButtonGroupChoiceChipAccentOutline">
+                        <ListBoxItem>
+                            按评分
+                        </ListBoxItem>
+                        <ListBoxItem IsSelected="True">
+                            按热度
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            按收藏量
+                        </ListBoxItem>
+                    </ListBox>
+                </Grid>
 
-        <!--课程条目展示部分-->
-        <Border Grid.Row="1" CornerRadius="5" Margin="10" Background="LightBlue" BorderBrush="LightBlue" BorderThickness="2">
-            <ListBox x:Name="listBoxCourses" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                <!--课程条目展示部分-->
+                <Border Grid.Row="1" CornerRadius="5" Margin="10" Background="LightBlue" BorderBrush="LightBlue" BorderThickness="2">
+                    <ListBox x:Name="listBoxCourses" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                      ItemTemplate="{StaticResource courseDetailViewTemplate }">
-            </ListBox>
-        </Border>
+                    </ListBox>
+                </Border>
 
-        <!--分页控件-->
-        <Grid  Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="25*"/>
-            </Grid.ColumnDefinitions>
-            <Button IsEnabled="False" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" x:Name="FirstPage"></Button>
-            <Button IsEnabled="False" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页" x:Name="BtnUp"></Button>
-            <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Name="PageIndex">1/</TextBlock>
-            <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16" x:Name="PageCount">50</TextBlock>
-            <Button Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页" x:Name="BtnDown"></Button>
+                <!--分页控件-->
+                <Grid  Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="18*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button IsEnabled="False" Grid.Column="1" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" x:Name="FirstPage"></Button>
+                    <Button IsEnabled="False" Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页" x:Name="BtnUp"></Button>
+                    <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Name="PageIndex">1/</TextBlock>
+                    <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16" x:Name="PageCount">50</TextBlock>
+                    <Button Grid.Column="5" VerticalAlignment="Center" FontSize="10" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页" x:Name="BtnDown"></Button>
+                </Grid>
+            </Grid>
         </Grid>
-
-    </Grid>
+    </Border>
 </Window>

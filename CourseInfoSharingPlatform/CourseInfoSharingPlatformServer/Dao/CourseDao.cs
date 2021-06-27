@@ -16,6 +16,8 @@ namespace EFDemo.Dao
         public static Course SelectCourseById(string id)
         {
             var course = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
+                .Include(c => c.QuestionList).ThenInclude(q => q.RelatedUser)
+                .Include(c => c.QuestionList).ThenInclude(q => q.CommentList).ThenInclude(r=>r.RelatedUser)
                 .SingleOrDefault(c => c.CourseId.Equals(id));
             return course;
         }

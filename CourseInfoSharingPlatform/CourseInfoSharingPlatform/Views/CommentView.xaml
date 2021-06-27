@@ -9,43 +9,10 @@
         Title="CommentView" Height="700" Width="500" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" >
     <Window.Resources>
-
         <local:TagLikeNumConverter x:Key="tagLikeNum"/>
         <local:QuestionLikeNumConverter x:Key="commentLikeNum"/>
-        <!--关闭按钮模板-->
-        <ControlTemplate TargetType="Button" x:Key="CloseBtnTemplate">
-            <Border Background="Transparent">
-                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#2962ff"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#263238"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <!--回复按钮模板-->
-        <ControlTemplate TargetType="Button" x:Key="CommentBtnTemplate">
-            <Border Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                            FontSize="20"  Foreground="#aec4c7"
-                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter TargetName="tb" Property="Foreground" Value="#aec4c7"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
+        <local:RelatedUserConverter x:Key="relatedUserName"/>
+        <local:AnswerNumConverter x:Key="answerNum"/>
     </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden" x:Name="scrollViewer">
@@ -66,7 +33,7 @@
                     <RowDefinition/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Template="{StaticResource CloseBtnTemplate}" Click="closeBtn_Click" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                <Button  Grid.Row="0" Template="{StaticResource CloseBtnTemplate}" Click="closeBtn_Click" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" 
                         Foreground="#263238"  Content="&#xe607;"/>
                 <TextBlock Grid.Row="1" Margin="20,0,0,0" Text="查看回答" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Black" FontSize="18"/>
                 <!--分隔符-->
@@ -86,7 +53,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <!--提问者-->
-                        <TextBlock Grid.Row="0" Text="{Binding RelatedUser.UserName}" FontSize="16" VerticalAlignment="Center" Margin="10,10,0,0"/>
+                        <TextBlock Grid.Row="0" Text="{Binding RelatedUser.UserName,Converter={StaticResource relatedUserName}}" FontSize="16" VerticalAlignment="Center" Margin="10,10,0,0"/>
                         <!--提问内容-->
                         <TextBlock Grid.Row="1" FontSize="13" LineHeight="22"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
@@ -121,9 +88,8 @@
                 <!--分隔符-->
                 <Border  Grid.Row="4" Background="{DynamicResource MaterialDesignDivider}" Height="5" Opacity=".3" HorizontalAlignment="Stretch" 
                         SnapsToDevicePixels="True" />
-
                 <!--回答数量-->
-                <TextBlock Grid.Row="5" Margin="20,0,0,0" Text="14条回答" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0.7" FontWeight="Thin" FontSize="14"/>
+                <TextBlock Grid.Row="5" x:Name="anwserNumTB" Margin="20,0,0,0" Text="{Binding CommentList.Count,Converter={StaticResource answerNum}}" HorizontalAlignment="Left" VerticalAlignment="Center" Opacity="0.7" FontWeight="Thin" FontSize="14"/>
                 <!--分隔符-->
                 <Border  Grid.Row="6" Background="{DynamicResource MaterialDesignDivider}" Height="2" Opacity=".5" HorizontalAlignment="Stretch" 
                         SnapsToDevicePixels="True" />
@@ -148,15 +114,15 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <StackPanel Grid.Row="0" Margin="10,10,0,0" Orientation="Horizontal">
-                                        <TextBlock  Text="{Binding RelatedUser.UserName}" FontSize="16" VerticalAlignment="Center"/>
+                                        <TextBlock  Text="{Binding RelatedUser.UserName,Converter={StaticResource relatedUserName}}" FontSize="16" VerticalAlignment="Center"/>
                                         <TextBlock Text="回复" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Bottom" Opacity="0.6" />
                                     </StackPanel>
                                     <TextBlock Grid.Row="1" FontSize="13" LineHeight="20"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
-                                            <Button  Template="{StaticResource CommentBtnTemplate}"  Content="&#xe668;"  Margin="10,0,0,5">
-                                            </Button>
+                                            <CheckBox  Template="{StaticResource LikeBtnTemplate}"  Content="&#xe668;"  Margin="10,0,0,5">
+                                            </CheckBox>
                                             <TextBlock Text="{Binding LikeNum,Converter={StaticResource commentLikeNum }}" Foreground="#006064" Margin="-5,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>
 
@@ -191,17 +157,17 @@
                                      TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
                                     materialDesign:HintAssist.Hint="输入你的回复"  BorderBrush="#cfd8dc" />
                             <Button Margin="10"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
-                            <!--添加按钮输入框-->
-                            <Expander Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,0"  HorizontalAlignment="Stretch" Opacity="4.5">
+                            <!--添加标签输入框-->
+                            <Expander Grid.Row="1" Grid.ColumnSpan="2" x:Name="tagExpander" Margin="10,0,10,0" Background="#ffe0b2"  HorizontalAlignment="Stretch" Opacity="4.5">
                                 <Expander.Header>
                                     添加标签
                                 </Expander.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox x:Name="addTagTB"  Margin="10" Width="200" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    <TextBox x:Name="addTagTB"  Margin="10" Width="200" BorderThickness="1" BorderBrush="White" Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      AcceptsReturn="True" 
                                      TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
-                                    materialDesign:HintAssist.Hint="输入该问题的标签"  BorderBrush="#cfd8dc" />
-                                    <Button Margin="10"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="添加"/>
+                                    materialDesign:HintAssist.Hint="输入该问题的标签"   />
+                                    <Button Margin="10"  Grid.Column="1" Click="addTagBtn_Click" BorderBrush="#2962ff" Background="#2962ff" Content="添加"/>
                                 </StackPanel>
                             </Expander>
                         </Grid>

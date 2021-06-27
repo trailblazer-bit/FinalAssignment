@@ -14,6 +14,7 @@ namespace CourseInfoSharingPlatformServer.Models
         public int LikeNum { get; set; }
         public string Detail { get; set; }
         public bool IsReported { get; set; }
+        public string Reason { get; set; }
         public User RelatedUser { get; set; }
         public Question RelatedQuestion { get; set; }
 

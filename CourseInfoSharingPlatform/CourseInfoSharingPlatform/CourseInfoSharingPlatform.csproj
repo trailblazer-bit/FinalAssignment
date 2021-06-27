@@ -44,6 +44,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.1.0.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.1.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -64,8 +67,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\AnswerNumConverter.cs" />
+    <Compile Include="Converters\CommentNumConverter.cs" />
     <Compile Include="Converters\CourseDataConverter.cs" />
     <Compile Include="Converters\QuestionLikeNumConverter.cs" />
+    <Compile Include="Converters\RelatedUserConverter.cs" />
     <Compile Include="Converters\TagLikeNumConverter.cs" />
     <Compile Include="HttpClient\CommentHttpClient.cs" />
     <Compile Include="HttpClient\CourseHttpClient.cs" />
@@ -102,6 +108,9 @@
     <Compile Include="Views\QueryCourseView.xaml.cs">
       <DependentUpon>QueryCourseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportListView.xaml.cs">
+      <DependentUpon>ReportListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportView.xaml.cs">
       <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
@@ -124,6 +133,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AdminPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -153,6 +166,10 @@
     <Page Include="Views\QueryCourseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReportView.xaml">
       <SubType>Designer</SubType>
