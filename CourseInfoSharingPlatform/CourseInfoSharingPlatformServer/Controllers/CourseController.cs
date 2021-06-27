@@ -1,5 +1,6 @@
 ﻿using CourseInfoSharingPlatformServer.Dao;
 using CourseInfoSharingPlatformServer.Models;
+using CourseInfoSharingPlatformServer.Service;
 using EFDemo.Dao;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,10 +23,10 @@ namespace CourseInfoSharingPlatformServer.Controllers
             ContextUtil.Context = context;
         }
         [HttpGet]
-        public ActionResult<Course> SelectCourseById(string id)
+        public ActionResult<Course> GetCourseById(string id)
         {
             //return CourseService.GetCourseById(id);
-            return CourseDao.SelectCourseById(id);
+            return CourseService.GetCourseById(id);
         }
 
         [HttpGet("all")]

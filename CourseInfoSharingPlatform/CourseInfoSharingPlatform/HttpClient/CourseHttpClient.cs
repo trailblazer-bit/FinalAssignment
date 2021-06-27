@@ -35,6 +35,36 @@ namespace CourseInfoSharingPlatform.HttpClient
             //return null;
         }
 
+        // 根据类型查询课程，默认按照评分排序，startIndex从0开始
+        public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + "?type=" + type+"&startIndex="+startIndex+"&pageSize="+pageSize);
+            request.Method = "Get";
+            request.ContentType = "application/json";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream, Encoding.GetEncoding("utf-8"));
+            string result = streamReader.ReadToEnd();
+            stream.Close();
+            streamReader.Close();
+
+            List<Course> c = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>))
+                as List<Course>;
+            return c;
+        }
+
+        // 根据教师名查询课程，默认按照评分排序，startIndex从0开始
+        public static List<Course> GetCourseByTeacherName(string name, int startIndex, int pageSize)
+        {
+            return null;
+        }
+
+        // 根据课程名查询课程，默认按照评分排序，startIndex从0开始
+        public static List<Course> GetCourseByCourseName(string name, int startIndex, int pageSize)
+        {
+            return null;
+        }
 
         public static List<Course> GetCourseList()
         {

@@ -69,7 +69,7 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         // 根据课程id查询课程
-        public static Course GetCourseById(string id, int startIndex, int pageSize)
+        public static Course GetCourseById(string id)
         {
             Course course = CourseDao.SelectCourseById(id);
             SetCourseTag(course, 6);

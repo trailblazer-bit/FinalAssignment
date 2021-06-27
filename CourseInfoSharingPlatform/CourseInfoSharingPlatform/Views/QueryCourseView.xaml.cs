@@ -67,7 +67,6 @@ namespace CourseInfoSharingPlatform.Views
         //查询按钮
         private void searchBtn_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         //首页

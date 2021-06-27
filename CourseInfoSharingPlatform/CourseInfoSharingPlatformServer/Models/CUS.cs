@@ -9,7 +9,7 @@ namespace CourseInfoSharingPlatformServer.Models
     [Table("COURSE_USER_SCORE")]
     public class CUS
     {
-        public string CUSId { get; set; }
+        public int CUSId { get; set; }
         public string UserName { get; set; }
         public string CourseId { get; set; }
         public int Score { get; set; }
