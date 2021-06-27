@@ -119,7 +119,7 @@
                     <!--查询按钮-->
                     <Button Grid.Column="1" Background="#9e9e9e" BorderBrush="#9e9e9e" 
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    Width="60"
+                    Width="60" Click="searchBtn_Click"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
                         查询
                     </Button>
@@ -154,11 +154,11 @@
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="18*"/>
                     </Grid.ColumnDefinitions>
-                    <Button IsEnabled="False" Grid.Column="1" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" x:Name="FirstPage"></Button>
-                    <Button IsEnabled="False" Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页" x:Name="BtnUp"></Button>
-                    <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Name="PageIndex">1/</TextBlock>
-                    <TextBlock Margin="0,0,0,5" FontSize="15" Grid.Column="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16" x:Name="PageCount">50</TextBlock>
-                    <Button Grid.Column="5" VerticalAlignment="Center" FontSize="10" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页" x:Name="BtnDown"></Button>
+                    <Button IsEnabled="False" Click="headPageBtn_Click" Grid.Column="1" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" x:Name="FirstPage"></Button>
+                    <Button IsEnabled="False" Click="lastPageBtn_Click" Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页" x:Name="BtnUp"></Button>
+                    <TextBlock Margin="0,0,0,5" x:Name="pageIndex" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16">1/</TextBlock>
+                    <TextBlock Margin="0,0,0,5" x:Name="pageCount" FontSize="15" Grid.Column="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16">50</TextBlock>
+                    <Button Grid.Column="5" Click="nextPageBtn_Click" VerticalAlignment="Center" FontSize="10" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页" x:Name="BtnDown"></Button>
                 </Grid>
             </Grid>
         </Grid>

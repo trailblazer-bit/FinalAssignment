@@ -35,6 +35,7 @@ namespace CourseInfoSharingPlatform.Views
             this.listBoxCourses.ItemsSource = courses;
         }
 
+        //移动窗口
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -61,6 +62,30 @@ namespace CourseInfoSharingPlatform.Views
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        //查询按钮
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //首页
+        private void headPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //上一页
+        private void lastPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //下一页
+        private void nextPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

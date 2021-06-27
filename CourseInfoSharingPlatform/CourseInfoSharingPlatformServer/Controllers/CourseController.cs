@@ -24,6 +24,7 @@ namespace CourseInfoSharingPlatformServer.Controllers
         [HttpGet]
         public ActionResult<Course> SelectCourseById(string id)
         {
+            //return CourseService.GetCourseById(id);
             return CourseDao.SelectCourseById(id);
         }
 

@@ -15,6 +15,7 @@ namespace CourseInfoSharingPlatform.HttpClient
 
         //private static string url = "https://localhost:44367/api/course";
 
+        //根据课程id获取某门课程
         public static Course GetCourseById(string id)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + "?id=" + id);
@@ -33,6 +34,7 @@ namespace CourseInfoSharingPlatform.HttpClient
             return c;
             //return null;
         }
+
 
         public static List<Course> GetCourseList()
         {
