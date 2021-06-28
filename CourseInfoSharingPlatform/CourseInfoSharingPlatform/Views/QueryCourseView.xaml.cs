@@ -33,6 +33,7 @@ namespace CourseInfoSharingPlatform.Views
             InitializeComponent();
             InitialCourseList();
             //先算总页数
+            _pageCount = CourseHttpClient.GetTotalPageNum();
             this.pageIndexTB.Text = _pageIndex.ToString();
             this.pageCountTB.Text = _pageCount.ToString();
 
