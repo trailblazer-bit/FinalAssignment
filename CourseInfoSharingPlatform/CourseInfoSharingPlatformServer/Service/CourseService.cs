@@ -36,12 +36,6 @@ namespace CourseInfoSharingPlatformServer.Service
             course.Tags = resTagsList;
         }
 
-        // 获得课程平均评分
-        public static void SetCourseScore(Course course)
-        {
-            course.Score = CUSDao.GetAveScoreByCourseId(course.CourseId);
-        }
-
         // 设置课程的6个默认问题，更新到数据库中
         public static void SetDefaultQuestionToDataBase(Course course)
         {
@@ -68,6 +62,9 @@ namespace CourseInfoSharingPlatformServer.Service
             return question;
         }
 
+
+
+
         // 根据课程id查询课程
         public static Course GetCourseById(string id)
         {
@@ -77,25 +74,9 @@ namespace CourseInfoSharingPlatformServer.Service
             return course;
         }
 
-        // 根据类型查询课程，默认按照评分排序，startIndex从0开始
-        public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
-        {
-            List<Course> resultList = new List<Course>();
-            List<Course> courses = CourseDao.SelectCourseByType(type);
-            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
-            {
-                SetCourseScore(courses[i]);
-            }
 
-            courses = courses.OrderByDescending(c => c.Score).ToList();
-            for (int i = 0; i < pageSize; i++)
-            {
-                SetCourseTag(courses[startIndex + i], 6);
-                resultList.Add(courses[startIndex + i]);
-            }
 
-            return resultList;
-        }
+
         //默认按照分数查询所有的课程
         public static List<Course> GetAllCourse(int startIndex, int pageSize)
         {
@@ -115,6 +96,26 @@ namespace CourseInfoSharingPlatformServer.Service
 
             return resultList;
 
+        }
+
+        // 根据类型查询课程，默认按照评分排序，startIndex从0开始
+        public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByType(type);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.Score).ToList();
+            for (int i = 0; i < pageSize; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
         }
 
         // 根据教师名查询课程，默认按照评分排序，startIndex从0开始
@@ -156,6 +157,183 @@ namespace CourseInfoSharingPlatformServer.Service
 
             return resultList;
         }
+
+
+
+
+
+        // 按照收藏数查询所有的课程
+        public static List<Course> GetAllCourseOrderByLikeNum(int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectAllCourse();
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+            GetAndSetLikeNum(courses);
+
+            courses = courses.OrderByDescending(c => c.LikeNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+
+        }
+
+        // 根据类型查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByTypeOrderByLikeNum(string type, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByType(type);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+            GetAndSetLikeNum(courses);
+
+            courses = courses.OrderByDescending(c => c.LikeNum).ToList();
+            for (int i = 0; i < pageSize; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+        // 根据教师名查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByTeacherNameOrderByLikeNum(string name, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByTeacherName(name);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+            GetAndSetLikeNum(courses);
+
+            courses = courses.OrderByDescending(c => c.LikeNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+        // 根据课程名查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByCourseNameOrderByLikeNum(string name, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByCourseName(name);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+            GetAndSetLikeNum(courses);
+
+            courses = courses.OrderByDescending(c => c.LikeNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+
+
+
+
+        // 按照热度查询所有的课程
+        public static List<Course> GetAllCourseOrderByHeatNum(int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectAllCourse();
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.HeatNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+
+        }
+
+        // 根据类型查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByTypeOrderByHeatNum(string type, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByType(type);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.HeatNum).ToList();
+            for (int i = 0; i < pageSize; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+        // 根据教师名查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByTeacherNameOrderByHeatNum(string name, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByTeacherName(name);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.HeatNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+        // 根据课程名查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByCourseNameOrderByHeatNum(string name, int startIndex, int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectCourseByCourseName(name);
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.HeatNum).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+        }
+
+
+
 
         // 根据类型查询，返回页面数量
         public static int GetPageNumByType(string type, int pageSize)
@@ -203,6 +381,37 @@ namespace CourseInfoSharingPlatformServer.Service
         public static int GetTotalPageNum()
         {
             return (CourseDao.SelectAllCourse().Count - 1) / 4 + 1;
+        }
+
+        // 获得该课程的收藏数
+        private static void GetAndSetLikeNum(Course course)
+        {
+            course.LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(course.CourseId).UserWhoLikedCourse.Count;
+        }
+
+        // 获得该课程的收藏数
+        private static void GetAndSetLikeNum(List<Course> courses)
+        {
+            for (int i = 0; i < courses.Count; i++)
+            { 
+                courses[i].LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(courses[i].CourseId).UserWhoLikedCourse.Count;
+            }
+        }
+
+        // 获得课程平均评分
+        public static void SetCourseScore(Course course)
+        {
+            course.Score = CUSDao.GetAveScoreByCourseId(course.CourseId);
+        }
+
+
+        // 获得课程平均评分
+        public static void SetCourseScore(List<Course> courses)
+        {
+            for (int i = 0; i < courses.Count; i++)
+            {
+                courses[i].Score = CUSDao.GetAveScoreByCourseId(courses[i].CourseId);
+            }
         }
     }
 }
