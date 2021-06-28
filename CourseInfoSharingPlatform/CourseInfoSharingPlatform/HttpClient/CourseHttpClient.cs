@@ -37,6 +37,17 @@ namespace CourseInfoSharingPlatform.ClientHttp
             return courses;
         }
 
+        //默认查询所有课程时总页数
+        public  static int GetTotalPageNum()
+        {
+            string url = baseUrl + "/totalPageNum";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            var result = ClientHttp.GET(url, d);
+            int num=(int) Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(int));
+            return num;
+        }
+
+
         // 根据类型查询课程，默认按照评分排序，startIndex从0开始
         public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
         {

@@ -22,22 +22,29 @@ namespace CourseInfoSharingPlatformServer.Controllers
             this.context = context;
             ContextUtil.Context = context;
         }
+        //根据课程id查询课程
         [HttpGet]
         public ActionResult<Course> GetCourseById(string id)
-        {
-            //return CourseService.GetCourseById(id);
+        {        
             return CourseService.GetCourseById(id);
         }
-
         //[HttpGet("all")]
         //public ActionResult<List<Course>> test1()
         //{
         //    return CourseDao.SelectAllCourse();
         //}
+
+        //默认按照分数排序查找所有课程
         [HttpGet("all")]
         public ActionResult<List<Course>> GetAllCourse(int startIndex,int pageSize)
         {
             return CourseService.GetAllCourse(startIndex,pageSize);
+        }
+
+        [HttpGet("totalPageNum")]
+        public  ActionResult<int> GetTotalPageNum()
+        {
+            return CourseService.GetTotalPageNum();
         }
     }
 }
