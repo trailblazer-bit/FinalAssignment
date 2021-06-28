@@ -11,5 +11,6 @@ namespace CourseInfoSharingPlatformServer.Controllers
     [Route("api/[controller]")]
     public class UserController
     {
+
     }
 }

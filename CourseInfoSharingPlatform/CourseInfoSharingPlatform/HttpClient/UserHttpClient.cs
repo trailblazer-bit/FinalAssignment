@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseInfoSharingPlatform.HttpClient
+namespace CourseInfoSharingPlatform.ClientHttp
 {
     class UserHttpClient
     {
+
     }
 }

@@ -87,7 +87,7 @@ namespace CourseInfoSharingPlatformServer.Service
                 SetCourseScore(courses[i]);
             }
 
-            courses = courses.OrderBy(c => c.Score).ToList();
+            courses = courses.OrderByDescending(c => c.Score).ToList();
             for (int i = 0; i < pageSize; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);
@@ -95,6 +95,26 @@ namespace CourseInfoSharingPlatformServer.Service
             }
 
             return resultList;
+        }
+        //默认按照分数查询所有的课程
+        public static List<Course> GetAllCourse(int startIndex,int pageSize)
+        {
+            List<Course> resultList = new List<Course>();
+            List<Course> courses = CourseDao.SelectAllCourse();
+            for (int i = 0; i < courses.Count; i++)
+            {
+                SetCourseScore(courses[i]);
+            }
+
+            courses = courses.OrderByDescending(c => c.Score).ToList();
+            for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
+            {
+                SetCourseTag(courses[startIndex + i], 6);
+                resultList.Add(courses[startIndex + i]);
+            }
+
+            return resultList;
+
         }
 
         // 根据教师名查询课程，默认按照评分排序，startIndex从0开始
@@ -107,7 +127,7 @@ namespace CourseInfoSharingPlatformServer.Service
                 SetCourseScore(courses[i]);
             }
 
-            courses = courses.OrderBy(c => c.Score).ToList();
+            courses = courses.OrderByDescending(c => c.Score).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);
@@ -127,7 +147,7 @@ namespace CourseInfoSharingPlatformServer.Service
                 SetCourseScore(courses[i]);
             }
 
-            courses = courses.OrderBy(c => c.Score).ToList();
+            courses = courses.OrderByDescending(c => c.Score).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);

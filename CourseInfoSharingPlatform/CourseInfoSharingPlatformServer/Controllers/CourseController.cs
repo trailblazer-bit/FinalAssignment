@@ -29,10 +29,15 @@ namespace CourseInfoSharingPlatformServer.Controllers
             return CourseService.GetCourseById(id);
         }
 
+        //[HttpGet("all")]
+        //public ActionResult<List<Course>> test1()
+        //{
+        //    return CourseDao.SelectAllCourse();
+        //}
         [HttpGet("all")]
-        public ActionResult<List<Course>> test1()
+        public ActionResult<List<Course>> GetAllCourse(int startIndex,int pageSize)
         {
-            return CourseDao.SelectAllCourse();
+            return CourseService.GetAllCourse(startIndex,pageSize);
         }
     }
 }

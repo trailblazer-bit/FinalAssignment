@@ -33,6 +33,7 @@ namespace EFDemo.Dao
         {
             if (CourseDao.SelectCourseById(id) == null) return 0;
             List<CUS> cusList = context.CUS.Where(cus => cus.CourseId.Equals(id)).ToList();
+            if (cusList.Count == 0) return 0;
             int totalScore = 0;
             foreach (CUS cus in cusList)
             {

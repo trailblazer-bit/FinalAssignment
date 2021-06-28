@@ -75,6 +75,7 @@
     <Compile Include="Converters\TagLikeNumConverter.cs" />
     <Compile Include="HttpClient\CommentHttpClient.cs" />
     <Compile Include="HttpClient\CourseHttpClient.cs" />
+    <Compile Include="HttpClient\ClientHttp.cs" />
     <Compile Include="HttpClient\TagHttpClient.cs" />
     <Compile Include="HttpClient\UserHttpClient.cs" />
     <Compile Include="Models\Admin.cs" />

@@ -1,4 +1,4 @@
-﻿using CourseInfoSharingPlatform.HttpClient;
+﻿using CourseInfoSharingPlatform.ClientHttp;
 using CourseInfoSharingPlatform.Models;
 using System;
 using System.Collections.Generic;

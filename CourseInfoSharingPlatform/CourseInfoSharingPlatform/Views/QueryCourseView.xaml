@@ -26,7 +26,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
-                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Margin="50,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Width="80" Margin="50,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Click="specificCourseBtn_Click" Grid.Row="1" Grid.RowSpan="2" >
                         详情
@@ -99,7 +99,7 @@
                              BorderThickness="0"
                              MinWidth="200" FontSize="18"
                              VerticalAlignment="Center"  />
-                            <ComboBox Grid.Column="1" materialDesign:ColorZoneAssist.Mode="Custom"  Margin="10,0,10,0" materialDesign:HintAssist.Hint="查询条件" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True">
+                            <ComboBox Grid.Column="1" x:Name="searchConditionCB" materialDesign:ColorZoneAssist.Mode="Custom"  Margin="10,0,10,0" materialDesign:HintAssist.Hint="查询条件" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True">
                                 <ComboBoxItem>
                                     课头号
                                 </ComboBoxItem>
@@ -124,11 +124,11 @@
                         查询
                     </Button>
                     <!--课程排序依据-->
-                    <ListBox Grid.Row="1" Grid.ColumnSpan="3" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}" x:Name="RadioButtonGroupChoiceChipAccentOutline">
-                        <ListBoxItem>
+                    <ListBox Grid.Row="1" x:Name="sortConditionLB" Grid.ColumnSpan="3" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
+                        <ListBoxItem IsSelected="True">
                             按评分
                         </ListBoxItem>
-                        <ListBoxItem IsSelected="True">
+                        <ListBoxItem>
                             按热度
                         </ListBoxItem>
                         <ListBoxItem>
@@ -150,15 +150,17 @@
                         <ColumnDefinition Width="75*"/>
                         <ColumnDefinition Width="18*"/>
                         <ColumnDefinition Width="18*"/>
-                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="18*"/>
                     </Grid.ColumnDefinitions>
-                    <Button IsEnabled="False" Click="headPageBtn_Click" Grid.Column="1" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" x:Name="FirstPage"></Button>
-                    <Button IsEnabled="False" Click="lastPageBtn_Click" Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页" x:Name="BtnUp"></Button>
-                    <TextBlock Margin="0,0,0,5" x:Name="pageIndex" FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16">1/</TextBlock>
-                    <TextBlock Margin="0,0,0,5" x:Name="pageCount" FontSize="15" Grid.Column="4"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16">50</TextBlock>
-                    <Button Grid.Column="5" Click="nextPageBtn_Click" VerticalAlignment="Center" FontSize="10" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页" x:Name="BtnDown"></Button>
+                    <Button  x:Name="headPageBtn" Click="headPageBtn_Click" Grid.Column="1" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="首页" ></Button>
+                    <Button IsEnabled="False" x:Name="lastPageBtn" Click="lastPageBtn_Click" Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="#37474f" BorderBrush="#37474f" Margin="5" Content="上一页"></Button>
+                    <TextBlock Margin="0,0,0,5" x:Name="pageIndexTB"  FontSize="15" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16"/>
+                    <TextBlock Grid.Column="4" Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="/"/>
+                    <TextBlock Margin="0,0,0,5" x:Name="pageCountTB" FontSize="15" Grid.Column="5"  HorizontalAlignment="Left" VerticalAlignment="Center"  Height="16"/> 
+                    <Button Grid.Column="6" x:Name="nextPageBtn" Click="nextPageBtn_Click" VerticalAlignment="Center" FontSize="10" HorizontalAlignment="Center" Background="#37474f" BorderBrush="#37474f"  Margin="5" Content="下一页"></Button>
                 </Grid>
             </Grid>
         </Grid>
