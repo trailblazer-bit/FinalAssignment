@@ -22,6 +22,13 @@ namespace EFDemo.Dao
             return course;
         }
 
+        // 根据课头号查询课程以及喜爱该课程的用户对象
+        public static Course SelectCourseByIdWithUserWhoLikeIt(string id)
+        {
+            var course = context.Courses.Include(c => c.UserWhoLikedCourse).SingleOrDefault(c => c.CourseId.Equals(id));
+            return course;
+        }
+
         // 查询所有课程
         public static List<Course> SelectAllCourse()
         {
