@@ -4,17 +4,22 @@
 winexe
 C#
 .cs
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
+C:\Users\Gao\Desktop\demo\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
 CourseInfoSharingPlatform
 none
 false
 DEBUG;TRACE
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
+C:\Users\Gao\Desktop\demo\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
 14-1023261121
 
+<<<<<<< HEAD
 351204164940
 162109331297
+=======
+35-1017826360
+16270066295
+>>>>>>> ee4de972bdec2cfeaa9361830108a42693e9bf81
 Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\AdminPage.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
 
-False
+True
 
