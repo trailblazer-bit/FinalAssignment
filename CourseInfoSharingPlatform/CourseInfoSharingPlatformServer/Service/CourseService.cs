@@ -97,7 +97,7 @@ namespace CourseInfoSharingPlatformServer.Service
             return resultList;
         }
         //默认按照分数查询所有的课程
-        public static List<Course> GetAllCourse(int startIndex,int pageSize)
+        public static List<Course> GetAllCourse(int startIndex, int pageSize)
         {
             List<Course> resultList = new List<Course>();
             List<Course> courses = CourseDao.SelectAllCourse();
@@ -160,49 +160,49 @@ namespace CourseInfoSharingPlatformServer.Service
         // 根据类型查询，返回页面数量
         public static int GetPageNumByType(string type, int pageSize)
         {
-            return CourseDao.SelectCourseByType(type).Count / pageSize + 1;
+            return (CourseDao.SelectCourseByType(type).Count - 1) / pageSize + 1;
         }
 
         // 根据类型查询，返回页面数量,默认页面大小为4
         public static int GetPageNumByType(string type)
         {
-            return CourseDao.SelectCourseByType(type).Count / 4 + 1;
+            return (CourseDao.SelectCourseByType(type).Count - 1) / 4 + 1;
         }
 
         // 根据教师名查询，返回页面数量
         public static int GetPageNumByTeacherName(string name, int pageSize)
         {
-            return CourseDao.SelectCourseByTeacherName(name).Count / pageSize + 1;
+            return (CourseDao.SelectCourseByTeacherName(name).Count - 1) / pageSize + 1;
         }
 
         // 根据教师名查询，返回页面数量,默认页面大小为4
         public static int GetPageNumByTeacherName(string name)
         {
-            return CourseDao.SelectCourseByTeacherName(name).Count / 4 + 1;
+            return (CourseDao.SelectCourseByTeacherName(name).Count - 1) / 4 + 1;
         }
 
         // 根据课程名称查询，返回页面数量
         public static int GetPageNumByCourseName(string name, int pageSize)
         {
-            return CourseDao.SelectCourseByCourseName(name).Count / pageSize + 1;
+            return (CourseDao.SelectCourseByCourseName(name).Count - 1) / pageSize + 1;
         }
 
         // 根据类型查询，返回页面数量,默认页面大小为4
         public static int GetPageNumByCourseName(string name)
         {
-            return CourseDao.SelectCourseByCourseName(name).Count / 4 + 1;
+            return (CourseDao.SelectCourseByCourseName(name).Count - 1) / 4 + 1;
         }
 
         // 返回总页面数
         public static int GetTotalPageNum(int pageSize)
         {
-            return CourseDao.SelectAllCourse().Count / pageSize + 1;
+            return (CourseDao.SelectAllCourse().Count - 1) / pageSize + 1;
         }
 
         // 返回总页面数，默认页面大小为4
         public static int GetTotalPageNum()
         {
-            return CourseDao.SelectAllCourse().Count / 4 + 1;
+            return (CourseDao.SelectAllCourse().Count - 1) / 4 + 1;
         }
     }
 }
