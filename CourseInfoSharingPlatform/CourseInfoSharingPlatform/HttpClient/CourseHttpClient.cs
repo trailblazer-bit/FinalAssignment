@@ -24,18 +24,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             Course course = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Course)) as Course;
             return course;
-        }
-        //默认按照评分查询所有课程
-        public static List<Course> GetAllCourse(int startIndex, int pageSize)
-        {
-            string url = baseUrl + "/all";
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            d.Add("startIndex", startIndex.ToString());
-            d.Add("pageSize", pageSize.ToString());
-            var result = ClientHttp.GET(url, d);
-            List<Course> courses = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>)) as List<Course>;
-            return courses;
-        }
+        }    
 
         //默认查询所有课程时总页数
         public  static int GetTotalPageNum()
@@ -46,9 +35,44 @@ namespace CourseInfoSharingPlatform.ClientHttp
             int num=(int) Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(int));
             return num;
         }
+        //默认按照某种规则查询所有课程
+        public static List<Course> GetAllCourseOrderBy(string url,int startIndex,int pageSize)
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("startIndex", startIndex.ToString());
+            d.Add("pageSize", pageSize.ToString());
+            var result = ClientHttp.GET(url, d);
+            List<Course> courses = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>)) as List<Course>;
+            return courses;
+        }
+
+        //默认按照评分查询所有课程
+        public static List<Course> GetAllCourse(int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByScore";
+            return GetAllCourseOrderBy(url, startIndex, pageSize);
+        }
+        // 按照收藏数查询所有的课程
+        public static List<Course> GetAllCourseOrderByLikeNum(int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByLikeNum";
+            return GetAllCourseOrderBy(url, startIndex, pageSize);
+        }
+        // 按照热度查询所有的课程
+        public static List<Course> GetAllCourseOrderByHeatNum(int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByHeatNum";
+            return GetAllCourseOrderBy(url, startIndex, pageSize);
+        }
 
 
-        // 根据类型查询课程，默认按照评分排序，startIndex从0开始
+
+
+
+
+
+
+            // 根据类型查询课程，默认按照评分排序，startIndex从0开始
         public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(baseUrl + "?type=" + type+"&startIndex="+startIndex+"&pageSize="+pageSize);

@@ -28,14 +28,9 @@ namespace CourseInfoSharingPlatformServer.Controllers
         {        
             return CourseService.GetCourseById(id);
         }
-        //[HttpGet("all")]
-        //public ActionResult<List<Course>> test1()
-        //{
-        //    return CourseDao.SelectAllCourse();
-        //}
 
         //默认按照分数排序查找所有课程
-        [HttpGet("all")]
+        [HttpGet("orderByScore")]
         public ActionResult<List<Course>> GetAllCourse(int startIndex,int pageSize)
         {
             return CourseService.GetAllCourse(startIndex,pageSize);

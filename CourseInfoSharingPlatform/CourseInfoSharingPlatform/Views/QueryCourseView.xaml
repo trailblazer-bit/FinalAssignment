@@ -125,13 +125,13 @@
                     </Button>
                     <!--课程排序依据-->
                     <ListBox Grid.Row="1" x:Name="sortConditionLB" Grid.ColumnSpan="3" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                        <ListBoxItem IsSelected="True">
+                        <ListBoxItem IsSelected="True" Selected="listBoxItem_Selected">
                             按评分
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Selected="listBoxItem_Selected">
                             按热度
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem Selected="listBoxItem_Selected">
                             按收藏量
                         </ListBoxItem>
                     </ListBox>
