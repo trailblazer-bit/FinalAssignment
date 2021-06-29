@@ -325,6 +325,17 @@ namespace CourseInfoSharingPlatformServer.Service
             return resultList;
         }
 
+        // 根据问题id字符串将相应问题的LikeNum字段加1
+        public static void AddLikeNumToQuestions(string ids)
+        {
+            if (ids.Length <= 0) return;
+            string[] idList = ids.Split(",");
+            foreach (string id in idList)
+            {
+                QuestionDao.AddLikeNumToQuestion(int.Parse(id));
+            }
+        }
+
         // 根据类型查询，返回页面数量
         public static int GetPageNumByType(string type, int pageSize)
         {
