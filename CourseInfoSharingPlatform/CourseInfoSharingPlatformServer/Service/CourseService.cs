@@ -168,7 +168,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
@@ -190,7 +190,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize&&(startIndex+i)<courses.Count; i++)
@@ -211,7 +211,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
@@ -232,7 +232,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)

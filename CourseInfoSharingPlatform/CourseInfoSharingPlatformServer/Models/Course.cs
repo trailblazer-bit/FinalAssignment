@@ -21,7 +21,6 @@ namespace CourseInfoSharingPlatformServer.Models
         public List<Question> QuestionList { get; set; }
         public List<User> UserWhoLikedCourse { get; set; }
 
-        [NotMapped]
         public int LikeNum { get; set; }
         public int HeatNum { get; set; }
 
