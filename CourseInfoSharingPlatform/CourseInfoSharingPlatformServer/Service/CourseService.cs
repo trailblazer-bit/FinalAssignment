@@ -14,6 +14,7 @@ namespace CourseInfoSharingPlatformServer.Service
         // 接受一个Course对象，读取点赞最高的n个标签赋给Tags
         public static void SetCourseTag(Course course, int n)
         {
+            if (course == null) return;
             List<Tag> tempTagsList = new List<Tag>();
             List<Tag> resTagsList = new List<Tag>();
 
@@ -109,7 +110,7 @@ namespace CourseInfoSharingPlatformServer.Service
             }
 
             courses = courses.OrderByDescending(c => c.Score).ToList();
-            for (int i = 0; i < pageSize; i++)
+            for (int i = 0; i < pageSize&&(startIndex+i)<courses.Count; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);
                 resultList.Add(courses[startIndex + i]);
@@ -158,10 +159,6 @@ namespace CourseInfoSharingPlatformServer.Service
             return resultList;
         }
 
-
-
-
-
         // 按照收藏数查询所有的课程
         public static List<Course> GetAllCourseOrderByLikeNum(int startIndex, int pageSize)
         {
@@ -196,7 +193,7 @@ namespace CourseInfoSharingPlatformServer.Service
             GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
-            for (int i = 0; i < pageSize; i++)
+            for (int i = 0; i < pageSize&&(startIndex+i)<courses.Count; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);
                 resultList.Add(courses[startIndex + i]);
@@ -247,10 +244,6 @@ namespace CourseInfoSharingPlatformServer.Service
             return resultList;
         }
 
-
-
-
-
         // 按照热度查询所有的课程
         public static List<Course> GetAllCourseOrderByHeatNum(int startIndex, int pageSize)
         {
@@ -283,7 +276,7 @@ namespace CourseInfoSharingPlatformServer.Service
             }
 
             courses = courses.OrderByDescending(c => c.HeatNum).ToList();
-            for (int i = 0; i < pageSize; i++)
+            for (int i = 0; i < pageSize&&(startIndex+i)<courses.Count; i++)
             {
                 SetCourseTag(courses[startIndex + i], 6);
                 resultList.Add(courses[startIndex + i]);
@@ -331,9 +324,6 @@ namespace CourseInfoSharingPlatformServer.Service
 
             return resultList;
         }
-
-
-
 
         // 根据类型查询，返回页面数量
         public static int GetPageNumByType(string type, int pageSize)
@@ -401,9 +391,9 @@ namespace CourseInfoSharingPlatformServer.Service
         // 获得课程平均评分
         public static void SetCourseScore(Course course)
         {
+            if (course == null) return;
             course.Score = CUSDao.GetAveScoreByCourseId(course.CourseId);
         }
-
 
         // 获得课程平均评分
         public static void SetCourseScore(List<Course> courses)

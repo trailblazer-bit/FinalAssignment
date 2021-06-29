@@ -93,7 +93,7 @@
                                 <ColumnDefinition Width="9*"/>
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Margin="20 0 0 0"
+                            <TextBox Grid.Column="0" Margin="20 0 0 0" x:Name="searchInput"
                              materialDesign:HintAssist.Hint="请输入查询信息"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              BorderThickness="0"
@@ -125,13 +125,13 @@
                     </Button>
                     <!--课程排序依据-->
                     <ListBox Grid.Row="1" x:Name="sortConditionLB" Grid.ColumnSpan="3" Margin="20 0 0 0" Style="{StaticResource MaterialDesignChoiceChipAccentOutlineListBox}">
-                        <ListBoxItem IsSelected="True" Selected="listBoxItem_Selected">
+                        <ListBoxItem IsSelected="True">
                             按评分
                         </ListBoxItem>
-                        <ListBoxItem Selected="listBoxItem_Selected">
+                        <ListBoxItem>
                             按热度
                         </ListBoxItem>
-                        <ListBoxItem Selected="listBoxItem_Selected">
+                        <ListBoxItem>
                             按收藏量
                         </ListBoxItem>
                     </ListBox>

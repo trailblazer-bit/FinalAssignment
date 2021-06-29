@@ -40,7 +40,7 @@ namespace EFDemo.Dao
         public static List<Course> SelectCourseByType(string type)
         {
             var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
-                .Where(c => c.Type.Equals(type)).ToList();
+                .Where(c => c.Type.Contains(type)).ToList();
             return courses;
         }
 
@@ -48,7 +48,7 @@ namespace EFDemo.Dao
         public static List<Course> SelectCourseByTeacherName(string name)
         {
             var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
-            .Where(c => c.TeacherName.Equals(name)).ToList();
+            .Where(c => c.TeacherName.Contains(name)).ToList();
             return courses;
         }
 
@@ -56,7 +56,7 @@ namespace EFDemo.Dao
         public static List<Course> SelectCourseByCourseName(string name)
         {
             var courses = context.Courses.Include(c => c.QuestionList).ThenInclude(q => q.QuestionTags)
-                .Where(c => c.Name.Equals(name)).ToList();
+                .Where(c => c.Name.Contains(name)).ToList();
             return courses;
         }
 

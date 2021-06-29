@@ -35,6 +35,9 @@ namespace CourseInfoSharingPlatform.Models
         public List<Question> QuestionList { get; set; }
         public List<User> UserWhoLikedCourse { get; set; }
 
+        public int LikeNum { get; set; }
+        public int HeatNum { get; set; }
+
         public List<Tag> tags { get; set; }
 
     }

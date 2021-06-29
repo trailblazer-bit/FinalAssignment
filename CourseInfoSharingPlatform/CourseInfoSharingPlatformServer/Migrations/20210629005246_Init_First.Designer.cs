@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseInfoSharingPlatformServer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210611010738_demo")]
-    partial class demo
+    [Migration("20210629005246_Init_First")]
+    partial class Init_First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,9 @@ namespace CourseInfoSharingPlatformServer.Migrations
 
             modelBuilder.Entity("CourseInfoSharingPlatformServer.Models.CUS", b =>
                 {
-                    b.Property<string>("CUSId")
-                        .HasColumnType("varchar(95)");
+                    b.Property<int>("CUSId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("CourseId")
                         .HasColumnType("longtext");
@@ -66,6 +67,9 @@ namespace CourseInfoSharingPlatformServer.Migrations
                     b.Property<int>("LikeNum")
                         .HasColumnType("int");
 
+                    b.Property<string>("Reason")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("RelatedQuestionQuestionId")
                         .HasColumnType("int");
 
@@ -91,6 +95,9 @@ namespace CourseInfoSharingPlatformServer.Migrations
 
                     b.Property<string>("Department")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("HeatNum")
+                        .HasColumnType("int");
 
                     b.Property<string>("Introduction")
                         .HasColumnType("longtext");
@@ -207,7 +214,7 @@ namespace CourseInfoSharingPlatformServer.Migrations
             modelBuilder.Entity("CourseInfoSharingPlatformServer.Models.Comment", b =>
                 {
                     b.HasOne("CourseInfoSharingPlatformServer.Models.Question", "RelatedQuestion")
-                        .WithMany()
+                        .WithMany("CommentList")
                         .HasForeignKey("RelatedQuestionQuestionId");
 
                     b.HasOne("CourseInfoSharingPlatformServer.Models.User", "RelatedUser")
@@ -265,6 +272,8 @@ namespace CourseInfoSharingPlatformServer.Migrations
 
             modelBuilder.Entity("CourseInfoSharingPlatformServer.Models.Question", b =>
                 {
+                    b.Navigation("CommentList");
+
                     b.Navigation("QuestionTags");
                 });
 #pragma warning restore 612, 618

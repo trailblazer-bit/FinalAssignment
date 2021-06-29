@@ -26,15 +26,6 @@ namespace CourseInfoSharingPlatform.ClientHttp
             return course;
         }    
 
-        //默认查询所有课程时总页数
-        public  static int GetTotalPageNum()
-        {
-            string url = baseUrl + "/totalPageNum";
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            var result = ClientHttp.GET(url, d);
-            int num=(int) Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(int));
-            return num;
-        }
         //默认按照某种规则查询所有课程
         public static List<Course> GetAllCourseOrderBy(string url,int startIndex,int pageSize)
         {
@@ -65,43 +56,134 @@ namespace CourseInfoSharingPlatform.ClientHttp
             return GetAllCourseOrderBy(url, startIndex, pageSize);
         }
 
+        //按课程类型查询
+        public static List<Course> ByType(string url, string type,int startIndex,int pageSize)
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("type", type.ToString());
+            d.Add("startIndex", startIndex.ToString());
+            d.Add("pageSize", pageSize.ToString());
+            var result = ClientHttp.GET(url, d);
+            List<Course> courses = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>)) as List<Course>;
+            return courses;
+        }
 
+        //按课程名或者教师名查询
+        public static List<Course> ByName(string url, string name, int startIndex, int pageSize)
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("name", name.ToString());
+            d.Add("startIndex", startIndex.ToString());
+            d.Add("pageSize", pageSize.ToString());
+            var result = ClientHttp.GET(url, d);
+            List<Course> courses = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>)) as List<Course>;
+            return courses;
+        }
 
+        // 根据类型查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByTypeOrderByHeatNum(string type, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByHeatNum/byType";
+            return ByType(url,type,startIndex,pageSize);
+        }
+        // 根据教师名查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByTeacherNameOrderByHeatNum(string name, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByHeatNum/byTeacherName";
+            return ByName(url, name, startIndex, pageSize);
+        }
 
+        // 根据课程名查询课程，按照热度排序，startIndex从0开始
+        public static List<Course> GetCourseByCourseNameOrderByHeatNum(string name, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByHeatNum/byCourseName";
+            return ByName(url,name,startIndex,pageSize);
+        }
 
+        // 根据类型查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByTypeOrderByLikeNum(string type, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByLikeNum/byType";
+            return ByType(url, type, startIndex, pageSize);
+        }
 
+        // 根据教师名查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByTeacherNameOrderByLikeNum(string name, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByLikeNum/byTeacherName";
+            return ByName(url, name, startIndex, pageSize);
+        }
 
+        // 根据课程名查询课程，按照收藏数排序，startIndex从0开始
+        public static List<Course> GetCourseByCourseNameOrderByLikeNum(string name, int startIndex, int pageSize)
+        {
+            string url = baseUrl + "/orderByLikeNum/byCourseName";
+            return ByName(url, name, startIndex,pageSize);
+        }
 
-            // 根据类型查询课程，默认按照评分排序，startIndex从0开始
+        // 根据类型查询课程，默认按照评分排序，startIndex从0开始
         public static List<Course> GetCourseByType(string type, int startIndex, int pageSize)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(baseUrl + "?type=" + type+"&startIndex="+startIndex+"&pageSize="+pageSize);
-            request.Method = "Get";
-            request.ContentType = "application/json";
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader streamReader = new StreamReader(stream, Encoding.GetEncoding("utf-8"));
-            string result = streamReader.ReadToEnd();
-            stream.Close();
-            streamReader.Close();
-
-            List<Course> c = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>))
-                as List<Course>;
-            return c;
+            string url = baseUrl + "/orderByScore/byType";
+            return ByType(url, type, startIndex, pageSize);
         }
 
         // 根据教师名查询课程，默认按照评分排序，startIndex从0开始
         public static List<Course> GetCourseByTeacherName(string name, int startIndex, int pageSize)
         {
-            return null;
+            string url = baseUrl + "/orderByScore/byTeacherName";
+            return ByName(url, name, startIndex, pageSize);
         }
 
         // 根据课程名查询课程，默认按照评分排序，startIndex从0开始
         public static List<Course> GetCourseByCourseName(string name, int startIndex, int pageSize)
         {
-            return null;
+            string url = baseUrl + "/orderByScore/byCourseName";
+            return ByName(url, name, startIndex, pageSize);
         }
-        
+
+        //查询总页数
+        public static int GetTotalPageNum(string url, Dictionary<string, string> d)
+        {
+            var result = ClientHttp.GET(url, d);
+            int num = (int)Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(int));
+            return num;
+        }
+
+        //默认查询所有课程时总页数
+        public static int GetTotalPageNum()
+        {
+            string url = baseUrl + "/totalPageNum";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            return GetTotalPageNum(url, d);
+        }
+
+        // 根据类型查询，返回页面数量,默认页面大小为4
+        public static int GetPageNumByType(string type)
+        {
+            string url = baseUrl + "/totalPageNum/byType";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("type", type);
+            return GetTotalPageNum(url, d);
+        }
+
+        // 根据教师名查询，返回页面数量,默认页面大小为4
+        public static int GetPageNumByTeacherName(string name)
+        {
+            string url = baseUrl + "/totalPageNum/byTeacherName";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("name", name);
+            return GetTotalPageNum(url, d);
+        }
+
+        // 根据课程名查询，返回页面数量,默认页面大小为4
+        public static int GetPageNumByCourseName(string name)
+        {
+            string url = baseUrl + "/totalPageNum/byCourseName";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("name", name);
+            return GetTotalPageNum(url, d);
+        }
+
     }
 }

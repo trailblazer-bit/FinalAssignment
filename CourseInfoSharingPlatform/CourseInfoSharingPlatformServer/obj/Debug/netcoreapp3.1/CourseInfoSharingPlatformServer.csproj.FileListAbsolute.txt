@@ -1,4 +1,3 @@
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.csprojAssemblyReference.cache
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.AssemblyInfoInputs.cache
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.AssemblyInfo.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.csproj.CoreCompileInputs.cache
@@ -134,3 +133,4 @@ D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharin
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.dll
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.pdb
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.genruntimeconfig.cache
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.1\CourseInfoSharingPlatformServer.csprojAssemblyReference.cache

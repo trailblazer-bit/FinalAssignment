@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CourseInfoSharingPlatformServer.Migrations
 {
-    public partial class demo : Migration
+    public partial class Init_First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,7 +42,8 @@ namespace CourseInfoSharingPlatformServer.Migrations
                     BookName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Introduction = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    HeatNum = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,8 +55,8 @@ namespace CourseInfoSharingPlatformServer.Migrations
                 name: "COURSE_USER_SCORE",
                 columns: table => new
                 {
-                    CUSId = table.Column<string>(type: "varchar(95)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CUSId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CourseId = table.Column<string>(type: "longtext", nullable: true)
@@ -163,6 +164,8 @@ namespace CourseInfoSharingPlatformServer.Migrations
                     Detail = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     IsReported = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Reason = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     RelatedUserUserName = table.Column<string>(type: "varchar(95)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RelatedQuestionQuestionId = table.Column<int>(type: "int", nullable: true)

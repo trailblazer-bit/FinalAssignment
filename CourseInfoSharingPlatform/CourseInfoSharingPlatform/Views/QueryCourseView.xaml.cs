@@ -87,33 +87,97 @@ namespace CourseInfoSharingPlatform.Views
                 totalPageNum = CourseHttpClient.GetTotalPageNum();
                 SetPaginationBtn(totalPageNum);
                 if (sortCondition.Equals("按热度"))
-                    courses = CourseHttpClient.GetAllCourseOrderByHeatNum(_pageIndex, _pageCount);
+                    courses = CourseHttpClient.GetAllCourseOrderByHeatNum((_pageIndex - 1) * 4, 4);
                 else if (sortCondition.Equals("按评分"))
-                    courses = CourseHttpClient.GetAllCourse(_pageIndex, _pageCount);
+                    courses = CourseHttpClient.GetAllCourse((_pageIndex - 1) * 4, 4);
                 else if (sortCondition.Equals("按收藏量"))
-                    courses = CourseHttpClient.GetAllCourseOrderByLikeNum(_pageIndex, _pageCount);
+                    courses = CourseHttpClient.GetAllCourseOrderByLikeNum((_pageIndex - 1) * 4, 4);
             }
             else //查询条件不为空时
             {
-                //if(searchCondition.Equals(""))
-                //else if (sortCondition.Equals("按热度"))
-                //{
-                //    if(searchCondition.Equals())
-                //}
-                //else if (sortCondition.Equals("按评分"))
-                //{
-
-                //}
-                //else if (sortCondition.Equals("按收藏量"))
-                //{
-
-                //}
+                string input = this.searchInput.Text;
+                //只按课程号查询时
+                if (searchCondition.Equals("课头号"))
+                {
+                    var course= CourseHttpClient.GetCourseById(input);
+                    if (course == null) { SetPaginationBtn(0); courses = new List<Course>(); }
+                    else
+                    {
+                        SetPaginationBtn(1);
+                        courses = new List<Course>() { course };
+                    }
+                }
+                else if (sortCondition.Equals("按热度"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByType(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByTypeOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程老师"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByTeacherName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByTeacherNameOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程名"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByCourseName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByCourseNameOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                }
+                else if (sortCondition.Equals("按评分"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByType(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByType(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程老师"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByTeacherName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByTeacherName(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程名"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByCourseName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByCourseName(input, (_pageIndex - 1) * 4, 4);
+                    }
+                }
+                else if (sortCondition.Equals("按收藏量"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByType(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByTypeOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程老师"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByTeacherName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByTeacherNameOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                    if (searchCondition.Equals("课程名"))
+                    {
+                        totalPageNum = CourseHttpClient.GetPageNumByCourseName(input);
+                        SetPaginationBtn(totalPageNum);
+                        courses = CourseHttpClient.GetCourseByCourseNameOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                    }
+                }
             }
+            this.listBoxCourses.ItemsSource = courses;
         }
 
         //根据总页数，设置分页相关按钮,和初始分页数据显示
         private void SetPaginationBtn(int totalPageNum)
         {
+            //分页总数为0时
             if(totalPageNum<=0)
             {
                 _pageIndex = 0;
@@ -147,6 +211,7 @@ namespace CourseInfoSharingPlatform.Views
             this.lastPageBtn.IsEnabled = false;
             if (_pageIndex == _pageCount) this.nextPageBtn.IsEnabled = false;
             else this.nextPageBtn.IsEnabled = true;
+            SetCourses();
         }
 
         //上一页
@@ -156,6 +221,7 @@ namespace CourseInfoSharingPlatform.Views
             if (_pageIndex <= 1) this.lastPageBtn.IsEnabled = false;
             this.nextPageBtn.IsEnabled = true;
             this.pageIndexTB.Text = _pageIndex.ToString();
+            SetCourses();
         }
 
         //下一页
@@ -165,11 +231,65 @@ namespace CourseInfoSharingPlatform.Views
             if (_pageIndex == _pageCount) this.nextPageBtn.IsEnabled = false;
             this.lastPageBtn.IsEnabled = true;
             this.pageIndexTB.Text = _pageIndex.ToString();
+            SetCourses();
         }
 
-        //选中某个排序项目
-        private void listBoxItem_Selected(object sender, RoutedEventArgs e)
+        //根据当前页显示课程信息
+        private void  SetCourses()
         {
+            string searchCondition = null;
+            ComboBoxItem item = this.searchConditionCB.SelectedItem as ComboBoxItem;
+            if (item != null)
+                searchCondition = item.Content.ToString();
+            string sortCondition = (this.sortConditionLB.SelectedItem as ListBoxItem).Content.ToString();
+            if (searchCondition == null)
+            {
+                if (sortCondition.Equals("按热度"))
+                    courses = CourseHttpClient.GetAllCourseOrderByHeatNum((_pageIndex - 1) * 4, 4);
+                else if (sortCondition.Equals("按评分"))
+                    courses = CourseHttpClient.GetAllCourse((_pageIndex - 1) * 4, 4);
+                else if (sortCondition.Equals("按收藏量"))
+                    courses = CourseHttpClient.GetAllCourseOrderByLikeNum((_pageIndex - 1) * 4, 4);
+            }
+            else //查询条件不为空时
+            {
+                string input = this.searchInput.Text;
+                //只按课程号查询时
+                if (searchCondition.Equals("课头号"))
+                {
+                    var course = CourseHttpClient.GetCourseById(input);
+                    if (course == null) SetPaginationBtn(0);
+                    else courses = new List<Course>() { course };
+                }
+                else if (sortCondition.Equals("按热度"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                        courses = CourseHttpClient.GetCourseByTypeOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程老师"))
+                        courses = CourseHttpClient.GetCourseByTeacherNameOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程名"))
+                        courses = CourseHttpClient.GetCourseByCourseNameOrderByHeatNum(input, (_pageIndex - 1) * 4, 4);
+                }
+                else if (sortCondition.Equals("按评分"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                        courses = CourseHttpClient.GetCourseByType(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程老师"))
+                        courses = CourseHttpClient.GetCourseByTeacherName(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程名"))
+                        courses = CourseHttpClient.GetCourseByCourseName(input, (_pageIndex - 1) * 4, 4);
+                }
+                else if (sortCondition.Equals("按收藏量"))
+                {
+                    if (searchCondition.Equals("课程类型"))
+                        courses = CourseHttpClient.GetCourseByTypeOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程老师"))
+                        courses = CourseHttpClient.GetCourseByTeacherNameOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                    if (searchCondition.Equals("课程名"))
+                        courses = CourseHttpClient.GetCourseByCourseNameOrderByLikeNum(input, (_pageIndex - 1) * 4, 4);
+                }
+            }
+            this.listBoxCourses.ItemsSource = courses;
         }
     }
 }
