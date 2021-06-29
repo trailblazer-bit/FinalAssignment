@@ -60,5 +60,14 @@ namespace EFDemo.Dao
         {
             return context.Tags.Where(t => t.RelatedQuestion.QuestionId.Equals(id)).ToList();
         }
+
+        public static bool AddLikeNumToTag(int id)
+        {
+            var tag = context.Tags.SingleOrDefault(t => t.TagId.Equals(id));
+            if (tag == null) return false;
+            tag.LikeNum++;
+            context.SaveChanges();
+            return true;
+        }
     }
 }

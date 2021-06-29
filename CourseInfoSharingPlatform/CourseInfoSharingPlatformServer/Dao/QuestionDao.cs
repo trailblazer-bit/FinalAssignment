@@ -55,12 +55,13 @@ namespace EFDemo.Dao
                .SingleOrDefault(q => q.QuestionId.Equals(id));
         }
 
-        public static void AddLikeNumToQuestion(int id)
+        public static bool AddLikeNumToQuestion(int id)
         {
             var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(id));
-            if (q == null) return;
+            if (q == null) return false;
             q.LikeNum++;
             context.SaveChanges();
+            return true;
         }
     }
 }
