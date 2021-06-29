@@ -54,5 +54,13 @@ namespace EFDemo.Dao
                 .Include(q => q.QuestionTags).Include(q => q.RelatedCourse).Include(q => q.RelatedUser)
                .SingleOrDefault(q => q.QuestionId.Equals(id));
         }
+
+        public static void AddLikeNumToQuestion(int id)
+        {
+            var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(id));
+            if (q == null) return;
+            q.LikeNum++;
+            context.SaveChanges();
+        }
     }
 }
