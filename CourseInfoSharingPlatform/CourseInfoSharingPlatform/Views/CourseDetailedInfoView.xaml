@@ -150,7 +150,7 @@
                             <ProgressBar Height="5" Width="30" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="20" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
                         </StackPanel>
-                        <Button  Margin="240,5,0,4" Content="收藏" Opacity="1" Background="#ff5722" BorderBrush="#ff5722">
+                        <Button  Margin="240,5,0,4"  Click="collectBtn_Click" Content="收藏" Opacity="1" Background="#ff5722" BorderBrush="#ff5722">
                         </Button>
                     </StackPanel>
                 </Grid>

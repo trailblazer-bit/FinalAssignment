@@ -22,6 +22,7 @@ namespace CourseInfoSharingPlatform.Views
     public partial class CourseDetailedInfoView : Window
     {
         public Course Course { get; set; }
+        private User user = new User { UserName = "whuanle" };
         private List<int> likedQuestionId = new List<int>();
         //private List<Question> tempQuestionList=new List<Question>();
         public CourseDetailedInfoView(Course c)
@@ -105,6 +106,14 @@ namespace CourseInfoSharingPlatform.Views
         private void userRate_Click(object sender, MouseButtonEventArgs e)
         {
             Console.WriteLine(this.userRate.Value); 
+        }
+
+        //用户收藏按钮
+        private void collectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //获取用户名和课程id
+            bool succeed = UserHttpClient.AddFavoriteCourse(Course.CourseId, user.UserName);
+            Console.WriteLine(succeed);
         }
     }
 }
