@@ -142,10 +142,9 @@
                     <!--课程评价-->
                     <StackPanel Grid.Row="5" Orientation="Horizontal">
                         <TextBlock Text="评价: " Margin="20,10,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" FontSize="18" VerticalAlignment="Top" />
-                        <materialDesign:RatingBar  Value="0" x:Name="userRate" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="#ff8f00"/>
+                        <materialDesign:RatingBar  x:Name="userRate" MouseDoubleClick="userRate_Click" Value="0" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="#ff8f00"/>
                         <StackPanel  Margin="30,0,0,0">
-                            <ProgressBar Height="5" Width="100"  Background="#ffa000" Margin="0,2,0,2">
-                            </ProgressBar>
+                            <ProgressBar Height="5" Width="100"  Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="10" HorizontalAlignment="Left" Background="#ffa000"  Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="40" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="30" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
