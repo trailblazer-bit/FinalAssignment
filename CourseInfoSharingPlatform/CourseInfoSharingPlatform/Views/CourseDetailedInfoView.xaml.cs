@@ -22,10 +22,14 @@ namespace CourseInfoSharingPlatform.Views
     public partial class CourseDetailedInfoView : Window
     {
         public Course Course { get; set; }
-        public CourseDetailedInfoView()
+        private List<int> likedQuestionId = new List<int>();
+        //private List<Question> tempQuestionList=new List<Question>();
+        public CourseDetailedInfoView(Course c)
         {
             InitializeComponent();
-         
+
+            this.courseGrid.DataContext = c;
+            this.Course = c;
             //this.courseGrid.DataContext = course;
             //Course c = CourseHttpClient.GetCourseById("20202057459");
             //this.courseGrid.DataContext = Course;
@@ -84,6 +88,16 @@ namespace CourseInfoSharingPlatform.Views
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
+            List<CheckBox> cbs=this.questionItems.FindName("likeNumCB") as List<CheckBox>;
+            foreach (var item in cbs)
+            {
+                if(item.IsChecked==true)
+                {
+                    Question q = item.DataContext as Question;
+                    likedQuestionId.Add(q.QuestionId);
+                }
+            }
+            CommentHttpClient.AddLikeNumToQuestion(likedQuestionId);
             this.Close();
         }
 
