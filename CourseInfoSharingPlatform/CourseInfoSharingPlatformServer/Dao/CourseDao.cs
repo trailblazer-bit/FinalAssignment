@@ -29,6 +29,14 @@ namespace EFDemo.Dao
             return course;
         }
 
+        // 根据课头号查询收藏该课程的用户数量
+        public static int SelectLikeNumById(string id)
+        {
+            var course = context.Courses.Include(c => c.UserWhoLikedCourse).SingleOrDefault(c => c.CourseId.Equals(id));
+            if (course == null) return 0;
+            else return course.UserWhoLikedCourse.Count;
+        }
+
         // 查询所有课程
         public static List<Course> SelectAllCourse()
         {

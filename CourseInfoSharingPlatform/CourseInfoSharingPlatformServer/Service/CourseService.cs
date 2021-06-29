@@ -379,12 +379,12 @@ namespace CourseInfoSharingPlatformServer.Service
             course.LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(course.CourseId).UserWhoLikedCourse.Count;
         }
 
-        // 获得该课程的收藏数
+        // 获得课程的收藏数
         private static void GetAndSetLikeNum(List<Course> courses)
         {
             for (int i = 0; i < courses.Count; i++)
-            { 
-                courses[i].LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(courses[i].CourseId).UserWhoLikedCourse.Count;
+            {
+                courses[i].LikeNum = CourseDao.SelectLikeNumById(courses[i].CourseId);
             }
         }
 
