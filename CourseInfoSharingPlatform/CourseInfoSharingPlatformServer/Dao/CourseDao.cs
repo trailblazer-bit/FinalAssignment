@@ -96,5 +96,15 @@ namespace EFDemo.Dao
             if (!DeleteCourse(course.CourseId)) return false;
             return AddCourse(course);
         }
+
+        // 根据课程id将课程LikeNum字段加1
+        public static bool AddLikeNum(string id)
+        {
+            var course = context.Courses.SingleOrDefault(c => c.CourseId.Equals(id));
+            if (course == null) return false;
+            course.LikeNum++;
+            context.SaveChanges();
+            return true;
+        }
     }
 }
