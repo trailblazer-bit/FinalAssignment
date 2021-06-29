@@ -11,14 +11,27 @@ namespace CourseInfoSharingPlatformServer.Service
     public class CommentService
     {
         // 根据问题id字符串将相应问题的LikeNum字段加1
-        public static void AddLikeNumToQuestions(string ids)
+        public static bool AddLikeNumToQuestions(string ids)
         {
-            if (ids.Length <= 0) return;
+            if (ids.Length <= 0) return false;
             string[] idList = ids.Split(",");
             foreach (string id in idList)
             {
-                QuestionDao.AddLikeNumToQuestion(int.Parse(id));
+                if (!QuestionDao.AddLikeNumToQuestion(int.Parse(id))) return false;
             }
+            return true;
+        }
+
+        // 根据评论id字符串将相应问题的LikeNum字段加1
+        public static bool AddLikeNumToComments(string ids)
+        {
+            if (ids.Length <= 0) return false;
+            string[] idList = ids.Split(",");
+            foreach (string id in idList)
+            {
+                if (!CommentDao.AddLikeNumToComment(int.Parse(id))) return false;
+            }
+            return true;
         }
     }
 }

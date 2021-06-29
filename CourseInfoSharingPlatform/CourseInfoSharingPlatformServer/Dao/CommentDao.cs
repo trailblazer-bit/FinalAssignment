@@ -45,5 +45,15 @@ namespace EFDemo.Dao
             context.Comments.Add(comment);
             return context.SaveChanges() >= 1;
         }
+
+        // 将评论的LikeNum字段加1
+        public static bool AddLikeNumToComment(int id)
+        {
+            var q = context.Comments.SingleOrDefault(c => c.CommentId.Equals(id));
+            if (q == null) return false;
+            q.LikeNum++;
+            context.SaveChanges();
+            return true;
+        }
     }
 }
