@@ -146,7 +146,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
         public static int GetTotalPageNum(string url, Dictionary<string, string> d)
         {
             var result = ClientHttp.GET(url, d);
-            int num = (int)Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(int));
+            Int32 num = (Int32)Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Int32));
             return num;
         }
 
