@@ -168,7 +168,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
@@ -190,7 +190,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize&&(startIndex+i)<courses.Count; i++)
@@ -211,7 +211,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
@@ -232,7 +232,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 SetCourseScore(courses[i]);
             }
-            GetAndSetLikeNum(courses);
+            // GetAndSetLikeNum(courses);
 
             courses = courses.OrderByDescending(c => c.LikeNum).ToList();
             for (int i = 0; i < pageSize && i + startIndex < courses.Count; i++)
@@ -379,12 +379,12 @@ namespace CourseInfoSharingPlatformServer.Service
             course.LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(course.CourseId).UserWhoLikedCourse.Count;
         }
 
-        // 获得该课程的收藏数
+        // 获得课程的收藏数
         private static void GetAndSetLikeNum(List<Course> courses)
         {
             for (int i = 0; i < courses.Count; i++)
-            { 
-                courses[i].LikeNum = CourseDao.SelectCourseByIdWithUserWhoLikeIt(courses[i].CourseId).UserWhoLikedCourse.Count;
+            {
+                courses[i].LikeNum = CourseDao.SelectLikeNumById(courses[i].CourseId);
             }
         }
 
