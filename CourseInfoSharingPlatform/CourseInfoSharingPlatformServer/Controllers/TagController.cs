@@ -18,5 +18,11 @@ namespace CourseInfoSharingPlatformServer.Controllers
             if (ids.Length == 0) return false;
             else return TagService.AddLikeNumToTags(ids);
         }
+
+        [HttpGet("addTag")]
+        public ActionResult<bool> AddTag(string detail, int questionId)
+        {
+            return TagService.AddTag(detail, questionId);
+        }
     }
 }
