@@ -32,5 +32,17 @@ namespace CourseInfoSharingPlatformServer.Controllers
             if (ids.Length == 0) return false;
             else return CommentService.AddLikeNumToComments(ids);
         }
+
+        [HttpGet("addComments")]
+        public ActionResult<bool> AddComments(string comment, string userName, int questionId)
+        {
+            return CommentService.AddComments(comment, userName, questionId);
+        }
+
+        [HttpGet("reportComment")]
+        public ActionResult<bool> reportComment(int commentId, string reason)
+        {
+            return CommentService.ReportComment(commentId, reason);
+        }
     }
 }

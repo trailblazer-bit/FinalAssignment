@@ -1,4 +1,5 @@
-﻿using EFDemo.Dao;
+﻿using CourseInfoSharingPlatformServer.Models;
+using EFDemo.Dao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,22 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 if (!TagDao.AddLikeNumToTag(int.Parse(id)))return false;
             }
+            return true;
+        }
+
+        public static bool AddTag(string detail, int questionId)
+        {
+            if (!CheckIfTagValid(detail)) return false;
+            Tag tag = new Tag();
+            tag.Detail = detail;
+            tag.RelatedQuestion = QuestionDao.SelectQuestionById(questionId);
+            if (tag.RelatedQuestion == null) return false;
+            return TagDao.AddTag(tag);
+        }
+
+        // 判断标签内容是否符合规范
+        public static bool CheckIfTagValid(string detail)
+        {
             return true;
         }
     }

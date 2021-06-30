@@ -1,4 +1,5 @@
-﻿using EFDemo.Dao;
+﻿using CourseInfoSharingPlatformServer.Models;
+using EFDemo.Dao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,29 @@ namespace CourseInfoSharingPlatformServer.Service
                 if (!CommentDao.AddLikeNumToComment(int.Parse(id))) return false;
             }
             return true;
+        }
+
+        // 添加问题回复（评论）
+        public static bool AddComments(string comment, string userName, int questionId)
+        {
+            if (!CheckIfCommentValid(comment)) return false;
+            Comment c = new Comment();
+            c.Detail = comment;
+            c.RelatedUser = UserDao.SelectUserByUserName(userName);
+            c.RelatedQuestion = QuestionDao.SelectQuestionById(questionId);
+            return CommentDao.AddComment(c);
+        }
+
+        // 检测评论内容是否合乎规范
+        public static bool CheckIfCommentValid(string comment)
+        {
+            return true;
+        }
+
+        // 举报评论
+        public static bool ReportComment(int commentId, string reason)
+        {
+            return CommentDao.ReportComment(commentId, reason);
         }
     }
 }

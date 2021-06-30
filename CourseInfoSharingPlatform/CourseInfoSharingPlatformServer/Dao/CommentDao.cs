@@ -55,5 +55,16 @@ namespace EFDemo.Dao
             context.SaveChanges();
             return true;
         }
+
+        //举报评论
+        public static bool ReportComment(int commentId, string reason)
+        {
+            var c = context.Comments.SingleOrDefault(c => c.CommentId.Equals(commentId));
+            if (c == null) return false;
+            c.IsReported = true;
+            c.Reason = reason;
+            context.SaveChanges();
+            return true;
+        }
     }
 }
