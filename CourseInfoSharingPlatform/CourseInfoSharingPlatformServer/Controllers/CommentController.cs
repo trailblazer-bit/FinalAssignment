@@ -1,4 +1,5 @@
 ﻿using CourseInfoSharingPlatformServer.Dao;
+using CourseInfoSharingPlatformServer.Models;
 using CourseInfoSharingPlatformServer.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +44,24 @@ namespace CourseInfoSharingPlatformServer.Controllers
         public ActionResult<bool> reportComment(int commentId, string reason)
         {
             return CommentService.ReportComment(commentId, reason);
+        }
+
+        [HttpGet("getQuestionById")]
+        public ActionResult<Question> GetQuestionById(int id)
+        {
+            return CommentService.GetQuestionById(id);
+        }
+
+        [HttpGet("deleteQuestionById")]
+        public ActionResult<bool> DeleteQuestionById(int id)
+        {
+            return CommentService.DeleteQuestionById(id);
+        }
+
+        [HttpGet("deleteCommentById")]
+        public ActionResult<bool> DeleteCommentById(int id)
+        {
+            return CommentService.DeleteCommentById(id);
         }
     }
 }
