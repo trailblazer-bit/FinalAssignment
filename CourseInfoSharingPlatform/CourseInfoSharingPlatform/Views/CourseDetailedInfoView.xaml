@@ -268,8 +268,8 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <TextBox x:Name="commentArea"  Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                     AcceptsReturn="True" 
-                                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
+                                     AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
+                                     TextWrapping="Wrap" 
                                     materialDesign:HintAssist.Hint="输入你的问题" BorderBrush="#cfd8dc" />
                             <Button Margin="20" Click="askQuestionBtn_Click"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
                         </Grid>

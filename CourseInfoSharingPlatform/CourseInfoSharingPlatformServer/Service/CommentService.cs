@@ -34,6 +34,16 @@ namespace CourseInfoSharingPlatformServer.Service
             }
             return true;
         }
+        //用户添加问题
+        public static bool AddQuestion(string detail,string userName,string courseId)
+        {
+            if (!CheckIfCommentValid(detail)) return false;
+            Question q = new Question();
+            q.Detail = detail;
+            q.RelatedUser = UserDao.SelectUserByUserName(userName);
+            q.RelatedCourse = CourseDao.SelectCourseById(courseId);
+            return QuestionDao.AddQuestion(q);
+        }
 
         // 添加问题回复（评论）
         public static bool AddComments(string comment, string userName, int questionId)

@@ -28,6 +28,7 @@ namespace CourseInfoSharingPlatformServer.Controllers
             else return TagService.AddLikeNumToTags(ids);
         }
 
+        //添加标签
         [HttpGet("addTag")]
         public ActionResult<bool> AddTag(string detail, int questionId)
         {

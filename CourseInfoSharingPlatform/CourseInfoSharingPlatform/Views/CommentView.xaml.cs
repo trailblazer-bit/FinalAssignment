@@ -23,6 +23,7 @@ namespace CourseInfoSharingPlatform.Views
     {
         //private List<Comment> comments;
         private Question Question { get; set; }
+        private User user = new User { UserName = "啊哈哈" };
         private List<int> likedCommentId = new List<int>();
         private List<int> likedTagId = new List<int>();
         public CommentView(Question question)
@@ -71,7 +72,9 @@ namespace CourseInfoSharingPlatform.Views
         //举报评论
         private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
-            ReportView view = new ReportView();
+            Button b = e.OriginalSource as Button;
+            Comment c = b.DataContext as Comment;
+            ReportView view = new ReportView(c,null);
             view.WindowStartupLocation = this.WindowStartupLocation;
             view.ShowDialog();
         }
@@ -87,9 +90,11 @@ namespace CourseInfoSharingPlatform.Views
         //发布回复
         private void commnetBtn_Click(object sender, RoutedEventArgs e)
         {
+            string comment = this.commentArea.Text;
             //清空回复填写区
             this.commentArea.Text = null;
             //更新回复区,重新查一次该问题
+            CommentHttpClient.AddComments(comment, user.UserName, Question.QuestionId);
 
         }
 
@@ -114,19 +119,14 @@ namespace CourseInfoSharingPlatform.Views
         private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
         {
             var tb = e.OriginalSource as TextBlock;
-            Tag tag = tb.DataContext as Tag;
+            Tag tag = null;
+            if (tb != null) tag = tb.DataContext as Tag;
             if (tag != null)
             {
                 if (likedTagId.Contains(tag.TagId))
-                {
-                    likedTagId.Remove(tag.TagId);
                     tag.LikeNum--;
-                }
                 else
-                {
-                    likedTagId.Add(tag.TagId);
                     tag.LikeNum++;
-                }
             }
         }
     }

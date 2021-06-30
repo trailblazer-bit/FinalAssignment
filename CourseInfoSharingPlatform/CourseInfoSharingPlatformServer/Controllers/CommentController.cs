@@ -1,4 +1,5 @@
 ﻿using CourseInfoSharingPlatformServer.Dao;
+using CourseInfoSharingPlatformServer.Models;
 using CourseInfoSharingPlatformServer.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,16 +34,25 @@ namespace CourseInfoSharingPlatformServer.Controllers
             else return CommentService.AddLikeNumToComments(ids);
         }
 
+        //添加回复
         [HttpGet("addComments")]
         public ActionResult<bool> AddComments(string comment, string userName, int questionId)
         {
             return CommentService.AddComments(comment, userName, questionId);
         }
 
+        //举报评论
         [HttpGet("reportComment")]
         public ActionResult<bool> reportComment(int commentId, string reason)
         {
             return CommentService.ReportComment(commentId, reason);
+        }
+
+        //添加问题
+        [HttpGet("addQuestion")]
+        public ActionResult<bool> AddQuestion(string detail,string userName,string courseId)
+        {
+            return CommentService.AddQuestion(detail,userName,courseId);
         }
     }
 }

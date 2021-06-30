@@ -70,7 +70,9 @@ namespace CourseInfoSharingPlatform.Views
         //按下举报按钮
         private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
-            ReportView view = new ReportView();
+            Button b = e.OriginalSource as Button;
+            Question q = b.DataContext as Question;
+            ReportView view = new ReportView(null,q);
             view.WindowStartupLocation = this.WindowStartupLocation;
             //this.Visibility = Visibility.Hidden;
             view.ShowDialog();
@@ -89,6 +91,7 @@ namespace CourseInfoSharingPlatform.Views
             commentView.ShowDialog();
             //重新查一次相应的课程
             this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
+            this.courseGrid.DataContext = Course;
             //this.Visibility = Visibility.Visible;
         }
 
@@ -136,10 +139,13 @@ namespace CourseInfoSharingPlatform.Views
         //提出问题
         private void askQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
+            string detail = this.commentArea.Text;
+            CommentHttpClient.AddQuestion(detail,user.UserName,Course.CourseId);
             //清空问题填写区
             this.commentArea.Text = null;
             //展示更新后的问题
-
+            this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
+            this.courseGrid.DataContext = Course;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,39 @@ namespace CourseInfoSharingPlatform.ClientHttp
             url += likedCommentId[i];
             Dictionary<string, string> d = new Dictionary<string, string>();
             ClientHttp.GET(url, d);
+        }
+        //添加问题
+        public static bool AddQuestion(string detail,string userName,string courseId)
+        {
+            string url = baseUrl + "/addQuestion";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("detail", detail);
+            d.Add("userName", userName);
+            d.Add("courseId", courseId);                  
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
+
+        //举报评论
+        public static bool reportComment(int commentId, string reason)
+        {
+            string url = baseUrl + "/reportComment";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("commentId", commentId.ToString());
+            d.Add("reason", reason);
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
+        //添加回复
+        public  static bool AddComments(string comment, string userName, int questionId)
+        {
+            string url = baseUrl + "/addComments";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("comment", comment);
+            d.Add("userName", userName);
+            d.Add("questionId", questionId.ToString());
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
         }
     }
 }
