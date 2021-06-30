@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "4PejCDpLQi++6wMGm+TKEnyaHtObE32vpuL20JfyWHYKlnqD2Eg8iupqy/LRbaaB/jc4G+HvynIC72HXZNCTmw==",
   "success": true,
   "projectFilePath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+=======
+  "dgSpecHash": "SWHfmjXRABX7PDsyh+0LuoOBmJTYxFEEr9IyRd625SV3x8VNhNEfggmmGkzjA9w2+jx8Jdj60FV7boA0drr2tQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gao\\Desktop\\demo\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+>>>>>>> ef08cf7531f19a757de9c3bdf31b045b04fd26cb
   "expectedPackageFiles": [
     "C:\\Users\\86158\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\86158\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",

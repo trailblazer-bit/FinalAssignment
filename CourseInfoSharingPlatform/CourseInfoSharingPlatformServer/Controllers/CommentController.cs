@@ -53,21 +53,37 @@ namespace CourseInfoSharingPlatformServer.Controllers
         public ActionResult<bool> AddQuestion(string detail, string userName, string courseId)
         {
             return CommentService.AddQuestion(detail, userName, courseId);
+<<<<<<< HEAD
         }
         //根据id获取问题
+=======
+
+        }
+
+        // 根据id获取问题
+>>>>>>> ef08cf7531f19a757de9c3bdf31b045b04fd26cb
         [HttpGet("getQuestionById")]
         public ActionResult<Question> GetQuestionById(int id)
         {
             return CommentService.GetQuestionById(id);
         }
 
+<<<<<<< HEAD
         //根据id删除问题
+=======
+        // 根绝id删除问题
+>>>>>>> ef08cf7531f19a757de9c3bdf31b045b04fd26cb
         [HttpGet("deleteQuestionById")]
         public ActionResult<bool> DeleteQuestionById(int id)
         {
             return CommentService.DeleteQuestionById(id);
         }
+<<<<<<< HEAD
         //根据id删除评论
+=======
+
+        // 根据id删除评论
+>>>>>>> ef08cf7531f19a757de9c3bdf31b045b04fd26cb
         [HttpGet("deleteCommentById")]
         public ActionResult<bool> DeleteCommentById(int id)
         {
