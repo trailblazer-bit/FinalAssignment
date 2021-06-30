@@ -67,5 +67,20 @@ namespace CourseInfoSharingPlatformServer.Service
         {
             return CommentDao.ReportComment(commentId, reason);
         }
+
+        public static Question GetQuestionById(int id)
+        {
+            return QuestionDao.SelectQuestionById(id);
+        }
+
+        public static bool DeleteQuestionById(int id)
+        {
+            return QuestionDao.DeleteQuestionById(id);
+        }
+
+        public static bool DeleteCommentById(int id)
+        {
+            return CommentDao.DeleteCommentById(id);
+        }
     }
 }
