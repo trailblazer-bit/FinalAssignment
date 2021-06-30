@@ -69,7 +69,6 @@ namespace CourseInfoSharingPlatformServer.Controllers
             return CommentService.GetQuestionById(id);
         }
 
-
         //根据id删除问题
         [HttpGet("deleteQuestionById")]
         public ActionResult<bool> DeleteQuestionById(int id)

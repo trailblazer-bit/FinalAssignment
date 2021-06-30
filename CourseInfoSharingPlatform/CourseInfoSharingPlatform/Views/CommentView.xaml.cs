@@ -35,7 +35,7 @@ namespace CourseInfoSharingPlatform.Views
         private void Init()
         {
             this.questionBorder.DataContext = Question;
-            this.questionTagListLB.ItemsSource = Question.QuestionTags;
+            this.questionTagListLB.ItemsSource = Question.QuestionTags.OrderByDescending(tag=>tag.LikeNum);
             this.commentsList.ItemsSource = Question.CommentList;
             this.anwserNumTB.DataContext = Question;
         }
@@ -98,7 +98,7 @@ namespace CourseInfoSharingPlatform.Views
         private void commnetBtn_Click(object sender, RoutedEventArgs e)
         {
             string comment = this.commentArea.Text;
-            if (comment == null) return;
+            if (comment=="") return;
             //清空回复填写区
             this.commentArea.Text = null;
             //更新回复区,重新查一次该问题

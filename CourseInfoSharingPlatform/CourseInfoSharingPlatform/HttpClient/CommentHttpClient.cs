@@ -64,7 +64,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
             return bool.Parse(result);
         }
         // 举报问题
-        public bool reportQuestion(int questionId, string reason)
+        public static bool reportQuestion(int questionId, string reason)
         {
             string url = baseUrl + "/reportQuestion";
             Dictionary<string, string> d = new Dictionary<string, string>();

@@ -20,6 +20,7 @@
         <local:QuestionLikeNumConverter x:Key="questionLikeNum"/>
         <local:CommentNumConverter x:Key="commentNum"/>
         <local:RelatedUserConverter x:Key="relatedUserName"/>
+        <local:QuestionTagsSortConverter x:Key="sortQuestionTags"/>
     </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden" x:Name="scrollViewer">
@@ -104,7 +105,7 @@
                     <!--课程标签-->
                     <StackPanel Grid.Row="4" Orientation="Horizontal" >
                         <TextBlock Text="标签: " Margin="20,0,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" FontSize="18" VerticalAlignment="Top" />
-                        <ItemsControl ItemsSource="{Binding tags}">
+                        <ItemsControl ItemsSource="{Binding tags,Converter={StaticResource sortQuestionTags}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="15,0,0,15"/>
@@ -198,7 +199,7 @@
                                         <TextBlock Grid.Row="1" FontSize="14" LineHeight="30"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
                                         <!--问题标签-->
-                                        <ItemsControl Grid.Row="2" ItemsSource="{Binding QuestionTags}" Margin="0,-5,0,0">
+                                        <ItemsControl Grid.Row="2" ItemsSource="{Binding QuestionTags,Converter={StaticResource sortQuestionTags}}" Margin="0,-5,0,0">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="15,0,0,15"/>

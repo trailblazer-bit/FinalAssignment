@@ -71,6 +71,7 @@
     <Compile Include="Converters\CommentNumConverter.cs" />
     <Compile Include="Converters\CourseDataConverter.cs" />
     <Compile Include="Converters\QuestionLikeNumConverter.cs" />
+    <Compile Include="Converters\QuestionTagsSortConverter.cs" />
     <Compile Include="Converters\RelatedUserConverter.cs" />
     <Compile Include="Converters\TagLikeNumConverter.cs" />
     <Compile Include="HttpClient\CommentHttpClient.cs" />

@@ -49,7 +49,7 @@ namespace CourseInfoSharingPlatform.Views
             string reason = this.reportReason.Text;
             if (question == null)
                 CommentHttpClient.reportComment(comment.CommentId, reason);
-            else;
+            else CommentHttpClient.reportQuestion(question.QuestionId, reason);
             this.Close();
         }
     }
