@@ -5569,19 +5569,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "projectName": "CourseInfoSharingPlatformServer",
       "projectPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "packagesPath": "C:\\Users\\86158\\.nuget\\packages\\",
       "outputPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Gao\\Desktop\\demo\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-      "projectName": "CourseInfoSharingPlatformServer",
-      "projectPath": "C:\\Users\\Gao\\Desktop\\demo\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-      "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gao\\Desktop\\demo\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
->>>>>>> ef08cf7531f19a757de9c3bdf31b045b04fd26cb
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\86158\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5664,5 +5656,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "读取缓存文件 D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

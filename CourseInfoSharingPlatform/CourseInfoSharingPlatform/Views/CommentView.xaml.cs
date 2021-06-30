@@ -28,8 +28,7 @@ namespace CourseInfoSharingPlatform.Views
         private List<int> likedTagId = new List<int>();
         public CommentView(Question question)
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
             this.Question = question;
             Init();
         }
@@ -127,16 +126,22 @@ namespace CourseInfoSharingPlatform.Views
         //问题标签被点赞
         private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
         {
-            var tb = e.OriginalSource as TextBlock;
-            Tag tag = null;
-            if (tb != null) tag = tb.DataContext as Tag;
-            if (tag != null)
-            {
-                if (likedTagId.Contains(tag.TagId))
-                    tag.LikeNum--;
-                else
-                    tag.LikeNum++;
-            }
+            //var tb = e.OriginalSource as TextBlock;
+            //Tag tag = null;
+            //if (tb != null) tag = tb.DataContext as Tag;
+            //if (tag != null)
+            //{
+            //    if (likedTagId.Contains(tag.TagId))
+            //    {
+            //        tag.LikeNum--;
+            //        likedTagId.Remove(tag.TagId);
+            //    }
+            //    else
+            //    {
+            //        tag.LikeNum++;
+            //        likedTagId.Add(tag.TagId);
+            //    }
+            //}
         }
     }
 }
