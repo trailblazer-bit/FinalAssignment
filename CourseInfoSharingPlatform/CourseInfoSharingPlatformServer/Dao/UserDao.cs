@@ -26,6 +26,7 @@ namespace EFDemo.Dao
             return user;
         }
 
+
         // 删除用户喜爱课程
         public static bool DeleteFavouriteCourse(string userName, string courseId)
         {
@@ -41,6 +42,16 @@ namespace EFDemo.Dao
             user.LikeCourses.Remove(course);
             context.SaveChanges();
             return true;
+        }
+
+        //查询用户是否收藏某课
+        public static bool IsLikedCourse(string courseId,string userName)
+        {
+            var course = context.Courses.FirstOrDefault(c => c.CourseId.Equals(courseId));
+            var user = context.Users.Include("LikeCourses")
+                .SingleOrDefault(u => u.UserName.Equals(userName));
+            if (user.LikeCourses.Contains(course)) return true;
+            return false;
         }
 
         // 添加用户喜爱课程

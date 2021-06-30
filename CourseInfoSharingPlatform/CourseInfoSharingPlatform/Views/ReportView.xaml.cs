@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,13 @@ namespace CourseInfoSharingPlatform.Views
     /// </summary>
     public partial class ReportView : Window
     {
-        public ReportView()
+        private Comment comment;
+        private Question question;
+        public ReportView(Comment c,Question q)
         {
             InitializeComponent();
+            this.comment = c;
+            this.question = q;
             TextBlock.SetLineHeight(this.reportReason, 18);
         }
 
@@ -33,7 +39,17 @@ namespace CourseInfoSharingPlatform.Views
 
         //关闭按钮
         private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {           
+            this.Close();
+        }
+
+        //提交举报评论
+        private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
+            string reason = this.reportReason.Text;
+            if (question == null)
+                CommentHttpClient.reportComment(comment.CommentId, reason);
+            else CommentHttpClient.reportQuestion(question.QuestionId, reason);
             this.Close();
         }
     }

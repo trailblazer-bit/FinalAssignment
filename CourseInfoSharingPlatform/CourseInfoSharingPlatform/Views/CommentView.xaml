@@ -58,7 +58,7 @@
                         <TextBlock Grid.Row="1" FontSize="13" LineHeight="22"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
                         <!--问题标签展示-->
-                        <ListBox Grid.Row="2" x:Name="questionTagList"  Style="{StaticResource MaterialDesignFilterChipOutlineListBox}" Margin="15,-5,0,5" >
+                        <ListBox Grid.Row="2" x:Name="questionTagListLB" PreviewMouseLeftButtonDown="questionTagLikeBtn_Click" Style="{StaticResource MaterialDesignFilterChipOutlineListBox}" Margin="15,-5,0,5" >
                             <!--<ListBoxItem FontSize="10" Content="{Binding Detail}">
                             </ListBoxItem>-->
                             <!--标签项模板-->
@@ -121,9 +121,9 @@
 
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
-                                            <CheckBox  Template="{StaticResource LikeBtnTemplate}"  Content="&#xe668;"  Margin="10,0,0,5">
+                                            <CheckBox  Template="{StaticResource LikeBtnTemplate}" Click="likeBtn_Click"  Content="&#xe668;"  Margin="10,0,0,5">
                                             </CheckBox>
-                                            <TextBlock Text="{Binding LikeNum,Converter={StaticResource commentLikeNum }}" Foreground="#006064" Margin="-5,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
+                                            <TextBlock Text="{Binding LikeNum,Converter={StaticResource commentLikeNum }}" Foreground="#006064" Margin="-3,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>
 
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
@@ -156,7 +156,7 @@
                                      AcceptsReturn="True" 
                                      TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
                                     materialDesign:HintAssist.Hint="输入你的回复"  BorderBrush="#cfd8dc" />
-                            <Button Margin="10"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
+                            <Button Margin="10"  Grid.Column="1" Click="commnetBtn_Click" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
                             <!--添加标签输入框-->
                             <Expander Grid.Row="1" Grid.ColumnSpan="2" x:Name="tagExpander" Margin="10,0,10,0" Background="#ffe0b2"  HorizontalAlignment="Stretch" Opacity="4.5">
                                 <Expander.Header>

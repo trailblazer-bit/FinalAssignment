@@ -25,61 +25,7 @@ namespace CourseInfoSharingPlatform.Views
         public ReportListView()
         {
             InitializeComponent();
-            questionsReport = new List<Question>()
-            {
-                new Question()
-                {
-                    Detail="这门课作业多吗?",
-                    RelatedUser=new User(){UserName="左嘉龙"},
-                    LikeNum=23,
-                    QuestionTags=new List<Tag>()
-                    {
-                        new Tag() { Detail = "作业多",LikeNum=24 },
-                        new Tag() { Detail = "作业不多",LikeNum=8 },
-                        new Tag() { Detail = "作业不",LikeNum=45 },
-                        new Tag() { Detail = "作不多",LikeNum=23 },
-                        new Tag() { Detail = "作多" ,LikeNum=21}
-                    }
-                },
-                new Question()
-                {
-                    Detail="这门课作业多吗?黄寺大街打开数据库就速度快放的萨克健康的骄傲的骄傲打卡机打卡机爱哭的就爱看大家啊看大家卡德加安康的骄傲肯德基ad",
-                    RelatedUser=new User(){UserName="左嘉龙"},
-                    LikeNum=12,
-                     QuestionTags=new List<Tag>()
-                    {
-                        new Tag() { Detail = "作业多",LikeNum=24 },
-                        new Tag() { Detail = "作业不多",LikeNum=8 },
-                        new Tag() { Detail = "作业不",LikeNum=45 },
-                        new Tag() { Detail = "作不多",LikeNum=23 },
-                        new Tag() { Detail = "作多" ,LikeNum=21}
-                    }
-                },
-                new Question()
-                {
-                    Detail="这门课作业多吗?黄寺大街打开数据库就速度快放的萨克健康的骄傲的骄傲打卡机打卡机爱哭的就爱看大家啊看大家卡德加安康的骄傲肯德基ad",
-                    RelatedUser=new User(){UserName="左嘉龙"},
-                    LikeNum=8,
-                    QuestionTags=new List<Tag>()
-                    {
-                        new Tag() { Detail = "作业多",LikeNum=24 },
-                        new Tag() { Detail = "作业不多",LikeNum=8 },
-                        new Tag() { Detail = "作业不",LikeNum=45 },
-                        new Tag() { Detail = "作不多",LikeNum=23 },
-                        new Tag() { Detail = "作多" ,LikeNum=21}
-                    }
-                }
-            };
-            commentsReport = new List<Comment>()
-            {
-                new Comment(){Detail="这门课作业多吗?成岑军军",LikeNum=23,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成绩岑长长岑长惆怅长岑长",LikeNum=12,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成绩岑长长岑长惆怅长岑长",LikeNum=12,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成岑军军",LikeNum=23,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成绩岑长长岑长惆怅长岑长",LikeNum=12,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成岑军军",LikeNum=23,RelatedUser=new User(){ UserName="左嘉龙"} },
-                new Comment(){Detail="这门课作业多吗?成绩岑长长岑长惆怅长岑长",LikeNum=12,RelatedUser=new User(){ UserName="左嘉龙"} }
-            };
+            
             this.commentReportList.ItemsSource = commentsReport;
             this.questionReportList.ItemsSource = questionsReport;
         }

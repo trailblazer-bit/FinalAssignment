@@ -9,7 +9,13 @@ namespace CourseInfoSharingPlatformServer.Service
 {
     //处理登录和注册、查看和修改个人信息，修改密码等和用户有关的操作
     public class UserService
-    {   
+    {
+        //查询用户是否收藏某课
+        public static bool IsLikedCourse(string courseId, string userName)
+        {
+            return UserDao.IsLikedCourse(courseId, userName);
+        }
+
         // 用户收藏课程
         public static bool AddFavouriteCourse(string courseId, string userName)
         {

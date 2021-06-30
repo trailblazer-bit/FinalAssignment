@@ -34,6 +34,16 @@ namespace CourseInfoSharingPlatformServer.Service
             }
             return true;
         }
+        //用户添加问题
+        public static bool AddQuestion(string detail,string userName,string courseId)
+        {
+            if (!CheckIfCommentValid(detail)) return false;
+            Question q = new Question();
+            q.Detail = detail;
+            q.RelatedUser = UserDao.SelectUserByUserName(userName);
+            q.RelatedCourse = CourseDao.SelectCourseById(courseId);
+            return QuestionDao.AddQuestion(q);
+        }
 
         // 添加问题回复（评论）
         public static bool AddComments(string comment, string userName, int questionId)
@@ -56,6 +66,30 @@ namespace CourseInfoSharingPlatformServer.Service
         public static bool ReportComment(int commentId, string reason)
         {
             return CommentDao.ReportComment(commentId, reason);
+        }
+
+        // 举报问题
+        public static bool ReportQuestion(int questionId, string reason)
+        {
+            return QuestionDao.ReportQuestion(questionId, reason);
+        }
+
+        // 根据id获取问题
+        public static Question GetQuestionById(int id)
+        {
+            return QuestionDao.SelectQuestionById(id);
+        }
+
+        // 根据id删除问题
+        public static bool DeleteQuestionById(int id)
+        {
+            return QuestionDao.DeleteQuestionById(id);
+        }
+
+        // 根据id删除评论
+        public static bool DeleteCommentById(int id)
+        {
+            return CommentDao.DeleteCommentById(id);
         }
     }
 }

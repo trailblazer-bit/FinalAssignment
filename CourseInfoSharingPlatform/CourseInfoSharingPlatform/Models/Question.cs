@@ -9,6 +9,7 @@ namespace CourseInfoSharingPlatform.Models
 {
     public class Question : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public int QuestionId { get; set; }
         private int likeNum;
         public int LikeNum
@@ -21,7 +22,7 @@ namespace CourseInfoSharingPlatform.Models
                     this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("LikeNum"));
             }
         }
-        //public int LikeNum { get; set; }
+
         public string Detail { get; set; }
         public bool IsReported { get; set; }
         public string Reason { get; set; }
@@ -30,6 +31,5 @@ namespace CourseInfoSharingPlatform.Models
         public User RelatedUser { get; set; }
         public List<Comment> CommentList { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

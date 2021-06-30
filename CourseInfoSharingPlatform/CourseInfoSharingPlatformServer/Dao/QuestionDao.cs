@@ -24,16 +24,21 @@ namespace EFDemo.Dao
             return true;
         }
 
-        // 删除问题（并且级联删除Tag）
+        // 删除问题（并且级联删除Tag和Comment）
         public static bool DeleteQuestionById(int id)
         {
-            var q = context.Questions.Include(q => q.QuestionTags)
+            var q = context.Questions.Include(q => q.QuestionTags).Include(q => q.CommentList)
                 .FirstOrDefault(q => q.QuestionId.Equals(id));
             if (q == null) return false;
 
             for (int i = 0; i < q.QuestionTags.Count; i++)
             {
                 TagDao.RemoveTagById(q.QuestionTags[i].TagId);
+            }
+
+            for (int i = 0; i < q.CommentList.Count; i++)
+            {
+                CommentDao.DeleteCommentById(q.CommentList[i].CommentId);
             }
 
             context.Questions.Remove(q);
@@ -51,7 +56,8 @@ namespace EFDemo.Dao
         public static Question SelectQuestionById(int id)
         {
             return context.Questions
-                .Include(q => q.QuestionTags).Include(q => q.RelatedCourse).Include(q => q.RelatedUser)
+                .Include(q => q.QuestionTags).Include(q => q.RelatedCourse)
+                .Include(q => q.RelatedUser).Include(q => q.CommentList).ThenInclude(r=>r.RelatedUser)
                .SingleOrDefault(q => q.QuestionId.Equals(id));
         }
 
@@ -60,6 +66,16 @@ namespace EFDemo.Dao
             var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(id));
             if (q == null) return false;
             q.LikeNum++;
+            context.SaveChanges();
+            return true;
+        }
+
+        public static bool ReportQuestion(int questionId, string reason)
+        {
+            var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(questionId));
+            if (q == null) return false;
+            q.IsReported = true;
+            q.Reason = reason;
             context.SaveChanges();
             return true;
         }

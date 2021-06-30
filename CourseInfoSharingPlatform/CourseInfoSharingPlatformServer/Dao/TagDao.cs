@@ -25,30 +25,16 @@ namespace EFDemo.Dao
         // 添加标签（id可以不指定）
         public static bool AddTag(Tag tag)
         {
-            if (QuestionDao.SelectQuestionById(tag.RelatedQuestion.QuestionId) == null)
-            {
-                Console.WriteLine("不存在相应的问题");
+            if (QuestionDao.SelectQuestionById(tag.RelatedQuestion.QuestionId) == null) 
                 return false;
-            }
-
-
-            /*var t = context.Tags.SingleOrDefault(t => t.TagId.Equals(tag.TagId));
-            if (tag != null)
-            {
-                Console.WriteLine("已存在相应的标签");
-                return false;
-            }*/
-
             context.Tags.Add(tag);
             var flag = context.SaveChanges();
-            Console.WriteLine(flag);
             return flag >= 1;
         }
 
         // 更新标签
         public static bool UpdateTag(Tag tag)
         {
-
             bool flag1 = RemoveTagById(tag.TagId);
             if (!flag1) return false;
 

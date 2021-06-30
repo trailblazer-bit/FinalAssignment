@@ -22,6 +22,7 @@ namespace CourseInfoSharingPlatformServer.Service
             return true;
         }
 
+        //用户添加标签
         public static bool AddTag(string detail, int questionId)
         {
             if (!CheckIfTagValid(detail)) return false;
