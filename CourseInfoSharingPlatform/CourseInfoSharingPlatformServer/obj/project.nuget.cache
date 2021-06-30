@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7WqwDqfwtHvZ++XZ4M1SgoUWl0GBgNQTPvcXuOkWop1MrrJeLaggkYIsrCy4jsgWjW7IrEDr9nGm7V8+aYpDvA==",
+  "dgSpecHash": "SWHfmjXRABX7PDsyh+0LuoOBmJTYxFEEr9IyRd625SV3x8VNhNEfggmmGkzjA9w2+jx8Jdj60FV7boA0drr2tQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gao\\Desktop\\大作业\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+  "projectFilePath": "C:\\Users\\Gao\\Desktop\\demo\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gao\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Gao\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",

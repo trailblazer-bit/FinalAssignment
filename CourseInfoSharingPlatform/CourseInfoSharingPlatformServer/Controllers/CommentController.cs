@@ -48,30 +48,33 @@ namespace CourseInfoSharingPlatformServer.Controllers
             return CommentService.ReportComment(commentId, reason);
         }
 
-<<<<<<< HEAD
         //添加问题
         [HttpGet("addQuestion")]
-        public ActionResult<bool> AddQuestion(string detail,string userName,string courseId)
+        public ActionResult<bool> AddQuestion(string detail, string userName, string courseId)
         {
-            return CommentService.AddQuestion(detail,userName,courseId);
-=======
+            return CommentService.AddQuestion(detail, userName, courseId);
+
+        }
+
+        // 根据id获取问题
         [HttpGet("getQuestionById")]
         public ActionResult<Question> GetQuestionById(int id)
         {
             return CommentService.GetQuestionById(id);
         }
 
+        // 根绝id删除问题
         [HttpGet("deleteQuestionById")]
         public ActionResult<bool> DeleteQuestionById(int id)
         {
             return CommentService.DeleteQuestionById(id);
         }
 
+        // 根据id删除评论
         [HttpGet("deleteCommentById")]
         public ActionResult<bool> DeleteCommentById(int id)
         {
             return CommentService.DeleteCommentById(id);
->>>>>>> a4e883449187eb7d10848dd9a3e4bd6b23b5ed52
         }
     }
 }
