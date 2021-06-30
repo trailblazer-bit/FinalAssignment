@@ -69,5 +69,15 @@ namespace EFDemo.Dao
             context.SaveChanges();
             return true;
         }
+
+        public static bool ReportQuestion(int questionId, string reason)
+        {
+            var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(questionId));
+            if (q == null) return false;
+            q.IsReported = true;
+            q.Reason = reason;
+            context.SaveChanges();
+            return true;
+        }
     }
 }

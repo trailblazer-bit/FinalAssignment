@@ -48,6 +48,13 @@ namespace CourseInfoSharingPlatformServer.Controllers
             return CommentService.ReportComment(commentId, reason);
         }
 
+        // 举报问题
+        [HttpGet("reportQuestion")]
+        public ActionResult<bool> reportQuestion(int questionId, string reason)
+        {
+            return CommentService.ReportQuestion(questionId, reason);
+        }
+
         //添加问题
         [HttpGet("addQuestion")]
         public ActionResult<bool> AddQuestion(string detail, string userName, string courseId)

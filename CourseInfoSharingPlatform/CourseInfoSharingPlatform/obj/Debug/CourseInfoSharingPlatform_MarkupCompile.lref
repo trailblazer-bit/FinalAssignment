@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminAddCourse.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminManagement.xaml;;
@@ -12,4 +13,19 @@ FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoShari
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\QueryCourseView.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuMainPage.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuCourseCollection.xaml;;
+=======
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminAddCourse.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminManagement.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminModifyCourse.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminPage.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\ButtonStyle.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CommentView.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CourseDetailedInfoView.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\loginPage.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\LogonPage.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\QueryCourseView.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuMainPage.xaml;;
+FC:\Users\Gao\Desktop\demo2\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuCourseCollection.xaml;;
+>>>>>>> 139d05e3bb8bbdbbd8f50bed65526ef0206b60f1
 

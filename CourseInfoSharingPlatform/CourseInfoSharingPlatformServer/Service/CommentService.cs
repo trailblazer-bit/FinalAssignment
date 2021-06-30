@@ -68,6 +68,12 @@ namespace CourseInfoSharingPlatformServer.Service
             return CommentDao.ReportComment(commentId, reason);
         }
 
+        // 举报问题
+        public static bool ReportQuestion(int questionId, string reason)
+        {
+            return QuestionDao.ReportQuestion(questionId, reason);
+        }
+
         // 根据id获取问题
         public static Question GetQuestionById(int id)
         {
