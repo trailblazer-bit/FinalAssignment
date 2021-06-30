@@ -31,6 +31,10 @@ namespace CourseInfoSharingPlatform.Views
             InitializeComponent();
             
             this.Question = question;
+            Init();
+        }
+        private void Init()
+        {
             this.questionBorder.DataContext = Question;
             this.questionTagListLB.ItemsSource = Question.QuestionTags;
             this.commentsList.ItemsSource = Question.CommentList;
@@ -82,9 +86,13 @@ namespace CourseInfoSharingPlatform.Views
         //添加标签
         private void addTagBtn_Click(object sender, RoutedEventArgs e)
         {
+            string tagComment = this.addTagTB.Text;
             //清空输入框内容，下拉框折叠
             this.addTagTB.Text = null;
             this.tagExpander.IsExpanded = false;
+            TagHttpClient.AddTag(tagComment, this.Question.QuestionId);
+            this.Question = CommentHttpClient.GetQuestionById(this.Question.QuestionId);
+            Init();
         }
 
         //发布回复
@@ -95,7 +103,8 @@ namespace CourseInfoSharingPlatform.Views
             this.commentArea.Text = null;
             //更新回复区,重新查一次该问题
             CommentHttpClient.AddComments(comment, user.UserName, Question.QuestionId);
-
+            this.Question = CommentHttpClient.GetQuestionById(Question.QuestionId);
+            Init();
         }
 
         //回复点赞

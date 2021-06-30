@@ -57,7 +57,7 @@ namespace EFDemo.Dao
         {
             return context.Questions
                 .Include(q => q.QuestionTags).Include(q => q.RelatedCourse)
-                .Include(q => q.RelatedUser).Include(q => q.CommentList)
+                .Include(q => q.RelatedUser).Include(q => q.CommentList).ThenInclude(r=>r.RelatedUser)
                .SingleOrDefault(q => q.QuestionId.Equals(id));
         }
 

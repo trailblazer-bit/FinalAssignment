@@ -74,5 +74,15 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             return bool.Parse(result);
         }
+        //根据id获取问题
+        public static Question GetQuestionById(int id)
+        {
+            string url = baseUrl + "/getQuestionById";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("id", id.ToString());
+            var result = ClientHttp.GET(url, d);
+            Question q = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Question)) as Question;
+            return q;
+        }
     }
 }

@@ -24,5 +24,15 @@ namespace CourseInfoSharingPlatform.ClientHttp
             Dictionary<string, string> d = new Dictionary<string, string>();
             ClientHttp.GET(url, d);
         }
+        //添加标签
+        public static bool AddTag(string detail, int questionId)
+        {
+            string url = baseUrl + "/addTag";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("detail", detail);
+            d.Add("questionId", questionId.ToString());           
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
     }
 }
