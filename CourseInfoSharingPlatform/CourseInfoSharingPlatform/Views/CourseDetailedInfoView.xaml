@@ -108,7 +108,7 @@
                         <ItemsControl ItemsSource="{Binding tags,Converter={StaticResource sortQuestionTags}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal" Margin="15,0,0,15"/>
+                                    <StackPanel Orientation="Horizontal" Margin="5,0,0,15"/>
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
