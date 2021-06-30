@@ -63,6 +63,17 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             return bool.Parse(result);
         }
+        // 举报问题
+        public bool reportQuestion(int questionId, string reason)
+        {
+            string url = baseUrl + "/reportQuestion";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("questionId",questionId.ToString());
+            d.Add("reason", reason);
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
+
         //添加回复
         public  static bool AddComments(string comment, string userName, int questionId)
         {

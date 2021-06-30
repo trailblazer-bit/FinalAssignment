@@ -98,6 +98,7 @@ namespace CourseInfoSharingPlatform.Views
         private void commnetBtn_Click(object sender, RoutedEventArgs e)
         {
             string comment = this.commentArea.Text;
+            if (comment == null) return;
             //清空回复填写区
             this.commentArea.Text = null;
             //更新回复区,重新查一次该问题

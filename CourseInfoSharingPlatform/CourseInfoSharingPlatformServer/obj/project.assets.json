@@ -5564,33 +5564,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gao\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\86158\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "projectName": "CourseInfoSharingPlatformServer",
       "projectPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "packagesPath": "C:\\Users\\86158\\.nuget\\packages\\",
       "outputPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Gao\\Desktop\\demo2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-      "projectName": "CourseInfoSharingPlatformServer",
-      "projectPath": "C:\\Users\\Gao\\Desktop\\demo2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-      "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gao\\Desktop\\demo2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
->>>>>>> 139d05e3bb8bbdbbd8f50bed65526ef0206b60f1
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gao\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\86158\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5652,6 +5639,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.13, 3.1.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5660,7 +5653,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -5669,11 +5662,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "读取缓存文件 D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "读取缓存文件 C:\\Users\\Gao\\Desktop\\demo2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 139d05e3bb8bbdbbd8f50bed65526ef0206b60f1
     }
   ]
 }

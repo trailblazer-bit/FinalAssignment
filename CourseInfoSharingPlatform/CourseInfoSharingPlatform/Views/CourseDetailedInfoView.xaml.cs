@@ -140,6 +140,7 @@ namespace CourseInfoSharingPlatform.Views
         private void askQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
             string detail = this.commentArea.Text;
+            if (detail == null) return;
             CommentHttpClient.AddQuestion(detail,user.UserName,Course.CourseId);
             //清空问题填写区
             this.commentArea.Text = null;
