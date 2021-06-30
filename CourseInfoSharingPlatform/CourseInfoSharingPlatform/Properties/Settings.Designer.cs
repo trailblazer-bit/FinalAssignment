@@ -22,5 +22,44 @@ namespace CourseInfoSharingPlatform.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44386/api/user")]
+        public string baseUrl {
+            get {
+                return ((string)(this["baseUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/stu")]
+        public string stuUrl {
+            get {
+                return ((string)(this["stuUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/admin")]
+        public string adminUrl {
+            get {
+                return ((string)(this["adminUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/course")]
+        public string courseUrl {
+            get {
+                return ((string)(this["courseUrl"]));
+            }
+            set {
+                this["courseUrl"] = value;
+            }
+        }
     }
 }

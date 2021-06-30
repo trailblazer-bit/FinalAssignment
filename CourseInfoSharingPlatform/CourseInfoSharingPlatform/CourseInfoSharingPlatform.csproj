@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +37,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CourseInfoSharingPlatform.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
@@ -115,6 +120,12 @@
     <Compile Include="Views\ReportView.xaml.cs">
       <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SelfMainPage.xaml.cs">
+      <DependentUpon>SelfMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\studMain.xaml.cs">
+      <DependentUpon>studMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StuMainPage.xaml.cs">
       <DependentUpon>StuMainPage.xaml</DependentUpon>
     </Compile>
@@ -175,6 +186,14 @@
     <Page Include="Views\ReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelfMainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\studMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StuMainPage.xaml">
       <Generator>MSBuild:Compile</Generator>

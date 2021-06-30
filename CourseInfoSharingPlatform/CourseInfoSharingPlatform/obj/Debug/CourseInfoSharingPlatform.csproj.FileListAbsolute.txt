@@ -25,7 +25,6 @@ C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoShari
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignColors.pdb
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\loginPage.g.cs
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\App.g.cs
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform_MarkupCompile.cache
@@ -225,3 +224,11 @@ C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatfo
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csproj.CopyComplete
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.exe
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.pdb
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ReportListView.baml
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ReportListView.g.cs
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.g.cs
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\Newtonsoft.Json.dll
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\Newtonsoft.Json.xml
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ButtonStyle.baml
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.baml
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache

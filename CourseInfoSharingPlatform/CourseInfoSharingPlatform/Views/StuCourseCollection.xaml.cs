@@ -15,11 +15,11 @@ using CourseInfoSharingPlatform.Models;
 namespace CourseInfoSharingPlatform.Views
 {
     /// <summary>
-    /// Window1.xaml 的交互逻辑
+    /// StuCourseCollection.xaml 的交互逻辑
     /// </summary>
-    public partial class Window1 : Window
+    public partial class StuCourseCollection : Window
     {
-        public Window1()
+        public StuCourseCollection()
         {
             InitializeComponent();
             InitializeCourseList();

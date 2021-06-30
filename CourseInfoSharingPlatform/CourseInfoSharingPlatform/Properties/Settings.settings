@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CourseInfoSharingPlatform.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="baseUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44386/api/user</Value>
+    </Setting>
+    <Setting Name="stuUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/stu</Value>
+    </Setting>
+    <Setting Name="adminUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/admin</Value>
+    </Setting>
+    <Setting Name="courseUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/course</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
