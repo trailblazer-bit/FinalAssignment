@@ -24,19 +24,34 @@ namespace CourseInfoSharingPlatform.Views
         public Course Course { get; set; }
         private User user = new User { UserName = "whuanle" };
         private List<int> likedQuestionId = new List<int>();
-        //private List<Question> tempQuestionList=new List<Question>();
+
         public CourseDetailedInfoView(Course c)
         {
             InitializeComponent();
-
             this.courseGrid.DataContext = c;
             this.Course = c;
-            //this.courseGrid.DataContext = course;
-            //Course c = CourseHttpClient.GetCourseById("20202057459");
+            Init();
             //this.courseGrid.DataContext = Course;
+        }
 
-            //Console.WriteLine(c.BookName);
-            //Console.WriteLine(c.CourseId);
+        //窗口初始化
+        private  void Init()
+        {
+            //用户收藏按钮
+            if(UserHttpClient.IsLikedCourse(Course.CourseId,user.UserName))
+            {
+                this.collectBtn.IsEnabled = false;
+                this.collectBtn.Content = "已收藏";
+                this.collectBtn.Opacity = .4;
+            }
+            //获取用户评分
+            int score = UserHttpClient.GetScore(Course.CourseId, user.UserName);
+            if(score!=0)
+            {
+                this.userRatingBar.Value = score;
+                this.userRatingBar.IsEnabled = false;
+                this.userRatingBar.Opacity = 1;
+            }
         }
 
         //整个窗口移动按钮
@@ -72,6 +87,8 @@ namespace CourseInfoSharingPlatform.Views
             //传具体的问题对象
             //this.Visibility = Visibility.Hidden;
             commentView.ShowDialog();
+            //重新查一次相应的课程
+            this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
             //this.Visibility = Visibility.Visible;
         }
 
@@ -81,31 +98,29 @@ namespace CourseInfoSharingPlatform.Views
             CheckBox btn = e.OriginalSource as CheckBox;
             Question q = btn.DataContext as Question;
             if (btn.IsChecked == false || btn.IsChecked == null)
+            {
                 q.LikeNum--;
+                this.likedQuestionId.Remove(q.QuestionId);
+            }
             else
+            {
                 q.LikeNum++;
+                this.likedQuestionId.Add(q.QuestionId);
+            }
         }
 
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<CheckBox> cbs=this.questionItems.FindName("likeNumCB") as List<CheckBox>;
-            foreach (var item in cbs)
-            {
-                if(item.IsChecked==true)
-                {
-                    Question q = item.DataContext as Question;
-                    likedQuestionId.Add(q.QuestionId);
-                }
-            }
+            //先将当前页面的点赞的问题处理
             CommentHttpClient.AddLikeNumToQuestion(likedQuestionId);
+            //处理用户的评分
+            int score = this.userRatingBar.Value;
+            if (score != 0&&this.userRatingBar.IsEnabled)
+            {
+                UserHttpClient.AddScore(Course.CourseId, user.UserName, score);
+            }
             this.Close();
-        }
-
-        //用户开始评分
-        private void userRate_Click(object sender, MouseButtonEventArgs e)
-        {
-            Console.WriteLine(this.userRate.Value); 
         }
 
         //用户收藏按钮
@@ -113,7 +128,18 @@ namespace CourseInfoSharingPlatform.Views
         {
             //获取用户名和课程id
             bool succeed = UserHttpClient.AddFavoriteCourse(Course.CourseId, user.UserName);
-            Console.WriteLine(succeed);
+            this.collectBtn.IsEnabled = false;
+            this.collectBtn.Content = "已收藏";
+            this.collectBtn.Opacity = .4;
+        }
+
+        //提出问题
+        private void askQuestionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //清空问题填写区
+            this.commentArea.Text = null;
+            //展示更新后的问题
+
         }
     }
 }

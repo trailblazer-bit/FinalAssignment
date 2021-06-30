@@ -142,15 +142,15 @@
                     <!--课程评价-->
                     <StackPanel Grid.Row="5" Orientation="Horizontal">
                         <TextBlock Text="评价: " Margin="20,10,0,0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" FontSize="18" VerticalAlignment="Top" />
-                        <materialDesign:RatingBar  x:Name="userRate" MouseDoubleClick="userRate_Click" Value="0" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="#ff8f00"/>
-                        <StackPanel  Margin="30,0,0,0">
+                        <materialDesign:RatingBar  x:Name="userRatingBar"   Value="0" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="#ff8f00"/>
+                        <!--<StackPanel  Margin="30,0,0,0">
                             <ProgressBar Height="5" Width="100"  Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="10" HorizontalAlignment="Left" Background="#ffa000"  Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="40" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="30" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
                             <ProgressBar Height="5" Width="20" HorizontalAlignment="Left" Background="#ffa000" Margin="0,2,0,2"/>
-                        </StackPanel>
-                        <Button  Margin="240,5,0,4"  Click="collectBtn_Click" Content="收藏" Opacity="1" Background="#ff5722" BorderBrush="#ff5722">
+                        </StackPanel>-->
+                        <Button  Margin="350,5,0,4" x:Name="collectBtn"  Click="collectBtn_Click" Content="收藏"  Background="#ff5722" BorderBrush="#ff5722">
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -267,11 +267,11 @@
                                 <ColumnDefinition Width="8*"/>
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="commentArea" Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            <TextBox x:Name="commentArea"  Grid.Column="0" Margin="10" Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                      AcceptsReturn="True" 
                                      TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
                                     materialDesign:HintAssist.Hint="输入你的问题" BorderBrush="#cfd8dc" />
-                            <Button Margin="20"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
+                            <Button Margin="20" Click="askQuestionBtn_Click"  Grid.Column="1" BorderBrush="#2962ff" Background="#2962ff" Content="发布"/>
                         </Grid>
                     </Border>
                 </Border>

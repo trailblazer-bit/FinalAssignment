@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatformServer.Service;
+﻿using CourseInfoSharingPlatformServer.Dao;
+using CourseInfoSharingPlatformServer.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,14 @@ namespace CourseInfoSharingPlatformServer.Controllers
     [Route("api/[controller]")]
     public class TagController
     {
+        private Context context;
+
+        public TagController(Context context)
+        {
+            this.context = context;
+            ContextUtil.Context = context;
+        }
+        //给指定的标签点赞
         [HttpGet("addLikeNumToTags")]
         public ActionResult<bool> AddLikeNumToTags(string ids)
         {

@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatformServer.Service;
+﻿using CourseInfoSharingPlatformServer.Dao;
+using CourseInfoSharingPlatformServer.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,20 @@ namespace CourseInfoSharingPlatformServer.Controllers
     [Route("api/[controller]")]
     public class UserController
     {
+        private Context context;
+
+        public UserController(Context context)
+        {
+            this.context = context;
+            ContextUtil.Context = context;
+        }
+        //查询用户是否收藏课程
+        [HttpGet("isLikedCourse")]
+        public ActionResult<bool> IsLikedCourse(string courseId,string userName)
+        {
+            return UserService.IsLikedCourse(courseId, userName);
+        }
+
         // 用户收藏课程
         [HttpGet("addLikeCourse")]
         public ActionResult<bool> AddLikeCourse(string courseId, string userName)

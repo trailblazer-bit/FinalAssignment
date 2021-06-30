@@ -27,7 +27,7 @@ namespace CourseInfoSharingPlatformServer.Service
                 }
             }
 
-            tempTagsList = tempTagsList.OrderBy(t => t.LikeNum).ToList();
+            tempTagsList = tempTagsList.OrderByDescending(t => t.LikeNum).ToList();
 
             for (int i = 0; i < n && i < tempTagsList.Count; i++)
             {
@@ -63,9 +63,6 @@ namespace CourseInfoSharingPlatformServer.Service
             return question;
         }
 
-
-
-
         // 根据课程id查询课程
         public static Course GetCourseById(string id)
         {
@@ -74,9 +71,6 @@ namespace CourseInfoSharingPlatformServer.Service
             SetCourseScore(course);
             return course;
         }
-
-
-
 
         //默认按照分数查询所有的课程
         public static List<Course> GetAllCourse(int startIndex, int pageSize)

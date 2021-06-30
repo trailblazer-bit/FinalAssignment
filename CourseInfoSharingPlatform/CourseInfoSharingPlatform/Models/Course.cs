@@ -12,19 +12,7 @@ namespace CourseInfoSharingPlatform.Models
         public event PropertyChangedEventHandler PropertyChanged; 
 
         public string CourseId { get; set; }
-
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
-                if (this.PropertyChanged != null)
-                    this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Name"));
-            }
-        }
+        public string Name { get; set; }
         public string Type { get; set; }
         public string TeacherName { get; set; }
         public string Department { get; set; }

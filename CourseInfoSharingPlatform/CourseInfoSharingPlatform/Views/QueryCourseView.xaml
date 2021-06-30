@@ -26,7 +26,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontWeight="Black" Width="400" FontSize="21" Margin="20 0 0 0" VerticalAlignment="Center" />
-                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Width="80" Margin="50,0,0,0"  FontSize="19" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Width="80" Margin="50,0,0,0" Foreground="#ff3d00"  FontSize="19" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button HorizontalAlignment="Right" Background="#5c6bc0" BorderBrush="#5c6bc0"  Margin="10" VerticalAlignment="Bottom" Click="specificCourseBtn_Click" Grid.Row="1" Grid.RowSpan="2" >
                         详情

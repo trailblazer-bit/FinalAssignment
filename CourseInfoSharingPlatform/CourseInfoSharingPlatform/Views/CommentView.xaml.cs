@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatform.Models;
+﻿using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,33 +23,15 @@ namespace CourseInfoSharingPlatform.Views
     {
         //private List<Comment> comments;
         private Question Question { get; set; }
+        private List<int> likedCommentId = new List<int>();
+        private List<int> likedTagId = new List<int>();
         public CommentView(Question question)
         {
             InitializeComponent();
-            //comments = new List<Comment>()
-            //{
-            //    new Comment(){Detail="这门课作业多吗?成岑军军",LikeNum=23,RelatedUser=new User(){ UserName="左嘉龙"} },
-            //    new Comment(){Detail="这门课作业多吗?成绩岑长长岑长惆怅长岑长",LikeNum=12,RelatedUser=new User(){ UserName="左嘉龙"} },
-            //    new Comment(){Detail="这门课作业多吗?成绩出惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长惆怅长岑长111促进经济错军军军军军军军军军军军军军军军军军军军军军军",LikeNum=231,RelatedUser=new User(){ UserName="左嘉龙"} }
-            //};
-
-            //question = new Question()
-            //{
-            //    Detail = "这门课作业多吗?黄寺大街打开数据库就速度快放的萨克健康的骄傲的骄傲打卡机打卡机爱哭的就爱看大家啊看大家卡德加安康的骄傲肯德基ad",
-            //    RelatedUser = new User() { UserName = "左嘉龙" },
-            //    LikeNum = 12,
-            //    QuestionTags = new List<Tag>()
-            //            {
-            //                new Tag() { Detail = "作业多",LikeNum=24 },
-            //                new Tag() { Detail = "作业不多",LikeNum=8 },
-            //                new Tag() { Detail = "作业不",LikeNum=45 },
-            //                new Tag() { Detail = "作不多",LikeNum=23 },
-            //                new Tag() { Detail = "作多" ,LikeNum=21}
-            //            }
-            //};
+            
             this.Question = question;
             this.questionBorder.DataContext = Question;
-            this.questionTagList.ItemsSource = Question.QuestionTags;
+            this.questionTagListLB.ItemsSource = Question.QuestionTags;
             this.commentsList.ItemsSource = Question.CommentList;
             this.anwserNumTB.DataContext = Question;
         }
@@ -60,16 +43,32 @@ namespace CourseInfoSharingPlatform.Views
                 this.DragMove();
         }
 
+        //关闭界面
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
+            //将界面中被点赞的回复,状态字段更新
+            CommentHttpClient.AddLikeNumToComments(likedCommentId);
+            //将界面中被点赞的标签，状态字段更新
+            var items = this.questionTagListLB.SelectedItems;
+            if (items != null)
+            {
+                foreach (var item in items)
+                {
+                    Tag tag = item as Tag;
+                    likedTagId.Add(tag.TagId);
+                }
+            }
+            TagHttpClient.AddLikeNumToTags(likedTagId);           
             this.Close();
         }
 
+        //回复按钮
         private void answerBtn_Click(object sender, RoutedEventArgs e)
         {
             this.scrollViewer.ScrollToVerticalOffset(scrollViewer.ActualHeight);
         }
 
+        //举报评论
         private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
             ReportView view = new ReportView();
@@ -77,11 +76,58 @@ namespace CourseInfoSharingPlatform.Views
             view.ShowDialog();
         }
 
+        //添加标签
         private void addTagBtn_Click(object sender, RoutedEventArgs e)
         {
             //清空输入框内容，下拉框折叠
             this.addTagTB.Text = null;
             this.tagExpander.IsExpanded = false;
+        }
+
+        //发布回复
+        private void commnetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //清空回复填写区
+            this.commentArea.Text = null;
+            //更新回复区,重新查一次该问题
+
+        }
+
+        //回复点赞
+        private void likeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox btn = e.OriginalSource as CheckBox;
+            Comment c = btn.DataContext as Comment;
+            if (btn.IsChecked == false || btn.IsChecked == null)
+            {
+                c.LikeNum--;
+                this.likedCommentId.Remove(c.CommentId);
+            }
+            else
+            {
+                c.LikeNum++;
+                this.likedCommentId.Add(c.CommentId);
+            }
+        }
+
+        //问题标签被点赞
+        private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
+        {
+            var tb = e.OriginalSource as TextBlock;
+            Tag tag = tb.DataContext as Tag;
+            if (tag != null)
+            {
+                if (likedTagId.Contains(tag.TagId))
+                {
+                    likedTagId.Remove(tag.TagId);
+                    tag.LikeNum--;
+                }
+                else
+                {
+                    likedTagId.Add(tag.TagId);
+                    tag.LikeNum++;
+                }
+            }
         }
     }
 }
