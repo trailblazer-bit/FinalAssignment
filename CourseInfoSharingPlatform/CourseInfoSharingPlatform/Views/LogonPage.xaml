@@ -14,16 +14,26 @@
                 <GradientStop Color="#FF91A6EF" Offset="0.699"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button  Content="注册" HorizontalAlignment="Center" Margin="362.667,322.333,345.666,53.334" VerticalAlignment="Center" Width="85" FontSize="18" Height="45"/>
+        <Button x:Name="LogonBtn" Content="注册" HorizontalAlignment="Center" Margin="362.667,322.333,345.666,53.334" VerticalAlignment="Center" Width="85" FontSize="18" Height="45" Click="LogonBtn_Click"/>
         <TextBox x:Name="UserNameInput" HorizontalAlignment="Center" Margin="426.906,158,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
         <TextBox x:Name="UserPwdInput" HorizontalAlignment="Center" Margin="426.906,212.053,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
-        <Label Content="注册" HorizontalAlignment="Center" Margin="362.666,76.333,362.666,0" VerticalAlignment="Top" RenderTransformOrigin="-3.424,0.76" FontSize="30" FontWeight="Bold"/>
-        <Label Content="用户名" HorizontalAlignment="Center" Margin="257.444,158,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
+        <Label Content="注册" HorizontalAlignment="Center" Margin="363,76,345.333,0" VerticalAlignment="Top" RenderTransformOrigin="-3.424,0.76" FontSize="30" FontWeight="Bold" Width="85"/>
+        <Label Content="用户名" HorizontalAlignment="Center" Margin="257,158,447.333,0" VerticalAlignment="Top" FontSize="18" Width="89" FontWeight="Bold"/>
         <Label Content="密码" HorizontalAlignment="Center" Margin="257.444,210.513,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
         <Label Content="用户类型" HorizontalAlignment="Center" Margin="257.444,262.846,446.987,0" VerticalAlignment="Top" RenderTransformOrigin="1.228,0.77" FontSize="18" Width="88.902" FontWeight="Bold"/>
         <ComboBox x:Name="UserTypeCombobox" HorizontalAlignment="Center" Margin="426.906,266.386,255.118,0" VerticalAlignment="Top" Width="111.309" FontWeight="Bold" FontSize="16" Padding="5,3" Grid.IsSharedSizeScope="True">
             <ComboBoxItem Content="管理员" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <ComboBoxItem Content="学生" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </ComboBox>
+        <Label x:Name="warning" HorizontalAlignment="Left" Margin="537,330,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="139" FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.279"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>

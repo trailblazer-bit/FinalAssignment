@@ -19,5 +19,19 @@ namespace EFDemo.Dao
             if (admin == null) return null;
             else return admin;
         }
+        // Admin进行密码更改
+        public static bool UpdateUserPassword(string name, string pwd)
+        {
+            var context = ContextUtil.Context;
+            var queryUser = context.Admins.SingleOrDefault(u => u.AdminName.Equals(name));
+            if (queryUser == null) return false;
+
+            queryUser.Password = pwd;
+
+            int flag = context.SaveChanges();
+            if (flag == 1) return true;
+            return false;
+
+        }
     }
 }

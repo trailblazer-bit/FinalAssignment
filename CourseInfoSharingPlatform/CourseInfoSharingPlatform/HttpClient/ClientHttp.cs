@@ -46,6 +46,46 @@ namespace CourseInfoSharingPlatform.ClientHttp
                 return true;
             return false;
         }
+        public static async Task<string> GetUser(string url)
+        {
+            using (HttpResponseMessage response = await GetInstance().GetAsync(url))
+            {
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync();
+            }
+        }
+        public static async Task<bool> PutUser(string url,string info)
+        {
+            StringContent content = new StringContent(info);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
+            using (HttpResponseMessage response = await GetInstance().PutAsync(url, content))
+            {
+                response.EnsureSuccessStatusCode();
+                return response.StatusCode == HttpStatusCode.OK;
+            }
+        }
+        public static async Task<bool> PostUser(string url, string info)
+        {
+            StringContent content = new StringContent(info);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            using (HttpResponseMessage response = await GetInstance().PostAsync(url, content))
+            {
+                response.EnsureSuccessStatusCode();
+                return response.StatusCode == HttpStatusCode.OK;
+            }
+        }
+        public static async Task<bool> DeleteUser(string url)
+        {
+            //StringContent content = new StringContent(info);
+            //content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            using (HttpResponseMessage response = await GetInstance().DeleteAsync(url))
+            {
+                response.EnsureSuccessStatusCode();
+                return response.StatusCode == HttpStatusCode.OK;
+            }
+        }
     }
 }

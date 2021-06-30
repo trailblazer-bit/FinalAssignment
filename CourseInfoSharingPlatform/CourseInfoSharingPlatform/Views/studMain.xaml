@@ -1,0 +1,100 @@
+﻿<Window x:Class="CourseInfoSharingPlatform.Views.UserMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views"
+        mc:Ignorable="d"
+        Title="管理员主界面" Height="550" Width="600" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+
+    <Window.Resources>
+        <!--回复按钮模板-->
+        <!--<ControlTemplate TargetType="Button" x:Key="CommentBtnTemplate">
+            <Border Background="Transparent" BorderBrush="Transparent">
+                <TextBlock Text="{Binding Content,RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor}}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                            FontSize="20"  Foreground="#aec4c7"
+                           FontFamily="../Resources/Fonts/#iconfont" Name="tb"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="tb" Property="Foreground" Value="#b71c1c"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="tb" Property="Foreground" Value="#aec4c7"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>-->
+    </Window.Resources>
+    
+    <Border Margin="5" Background="White" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0" BlurRadius="5"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--上半部分-->
+            <Border Grid.Row="0" Background="#007DFA" Height="150" VerticalAlignment="Top" CornerRadius="10,10,0,0">
+                <Grid Margin="30,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/CourseInfoSharingPlatform;component/Resources/Images/搜索.png"/>
+                        <TextBlock Margin="10,10,0,0" Foreground="White" VerticalAlignment="Center" Text="课程信息分享平台" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" 
+                                Margin="40,20,40,60" Grid.RowSpan="2" Width="150">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Menu HorizontalAlignment="Right" Height="50" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Background="#00F0F0F0"  >
+                                
+                                <MenuItem  Height="50" Width="50" FontFamily="Microsoft YaHei UI" RenderTransformOrigin="1.487,0.782" >
+                                    <MenuItem.Background>
+                                        <ImageBrush ImageSource="/CourseInfoSharingPlatform;component/Resources/Images/搜索.png" Stretch="Uniform" />
+                                    </MenuItem.Background>
+                                    <Separator/>
+                                    <MenuItem x:Name="RestPwdBtn" Click="RestPwdBtn_Click"  Header="修改密码"/>
+                                    <Separator/>
+                                    <MenuItem x:Name="SwitchBtn" Click="SwitchBtn_Click" Header="切换用户"/>
+                                    <Separator/>
+                                    <MenuItem x:Name="SettingBtn" Click="SettingBtn_Click" Header="设置"/>
+                                    <Separator/>
+                                    <MenuItem x:Name="LogoutBtn" Click="LogoutBtn_Click"  Header="退出登录"/>
+                                </MenuItem>
+
+                            </Menu>
+                            <TextBlock Text="用户名" FontSize="22" Margin="10,0,10,0" TextAlignment="Center" VerticalAlignment="Center">
+
+                            </TextBlock>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                    <TextBlock Grid.Row="1" Margin="10,4,0,0" Text="我们的目标是让学生更加全面了解自己选择课程的情况，并能提供简单的交流分享心得的功能，帮助学生收集其他人对于课程的不同看法和感受。"
+                          TextWrapping="Wrap" LineHeight="20" FontSize="13" Foreground="#cfdbdc" Opacity=".8" Width="300" HorizontalAlignment="Left"/>
+                    
+                </Grid>
+            </Border>
+            <!--功能选择-->
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="80,40,80,40">
+                <Button x:Name="QueryCourseBtn" Click="QueryCourseBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}" 
+                      Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80" >
+                    <TextBlock Text="查询课程信息" FontSize="20" Foreground="#212121"/>
+                </Button>
+                <Button x:Name="CollectionsBtn" Click="CollectionsBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}" 
+                        Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
+                    <TextBlock Text="课程收藏夹" FontSize="20" Foreground="#212121"/>
+                </Button>
+                <Button x:Name="SelfInfoBtn" Click="SelfInfoBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}"
+                        Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
+                    <TextBlock Text="个人主页" FontSize="20" Foreground="#212121"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

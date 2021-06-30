@@ -38,5 +38,56 @@ namespace CourseInfoSharingPlatformServer.Service
             cus.Score = score;
             return CUSDao.AddScore(cus);
         }
+
+        //返回用户名密码匹配的信息
+        public static User GetStu(string name,string password)
+        {
+            User res =  UserDao.SelectUserByUserNameWithCourse(name);
+            if (res!=null && res.Password != password)
+                return null;
+            else return res;
+        }
+        public static Admin GetAdmin(string name, string password)
+        {
+            Admin res = AdminDao.SelectAdminByAdminName(name);
+            if (res != null && res.Password != password)
+                return null;
+            else return res;
+        }
+        //添加用户
+        public static bool AddStu(User user)
+        {
+            return UserDao.AddUser(user);
+        }
+
+
+        //更新用户Stu密码
+        public static void ResetStuPwd(string name,string password)
+        {
+            UserDao.UpdateUserPassword(name, password);
+        }
+
+        //更新admin密码
+        public static void ResetAdminPwd(string name,string password)
+        {
+            AdminDao.UpdateUserPassword(name, password);
+        }
+
+        //更新其他信息
+        public static void UpdateInformation(User user)
+        {
+            UserDao.UpdateUserInfo(user);
+        }
+
+        //注销账户
+        public static void DeleteStu(String Name)
+        {
+
+        }
+
+        public static void DeleteAdmin(String Name)
+        {
+
+        }
     }
 }
