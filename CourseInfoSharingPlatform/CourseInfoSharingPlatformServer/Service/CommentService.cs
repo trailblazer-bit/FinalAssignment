@@ -1,5 +1,8 @@
 ﻿using CourseInfoSharingPlatformServer.Models;
 using EFDemo.Dao;
+using System.IO;
+using System.Net;
+using System.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +40,7 @@ namespace CourseInfoSharingPlatformServer.Service
         //用户添加问题
         public static bool AddQuestion(string detail,string userName,string courseId)
         {
-            if (!CheckIfCommentValid(detail)) return false;
+            if (!CheckIfTextValid(detail)) return false;
             Question q = new Question();
             q.Detail = detail;
             q.RelatedUser = UserDao.SelectUserByUserName(userName);
@@ -48,7 +51,7 @@ namespace CourseInfoSharingPlatformServer.Service
         // 添加问题回复（评论）
         public static bool AddComments(string comment, string userName, int questionId)
         {
-            if (!CheckIfCommentValid(comment)) return false;
+            if (!CheckIfTextValid(comment)) return false;
             Comment c = new Comment();
             c.Detail = comment;
             c.RelatedUser = UserDao.SelectUserByUserName(userName);
@@ -57,9 +60,24 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         // 检测评论内容是否合乎规范
-        public static bool CheckIfCommentValid(string comment)
+        public static bool CheckIfTextValid(string s)
         {
-            return true;
+            string token = "24.84eb94dbc913fe93db82f59485fe4a0e.2592000.1627659899.282335-24470031";
+            string host = "https://aip.baidubce.com/rest/2.0/solution/v1/text_censor/v2/user_defined?access_token=" + token;
+            Encoding encoding = Encoding.Default;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
+            request.Method = "post";
+            request.KeepAlive = true;
+            String str = "text=" + s;
+            byte[] buffer = encoding.GetBytes(str);
+            request.ContentLength = buffer.Length;
+            request.GetRequestStream().Write(buffer, 0, buffer.Length);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default);
+            string result = reader.ReadToEnd();
+            ///Console.WriteLine("文本审核接口:");
+            ///Console.WriteLine(result);
+            return !result.Contains("不合规");
         }
 
         // 举报评论

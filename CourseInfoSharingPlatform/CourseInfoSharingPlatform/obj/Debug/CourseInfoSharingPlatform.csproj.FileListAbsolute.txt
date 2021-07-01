@@ -236,3 +236,7 @@ D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharin
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
+C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.g.cs
+C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.g.cs
+C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.baml
+C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.baml

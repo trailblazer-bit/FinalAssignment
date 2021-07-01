@@ -36,7 +36,7 @@ namespace CourseInfoSharingPlatformServer.Service
         // 判断标签内容是否符合规范
         public static bool CheckIfTagValid(string detail)
         {
-            return true;
+            return CommentService.CheckIfTextValid(detail);
         }
     }
 }
