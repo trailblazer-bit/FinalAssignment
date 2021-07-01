@@ -5768,20 +5768,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\86158\\.nuget\\packages\\": {}
+    "C:\\Users\\Gao\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+      "projectUniqueName": "C:\\Users\\Gao\\Desktop\\大作业\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "projectName": "CourseInfoSharingPlatformServer",
-      "projectPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-      "packagesPath": "C:\\Users\\86158\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
+      "projectPath": "C:\\Users\\Gao\\Desktop\\大作业\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+      "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gao\\Desktop\\大作业\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\86158\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Gao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -5877,7 +5882,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   },
