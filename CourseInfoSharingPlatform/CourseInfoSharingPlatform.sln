@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseInfoSharingPlatform", "CourseInfoSharingPlatform\CourseInfoSharingPlatform.csproj", "{B682294B-5A61-42E6-9741-2F7ACD44639E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseInfoSharingPlatformServer", "CourseInfoSharingPlatformServer\CourseInfoSharingPlatformServer.csproj", "{AB24697C-8862-49B7-985B-097973D07368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseInfoSharingPlatformServer", "CourseInfoSharingPlatformServer\CourseInfoSharingPlatformServer.csproj", "{AB24697C-8862-49B7-985B-097973D07368}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

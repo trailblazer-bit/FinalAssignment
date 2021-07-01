@@ -5883,12 +5883,6 @@
   },
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "读取缓存文件 D:\\Programming-language-program\\vs2019 projects\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\project.nuget.cache 时遇到问题: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

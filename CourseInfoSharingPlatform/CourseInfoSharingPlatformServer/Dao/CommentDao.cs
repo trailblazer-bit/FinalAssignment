@@ -66,5 +66,20 @@ namespace EFDemo.Dao
             context.SaveChanges();
             return true;
         }
+
+        // 获取所有被举报评论
+        public static List<Comment> GetReportedComments()
+        {
+            return context.Comments.Where(c => c.IsReported == true).ToList();
+        }
+
+        public static bool IgnoreCommentReport(int id)
+        {
+            var c = context.Comments.SingleOrDefault(c => c.CommentId.Equals(id) && c.IsReported == true);
+            if (c == null) return false;
+            c.IsReported = false;
+            context.SaveChanges();
+            return true;
+        }
     }
 }

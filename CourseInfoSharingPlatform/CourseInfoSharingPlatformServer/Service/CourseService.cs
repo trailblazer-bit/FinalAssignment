@@ -69,6 +69,7 @@ namespace CourseInfoSharingPlatformServer.Service
             Course course = CourseDao.SelectCourseById(id);
             SetCourseTag(course, 6);
             SetCourseScore(course);
+            CourseDao.AddAndCalculateHeatNum(id);
             return course;
         }
 

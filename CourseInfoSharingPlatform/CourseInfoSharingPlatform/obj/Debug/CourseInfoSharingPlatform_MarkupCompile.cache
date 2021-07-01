@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
-161626478782
+171967829053
 
-411843288571
+43-437554048
 162109331297
-Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\AdminPage.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\studMain.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
+Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\AdminPage.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\studMain.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;Views\UserPasswordReset.xaml;
 
-False
+True
 

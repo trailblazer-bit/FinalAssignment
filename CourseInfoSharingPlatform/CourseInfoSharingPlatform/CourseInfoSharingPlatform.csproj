@@ -136,6 +136,9 @@
     <Compile Include="Views\StuCourseCollection.xaml.cs">
       <DependentUpon>StuCourseCollection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserPasswordReset.xaml.cs">
+      <DependentUpon>UserPasswordReset.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AdminAddCourse.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -204,6 +207,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StuCourseCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserPasswordReset.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

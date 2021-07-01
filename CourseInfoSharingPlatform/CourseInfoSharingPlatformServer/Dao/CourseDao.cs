@@ -106,5 +106,35 @@ namespace EFDemo.Dao
             context.SaveChanges();
             return true;
         }
+
+        public static bool AddAndCalculateHeatNum(string id)
+        {
+            if (SelectCourseById(id) == null) return false;
+            var courses = context.Courses.ToList();
+            foreach (Course course in courses)
+            {
+                if (course.CourseId.Equals(id)) AddHeatNum(course.CourseId, courses.Count - 1);
+                else MinusHeatNum(course.CourseId, 1);
+            }
+            return true;
+        }
+
+        private static bool AddHeatNum(string id, int num)
+        {
+            var c = context.Courses.SingleOrDefault(c => c.CourseId.Equals(id));
+            if (c == null) return false;
+            c.HeatNum += num;
+            context.SaveChanges();
+            return true;
+        }
+
+        private static bool MinusHeatNum(string id, int num)
+        {
+            var c = context.Courses.SingleOrDefault(c => c.CourseId.Equals(id));
+            if (c == null) return false;
+            if (c.HeatNum - num >= 0) c.HeatNum -= num;
+            context.SaveChanges();
+            return true;
+        }
     }
 }
