@@ -26,7 +26,6 @@ namespace EFDemo.Dao
             return user;
         }
 
-
         // 删除用户喜爱课程
         public static bool DeleteFavouriteCourse(string userName, string courseId)
         {
@@ -76,12 +75,12 @@ namespace EFDemo.Dao
         // 添加User对象
         public static bool AddUser(User user)
         {
-
+            User u = SelectUserByUserName(user.UserName);
+            if(u!=null)return false;
             context.Users.Add(user);
             var flag = context.SaveChanges();
             if (flag == 1) return true;
             return false;
-
         }
 
         // 传入User对象进行用户信息更新(除了用户名、密码和收藏课程)
@@ -114,7 +113,6 @@ namespace EFDemo.Dao
             int flag = context.SaveChanges();
             if (flag == 1) return true;
             return false;
-
         }
     }
 }

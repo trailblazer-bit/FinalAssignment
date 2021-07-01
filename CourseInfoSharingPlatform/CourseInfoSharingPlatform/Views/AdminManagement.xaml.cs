@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,30 @@ namespace CourseInfoSharingPlatform.Views
     /// </summary>
     public partial class AdminManagement : Window
     {
-        public AdminManagement()
+        private Admin admin;
+        public AdminManagement(Admin admin)
         {
             InitializeComponent();
+            this.admin = admin;
+            this.adminNameTB.Text = admin.AdminName;
         }
+        //切换用户
+        private void SwitchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new loginPage().Show();
+            this.Close();
+        }
+        //退出系统
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        //窗口移动
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
     }
 }

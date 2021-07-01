@@ -374,7 +374,7 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         // 获得课程的收藏数
-        private static void GetAndSetLikeNum(List<Course> courses)
+        public static void GetAndSetLikeNum(List<Course> courses)
         {
             for (int i = 0; i < courses.Count; i++)
             {

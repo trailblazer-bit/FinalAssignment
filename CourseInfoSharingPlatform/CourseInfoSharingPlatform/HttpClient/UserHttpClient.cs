@@ -14,16 +14,11 @@ namespace CourseInfoSharingPlatform.ClientHttp
     {
         private HttpClient HttpClient { get; set; }
         private static UserHttpClient UserHttp { get; set; }
-        private static bool IsStu; 
+        private static bool IsStu;
         private static User CurrentStu { get; set; }
         private static Admin CurrentAdmin { get; set; }
 
-
-
-
         private UserHttpClient() { }
-        
-
         public static UserHttpClient GetInstance()
         {
             //单例模式
@@ -36,12 +31,9 @@ namespace CourseInfoSharingPlatform.ClientHttp
 
             }
             return UserHttp;
-
         }
-
         private static string baseUrl = "https://localhost:44386/api/user";
-
-        public static bool LikedCourse(string url,string courseId,string userName)
+        public static bool LikedCourse(string url, string courseId, string userName)
         {
             Dictionary<string, string> d = new Dictionary<string, string>();
             d.Add("courseId", courseId);
@@ -52,13 +44,13 @@ namespace CourseInfoSharingPlatform.ClientHttp
         }
 
         //判断用户是否收藏课程
-        public static bool IsLikedCourse(string courseId,string userName)
+        public static bool IsLikedCourse(string courseId, string userName)
         {
             string url = baseUrl + "/isLikedCourse";
             return LikedCourse(url, courseId, userName);
         }
         //用户收藏课程
-        public static bool AddFavoriteCourse(string courseId,string userName)
+        public static bool AddFavoriteCourse(string courseId, string userName)
         {
             string url = baseUrl + "/addLikeCourse";
             return LikedCourse(url, courseId, userName);
@@ -88,45 +80,36 @@ namespace CourseInfoSharingPlatform.ClientHttp
             bool flag = (bool)Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(bool));
             return flag;
         }
-
-        //验证用户，并保存信息
-        public async Task<bool> AuthenticateAsync(string username,string password,bool isStu)
+        //根据用户名获取用户
+        public static User GetUser(string userName)
         {
-            IsStu = isStu;
-            
-            if (isStu)
-            {
-                string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.stuUrl
-                               + "?name=" + username + "&&password=" + password;
+            string url = baseUrl + "/getUser";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("userName", userName);
+            var result = ClientHttp.GET(url, d);
+            User user = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(User)) as User;
+            return user;
+        }
 
-                string result = await ClientHttp.GetUser(url);
-                CurrentStu = JsonConvert.DeserializeObject<User>(result);
- 
-                return CurrentStu == null;
-            }
-            else
-            {
-                string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.adminUrl
-                               + "?name=" + username + "&&password=" + password;
-                string result = await ClientHttp.GetUser(url);
-                CurrentAdmin = JsonConvert.DeserializeObject<Admin>(result);
-                return CurrentAdmin == null;
-            }
+        //根据管理员姓名获取管理员
+        public static Admin GetAdmin(string adminName)
+        {
+            string url = baseUrl + "/getAdmin";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("adminName", adminName);
+            var result = ClientHttp.GET(url, d);
+            Admin admin = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Admin)) as Admin;
+            return admin;
+        }
+     
+        //添加学生用户
+        public static bool AddUser(User user)
+        {
+            string url = baseUrl + "/addUser";
+            string parameters = Newtonsoft.Json.JsonConvert.SerializeObject(user);           
+            return ClientHttp.POST(url, parameters);
+        }
 
-        }
-        //创建用户
-        public async Task<bool> CreateAccount(User user)
-        {
-            string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.stuUrl;
-            bool res = await ClientHttp.PostUser(url, JsonConvert.SerializeObject(user));
-            return res;
-        }
-        public async Task<bool> CreateAccount(Admin admin)
-        {
-            string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.adminUrl;
-            bool res = await ClientHttp.PostUser(url, JsonConvert.SerializeObject(admin));
-            return res;
-        }
         //修改个人信息,为方便不包括用户名密码的User
         public async Task<bool> ModifyInformation(User NewUser)
         {
@@ -186,13 +169,6 @@ namespace CourseInfoSharingPlatform.ClientHttp
 
                 return res;
             }
-        }
-
-        public User GetUser()
-        {
-            if (IsStu)
-                return CurrentStu;
-            else return null;
         }
     }
 }

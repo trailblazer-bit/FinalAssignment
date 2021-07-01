@@ -23,13 +23,17 @@ namespace CourseInfoSharingPlatform.Views
     public partial class QueryCourseView : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private bool isAdmin;
+        private User user;
+        private Admin Admin { get; set; }
         private List<Course> courses = new List<Course>();
         private int _pageIndex=1;
         private int _pageCount=0;
   
-        public QueryCourseView()
+        public QueryCourseView(User user,bool isAdmin)
         {
             InitializeComponent();
+            this.user = user;
             InitialCourseList();
         }
 
@@ -68,6 +72,8 @@ namespace CourseInfoSharingPlatform.Views
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (!isAdmin) new UserMain(user).Show();
+            else new AdminManagement(this.Admin).Show();
             this.Close();
         }
 

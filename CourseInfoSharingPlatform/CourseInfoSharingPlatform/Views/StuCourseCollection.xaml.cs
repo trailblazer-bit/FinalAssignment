@@ -19,37 +19,42 @@ namespace CourseInfoSharingPlatform.Views
     /// </summary>
     public partial class StuCourseCollection : Window
     {
-        public StuCourseCollection()
+        private User user;
+        public StuCourseCollection(User user)
         {
             InitializeComponent();
+            this.user = user;
             InitializeCourseList();
         }
         private void InitializeCourseList()
         {
             //调用StuADOService,通过Controller请求api
-
-            List<Course> courses = new List<Course>()
-            {
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.2,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.4,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.7,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"} } },
-
-                new Course(){Name="Python程序设计",CourseId="123",Type="公选课",TeacherName="张三",Score=4.9,
-                    tags=new List<Tag>{ new Tag() { Detail="作业不多"} , new Tag() { Detail = "作业不多" },new Tag() { Detail="作业不多"}} },
-            };
-
-
-            this.listBoxCourses.ItemsSource = courses;
+            this.courseList.ItemsSource = user.LikeCourses;
         }
 
-        private void listBoxCourses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //详情按钮
+        private void specificCourseBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        //整个窗口移动按钮
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+        //取消收藏按钮
+        private void cancelCollectBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //返回按钮
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new UserMain(user).Show();
+            this.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace CourseInfoSharingPlatform.Views
     /// </summary>
     public partial class UserMain : Window
     {
-        public UserMain()
+        private User user;
+        public UserMain(User u)
         {
             InitializeComponent();
+            this.user = u;
+            this.userNameTB.Text = user.UserName;
         }
 
         //窗口移动
@@ -31,38 +35,37 @@ namespace CourseInfoSharingPlatform.Views
                 this.DragMove();
         }
 
+        //查询课程
         private void QueryCourseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            new QueryCourseView().Show();
+        {         
+            new QueryCourseView(user,false).Show();          
+            this.Close();
         }
 
+        //收藏课程夹
         private void CollectionsBtn_Click(object sender, RoutedEventArgs e)
         {
-            new StuCourseCollection().ShowDialog();
+            new StuCourseCollection(this.user).Show();
+            this.Close();
         }
-
+        //个人信息
         private void SelfInfoBtn_Click(object sender, RoutedEventArgs e)
         {
             new SelfMainPage().Show();
         }
 
+        //修改密码
         private void RestPwdBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Console.WriteLine(user);
         }
-
+        //切换用户
         private void SwitchBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             new loginPage().Show();
-            
+            this.Close();         
         }
-
-        private void SettingBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //退出系统
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);

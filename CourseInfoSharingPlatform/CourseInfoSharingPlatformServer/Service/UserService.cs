@@ -39,26 +39,33 @@ namespace CourseInfoSharingPlatformServer.Service
             return CUSDao.AddScore(cus);
         }
 
-        //返回用户名密码匹配的信息
-        public static User GetStu(string name,string password)
+        //返回用户对象
+        public static User GetUser(string userName)
         {
-            User res =  UserDao.SelectUserByUserNameWithCourse(name);
-            if (res!=null && res.Password != password)
-                return null;
-            else return res;
+            User user = UserDao.SelectUserByUserNameWithCourse(userName);
+            CourseService.GetAndSetLikeNum(user.LikeCourses);
+            CourseService.SetCourseScore(user.LikeCourses);
+            for (int i = 0; i < user.LikeCourses.Count; i++)
+            {
+                CourseService.SetCourseTag(user.LikeCourses[i], 6);
+            }
+            user.LikeCourses = user.LikeCourses.OrderByDescending(c => c.Score).ToList();
+            return user;
         }
-        public static Admin GetAdmin(string name, string password)
+        //返回管理员
+        public static Admin GetAdmin(string adminName)
         {
-            Admin res = AdminDao.SelectAdminByAdminName(name);
-            if (res != null && res.Password != password)
-                return null;
-            else return res;
+            Admin admin = AdminDao.SelectAdminByAdminName(adminName);
+            return admin;
         }
+
         //添加用户
-        public static bool AddStu(User user)
+        public static bool AddUser(User user)
         {
             return UserDao.AddUser(user);
         }
+
+
 
 
         //更新用户Stu密码
