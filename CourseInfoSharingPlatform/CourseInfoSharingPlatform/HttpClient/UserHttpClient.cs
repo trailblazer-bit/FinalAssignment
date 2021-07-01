@@ -21,7 +21,15 @@ namespace CourseInfoSharingPlatform.ClientHttp
 
 
 
-        private UserHttpClient() { }
+        private UserHttpClient() {
+            //以下为测试代码，实际运行删除
+            /*
+            CurrentAdmin.AdminName = "testAdmin";
+            CurrentAdmin.Password =  "admin";
+            CurrentStu.UserName = "testStu";
+            CurrentStu.Password = "stu";
+            */
+        }
         
 
         public static UserHttpClient GetInstance()
@@ -33,6 +41,16 @@ namespace CourseInfoSharingPlatform.ClientHttp
                 UserHttp.HttpClient = new HttpClient();
                 UserHttp.HttpClient.DefaultRequestHeaders.Accept.Clear();
                 UserHttp.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //以下为测试代码，实际运行删除
+                CurrentAdmin = new Admin();
+                CurrentStu = new User();
+                CurrentAdmin.AdminName = "testAdmin";
+                CurrentAdmin.Password =  "admin";
+                CurrentStu.UserName = "testStu";
+                CurrentStu.Password = "stu";
+               
+
 
             }
             return UserHttp;
@@ -159,7 +177,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
             }
             else
             {
-                if (oldPwd != CurrentStu.Password)
+                if (oldPwd != CurrentAdmin.Password)
                     return false;
                 CurrentAdmin.Password = newPwd;
                 string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.adminUrl + "/" + CurrentAdmin.AdminName;
@@ -193,6 +211,18 @@ namespace CourseInfoSharingPlatform.ClientHttp
             if (IsStu)
                 return CurrentStu;
             else return null;
+        }
+        public Admin GetAdmin()
+        {
+            if (!IsStu)
+                return CurrentAdmin;
+            else return null;
+        }
+        public string GetName()
+        {
+            if (IsStu)
+                return CurrentStu.UserName;
+            else return CurrentAdmin.AdminName;
         }
     }
 }

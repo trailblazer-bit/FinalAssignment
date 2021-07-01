@@ -48,13 +48,14 @@ namespace CourseInfoSharingPlatform.Views
 
         private void RestPwdBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            new UserPasswordReset().Show();
         }
 
         private void SwitchBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             new loginPage().Show();
+            this.Close();
+            
             
         }
 

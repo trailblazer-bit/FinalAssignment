@@ -19,7 +19,7 @@
         <Button x:Name="logonBtn" Content="注册" HorizontalAlignment="Center" Margin="569.167,322.333,139.166,53.334" VerticalAlignment="Center" Width="85" FontSize="18" Height="45" Click="logonBtn_Click"/>
         <TextBox x:Name="UserNameInput" HorizontalAlignment="Center" Margin="426.906,158,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
         <TextBox x:Name="UserPwdInput" HorizontalAlignment="Center" Margin="426.906,212.053,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
-        <Label Content="登录" HorizontalAlignment="Center" Margin="0,76.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.424,0.76" FontSize="30" FontWeight="Bold"/>
+        <Label Content="课程信息共享平台" HorizontalAlignment="Center" Margin="0,76.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.424,0.76" FontSize="30" FontWeight="Bold"/>
         <Label Content="用户名" HorizontalAlignment="Center" Margin="257.444,158,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
         <Label Content="密码" HorizontalAlignment="Center" Margin="257.444,210.513,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
         <Label Content="用户类型" HorizontalAlignment="Center" Margin="257.444,262.846,446.987,0" VerticalAlignment="Top" RenderTransformOrigin="1.228,0.77" FontSize="18" Width="88.902" FontWeight="Bold"/>

@@ -232,3 +232,7 @@ C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoShari
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ButtonStyle.baml
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\studMain.baml
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.g.cs
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.g.cs
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.baml
+C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.baml
