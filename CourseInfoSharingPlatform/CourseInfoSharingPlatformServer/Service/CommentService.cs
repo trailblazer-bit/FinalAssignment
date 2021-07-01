@@ -62,22 +62,30 @@ namespace CourseInfoSharingPlatformServer.Service
         // 检测评论内容是否合乎规范
         public static bool CheckIfTextValid(string s)
         {
-            string token = "24.84eb94dbc913fe93db82f59485fe4a0e.2592000.1627659899.282335-24470031";
-            string host = "https://aip.baidubce.com/rest/2.0/solution/v1/text_censor/v2/user_defined?access_token=" + token;
-            Encoding encoding = Encoding.Default;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
-            request.Method = "post";
-            request.KeepAlive = true;
-            String str = "text=" + s;
-            byte[] buffer = encoding.GetBytes(str);
-            request.ContentLength = buffer.Length;
-            request.GetRequestStream().Write(buffer, 0, buffer.Length);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default);
-            string result = reader.ReadToEnd();
-            ///Console.WriteLine("文本审核接口:");
-            ///Console.WriteLine(result);
-            return !result.Contains("不合规");
+            try
+            {
+                string token = "24.84eb94dbc913fe93db82f59485fe4a0e.2592000.1627659899.282335-24470031";
+                string host = "https://aip.baidubce.com/rest/2.0/solution/v1/text_censor/v2/user_defined?access_token=" + token;
+                Encoding encoding = Encoding.Default;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
+                request.Method = "post";
+                request.KeepAlive = true;
+                String str = "text=" + s;
+                byte[] buffer = encoding.GetBytes(str);
+                request.ContentLength = buffer.Length;
+                request.GetRequestStream().Write(buffer, 0, buffer.Length);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default);
+                string result = reader.ReadToEnd();
+                ///Console.WriteLine("文本审核接口:");
+                ///Console.WriteLine(result);
+                return !result.Contains("不合规");
+            }
+            catch (Exception e)
+            {
+                return true;
+            }
+            
         }
 
         // 举报评论
