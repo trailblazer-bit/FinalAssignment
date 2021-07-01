@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
+
 namespace CourseInfoSharingPlatform.Views
 {
     /// <summary>
@@ -19,52 +21,84 @@ namespace CourseInfoSharingPlatform.Views
     /// </summary>
     public partial class loginPage : Window
     {
+        private bool isAdmin;
         public loginPage()
         {
             InitializeComponent();
-            UserTypeCombobox.SelectedIndex = 1;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //整个窗口移动按钮
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
         }
 
-        private async void loginBtn_Click(object sender, RoutedEventArgs e)
+        //关闭按钮
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {        
+            this.Close();
+        }
+        //登录
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            //通过UserHttpClient发送一个http get请求，传入用户输入信息，服务器运行匹配
-            //若账号密码正确，则返回该User对象，否则返回空信息
-            //bool Authen = false;
-            if (UserNameInput.Text != "" || UserPwdInput.Text != "")
+            string userName = this.UserNameInput.Text;
+            string passWord = this.UserPwdInput.Password;
+            this.isAdmin = (bool)this.adminRB.IsChecked;         
+            if (userName != "" && passWord != "")
             {
-
-                UserHttpClient userHttpClient = UserHttpClient.GetInstance();
-                /*if (await userHttpClient.AuthenticateAsync(UserNameInput.Text, UserPwdInput.Text, UserTypeCombobox.SelectedIndex == 1 ))
-                {
-                    //跳转stumain
-                    this.Close();
-
-                }
-                else
-                {
-                    warning.Content = "用户名/密码错误";
-                    warning.Visibility = Visibility.Visible;
-                }*/
-                new UserMain().Show();
-                this.Close();
+                if (!isAdmin) StudentLogin(userName, passWord);
+                else AdminLogin(userName, passWord);
             }
             else
+                warning.Text = "用户名或密码未填写";         
+        }
+        //学生登录
+        private void StudentLogin(string userName,string passWord)
+        {
+            User user = UserHttpClient.GetUser(userName);
+            //用户存在
+            if (user != null)
             {
-                warning.Content = "请正确输入";
-                warning.Visibility = Visibility.Visible;
+                if (user.Password == passWord)
+                {
+                    UserMain view = new UserMain(user);
+                    view.WindowStartupLocation = this.WindowStartupLocation;
+                    view.Show();
+                    this.Close();
+                }
+                else warning.Text = "输入密码错误";
             }
-
+            else this.warning.Text = "用户不存在!";
+        }
+        //管理员登录
+        private void AdminLogin(string userName,string passWord)
+        {
+            Admin admin = UserHttpClient.GetAdmin(userName);
+            //用户存在
+            if (admin != null)
+            {
+                if (admin.Password == passWord)
+                {
+                    AdminManagement view = new AdminManagement(admin);
+                    view.WindowStartupLocation = this.WindowStartupLocation;
+                    view.Show();
+                    this.Close();
+                }
+                else warning.Text = "输入密码错误";
+            }
+            else this.warning.Text = "用户不存在!";
         }
 
+        //注册
         private void logonBtn_Click(object sender, RoutedEventArgs e)
-        {
-            new LogonPage(this).ShowDialog();
-            this.Visibility = Visibility.Collapsed;
+        {       
+            this.isAdmin =(bool) this.adminRB.IsChecked;
+            LogonPage view = new LogonPage();
+            view.WindowStartupLocation = this.WindowStartupLocation;
+            this.Visibility = Visibility.Hidden;
+            view.ShowDialog();
+            this.Visibility = Visibility.Visible;
         }
     }
 }

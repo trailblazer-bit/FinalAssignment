@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\84125\\Desktop\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj": {}
+    "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\84125\\Desktop\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj": {
+    "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\84125\\Desktop\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+        "projectUniqueName": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
         "projectName": "CourseInfoSharingPlatformServer",
-        "projectPath": "C:\\Users\\84125\\Desktop\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
-        "packagesPath": "C:\\Users\\84125\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\84125\\Desktop\\FinalAssignment\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
+        "projectPath": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+        "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\84125\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Gao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -26,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -37,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
@@ -83,6 +89,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.3, 3.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\3.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

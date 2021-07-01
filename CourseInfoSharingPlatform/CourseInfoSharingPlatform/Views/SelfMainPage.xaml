@@ -35,23 +35,18 @@
                     <Button x:Name="ModifyInfoBtn" Click="ModifyInfoBtn_Click" Content="编辑资料" HorizontalAlignment="Right" Width="80" Height="50" Margin ="20,50,0,0" FontSize="16" Background="#7FB4E1E8" BorderBrush="White" Foreground="#FF8B8B7B" />
                     <Button x:Name="PutChangeBtn" Click="PutChangeBtn_Click"  Content="提交修改" HorizontalAlignment="Right" Width="80" Height="50" Margin ="20,50,0,0" FontSize="16" Background="#7FB4E8C0" BorderBrush="White" Foreground="#FF8B8B7B" Visibility="Collapsed"/>
                 </StackPanel>
-
             </Border>
             <Border VerticalAlignment="Top">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
                         <Label Content="      昵称" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
                         <TextBox x:Name="UserNameTextBox" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-
-
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
                         <Label Content="      性别" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
                         <RadioButton Height="30" Width="50"  GroupName="gender" x:Name="male" Content="男" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
                         <RadioButton Height="30" Width="50" GroupName="gender" x:Name="female" Content="女" VerticalAlignment="Center" FontSize="20" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
                         <RadioButton Height="30" Width="75" GroupName="gender" x:Name="secret" Content="保密" VerticalAlignment="Center" FontSize="20" Margin="0,20" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True"/>
-
-
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
                         <Label Content="      年级" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
@@ -61,12 +56,10 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
                         <Label Content="      专业" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
                         <TextBox x:Name="Major" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-
                     </StackPanel >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
                         <Label Content="   个性签名" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
                         <TextBox x:Name="Instruction" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-
                     </StackPanel >
                 </StackPanel>
             </Border>

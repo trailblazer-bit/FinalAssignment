@@ -75,10 +75,13 @@
     <Compile Include="Converters\AnswerNumConverter.cs" />
     <Compile Include="Converters\CommentNumConverter.cs" />
     <Compile Include="Converters\CourseDataConverter.cs" />
+    <Compile Include="Converters\HiddenTextShowConverter.cs" />
+    <Compile Include="Converters\LogonWarningTextConverter.cs" />
     <Compile Include="Converters\QuestionLikeNumConverter.cs" />
     <Compile Include="Converters\QuestionTagsSortConverter.cs" />
     <Compile Include="Converters\RelatedUserConverter.cs" />
     <Compile Include="Converters\TagLikeNumConverter.cs" />
+    <Compile Include="Converters\WarningTextShowConverter.cs" />
     <Compile Include="HttpClient\CommentHttpClient.cs" />
     <Compile Include="HttpClient\CourseHttpClient.cs" />
     <Compile Include="HttpClient\ClientHttp.cs" />
@@ -242,6 +245,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\搜索.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\logon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />

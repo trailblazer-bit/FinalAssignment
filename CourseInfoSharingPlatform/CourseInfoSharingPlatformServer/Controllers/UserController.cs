@@ -56,39 +56,28 @@ namespace CourseInfoSharingPlatformServer.Controllers
             return UserService.AddScore(courseId, userName, score);
         }
 
-        //验证用户并返回,经典明文传密码,硬传
-        [HttpGet("stu")]
-        public ActionResult<User> AuthenStu(string name, string password)
+        //根据用户名获取用户
+        [HttpGet("getUser")]
+        public ActionResult<User> GetUser(string userName)
         {
-            try
-            {
-                if (name != null && password != null)
-                    return UserService.GetStu(name, password);
-                else return null;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
+            return UserService.GetUser(userName);         
         }
 
-        [HttpGet("admin")]
-        public ActionResult<User> AuthenAdmin(string name, string password)
+        //根据用户名获取管理员
+        [HttpGet("getAdmin")]
+        public ActionResult<Admin> GetAdmin(string adminName)
         {
-            try
-            {
-                if (name != null && password != null)
-                    return UserService.GetStu(name, password);
-                else return null;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
+            return UserService.GetAdmin(adminName);
+        }
+
+        //添加新用户
+        [HttpPost("addUser")]
+        public ActionResult<bool> AddUser(User user)
+        {
+            return UserService.AddUser(user);
         }
 
         //提交修改
-
         [HttpPut("stu")]
         public ActionResult<bool> UpdateUser(User user)
         {
@@ -115,21 +104,7 @@ namespace CourseInfoSharingPlatformServer.Controllers
             {
                 return false;
             }
-        }
-
-        //添加新用户
-        [HttpPost("stu")]
-        public ActionResult<bool> PostStu(User user)
-        {
-            try
-            {
-                return UserService.AddStu(user);
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
+        }      
 
         //注销账户
         [HttpDelete("stu")]

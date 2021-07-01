@@ -37,15 +37,16 @@ namespace CourseInfoSharingPlatform.ClientHttp
             }
             return null;
         }
-        //参数分别为请求路径和请求体的json对象
-        public static async Task<bool> POST(string url,string parameterJson)
+        //参数分别为请求路径和请求体的json对象     
+        public static bool POST(string url, string parameterJson)
         {
             HttpContent content = new StringContent(parameterJson, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await GetInstance().PostAsync(url, content);
+            HttpResponseMessage response = GetInstance().PostAsync(url, content).Result;
             if (response.StatusCode == HttpStatusCode.OK)
-                return true;
+                return bool.Parse(response.Content.ReadAsStringAsync().Result);
             return false;
         }
+
         public static async Task<string> GetUser(string url)
         {
             using (HttpResponseMessage response = await GetInstance().GetAsync(url))

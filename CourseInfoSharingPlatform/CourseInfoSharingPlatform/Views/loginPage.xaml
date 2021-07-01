@@ -3,30 +3,72 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views"
+        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Converters"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="loginPage" Height="450" Width="800" MinWidth="800" MinHeight="450">
-    <Grid MinWidth="793" MinHeight="420">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFBDD1E2" Offset="1"/>
-                <GradientStop Color="#FF8564E6" Offset="0.018"/>
-                <GradientStop Color="#FF91A6EF" Offset="0.699"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Button x:Name="loginBtn" Content="登录" HorizontalAlignment="Center" Margin="154.251,322.333,554.082,53.334" VerticalAlignment="Center" Width="85" RenderTransformOrigin="0.121,0.609" FontSize="18" Height="45" Click="loginBtn_Click"/>
-        <Button x:Name="logonBtn" Content="注册" HorizontalAlignment="Center" Margin="569.167,322.333,139.166,53.334" VerticalAlignment="Center" Width="85" FontSize="18" Height="45" Click="logonBtn_Click"/>
-        <TextBox x:Name="UserNameInput" HorizontalAlignment="Center" Margin="426.906,158,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
-        <TextBox x:Name="UserPwdInput" HorizontalAlignment="Center" Margin="426.906,212.053,255.118,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Width="111.309" MaxLines="1"/>
-        <Label Content="课程信息共享平台" HorizontalAlignment="Center" Margin="0,76.333,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.424,0.76" FontSize="30" FontWeight="Bold"/>
-        <Label Content="用户名" HorizontalAlignment="Center" Margin="257.444,158,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
-        <Label Content="密码" HorizontalAlignment="Center" Margin="257.444,210.513,476.432,0" VerticalAlignment="Top" FontSize="18" Width="59.457" FontWeight="Bold"/>
-        <Label Content="用户类型" HorizontalAlignment="Center" Margin="257.444,262.846,446.987,0" VerticalAlignment="Top" RenderTransformOrigin="1.228,0.77" FontSize="18" Width="88.902" FontWeight="Bold"/>
-        <ComboBox x:Name="UserTypeCombobox" HorizontalAlignment="Center" Margin="426.906,266.386,255.118,0" VerticalAlignment="Top" Width="111.309" FontWeight="Bold" FontSize="16" Padding="5,3" Grid.IsSharedSizeScope="True">
-            <ComboBoxItem Content="管理员" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <ComboBoxItem Content="学生" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        </ComboBox>
-        <Label x:Name="warning" Content="" HorizontalAlignment="Left" Margin="348,337,0,0" VerticalAlignment="Top" Height="30" Width="113" Background="#00000000" Foreground="Red" Visibility="Hidden" FontSize="16"/>
-    </Grid>
+        Title="loginPage" Height="500" Width="350" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+
+    <Border Margin="5" Background="#eceff1" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <!--第一部分-->
+            <Border Background="#007DFA" CornerRadius="10,10,0,0"/>
+            <Button Grid.Row="0" Template="{StaticResource CloseBtnTemplate}"  Click="closeBtn_Click" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                     FontSize="20"   Foreground="#263238"  Content="&#xe607;"/>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom">
+                <Image Source="../Resources/Images/logo.png" Height="50" Width="50" />
+                <TextBlock Margin="0,10,0,40" Foreground="White" FontSize="16" Text="课程信息分享平台" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <!--第二部分，用户输入框-->
+            <Grid Grid.Row="1" Margin="40,10,40,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"  CornerRadius="5"  Height="40"  BorderThickness="1" BorderBrush="#bdbdbd">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text="&#xe636;" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="../Resources/Fonts/#iconfont"/>
+                        <TextBox  x:Name="UserNameInput"
+                             materialDesign:HintAssist.Hint="请输入用户名"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="100" FontSize="10"
+                             VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1"  CornerRadius="5"  Height="40"  BorderThickness="1" BorderBrush="#bdbdbd">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text="&#xe611;" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="../Resources/Fonts/#iconfont"/>
+                        <PasswordBox x:Name="UserPwdInput"
+                             materialDesign:HintAssist.Hint="请输入密码"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="100" FontSize="10"
+                             VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <RadioButton x:Name="stuRB" Content="学生" IsChecked="True"/>
+                    <RadioButton x:Name="adminRB" Margin="20,0,0,0" Content="管理员" />
+                </StackPanel>
+                <TextBlock x:Name="warning" Grid.Row="3" Margin="0,0,0,40" FontFamily="18"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red">
+                </TextBlock>
+                <StackPanel Grid.Row="4" Margin="20,-30,0,20" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="loginBtn" Click="loginBtn_Click" Content="登录"  VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#2962ff"  Background="#2962ff"/>
+                    <Button x:Name="logonBtn" Click="logonBtn_Click" Margin="30,0"  Content="注册" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#2962ff"  Background="#2962ff"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

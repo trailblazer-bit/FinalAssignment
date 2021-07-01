@@ -30,7 +30,7 @@ namespace CourseInfoSharingPlatform.Views
         private void init()
         {
             UserHttpClient userHttpClient = UserHttpClient.GetInstance();
-            user = userHttpClient.GetUser();
+            //user = userHttpClient.GetUser();
             if(user != null)
             {
                 this.UserNameTextBlock.Text = user.UserName;

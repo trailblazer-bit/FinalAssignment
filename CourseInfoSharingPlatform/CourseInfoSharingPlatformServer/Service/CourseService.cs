@@ -69,6 +69,7 @@ namespace CourseInfoSharingPlatformServer.Service
             Course course = CourseDao.SelectCourseById(id);
             SetCourseTag(course, 6);
             SetCourseScore(course);
+            CourseDao.AddAndCalculateHeatNum(id);
             return course;
         }
 
@@ -374,7 +375,7 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         // 获得课程的收藏数
-        private static void GetAndSetLikeNum(List<Course> courses)
+        public static void GetAndSetLikeNum(List<Course> courses)
         {
             for (int i = 0; i < courses.Count; i++)
             {
