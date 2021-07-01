@@ -5774,11 +5774,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+      "projectUniqueName": "C:\\Users\\Gao\\Desktop\\大作业4\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "projectName": "CourseInfoSharingPlatformServer",
-      "projectPath": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+      "projectPath": "C:\\Users\\Gao\\Desktop\\大作业4\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
       "packagesPath": "C:\\Users\\Gao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
+      "outputPath": "C:\\Users\\Gao\\Desktop\\大作业4\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

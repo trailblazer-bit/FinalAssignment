@@ -117,5 +117,31 @@ namespace CourseInfoSharingPlatformServer.Service
         {
             return CommentDao.DeleteCommentById(id);
         }
+
+        // 获取所有被举报问题
+        public static List<Question> GetAllReportedQuestion()
+        {
+            return QuestionDao.GetAllReportedQuestion();
+        }
+
+        // 获取所有被举报评论
+        public static List<Comment> GetAllReportedComment()
+        {
+            return CommentDao.GetReportedComments();
+        }
+
+
+        // 根据id将指定问题举报字段置为False
+        public static bool IgnoreQuestionReport(int id)
+        {
+            return QuestionDao.IgnoreQuestionReport(id);
+        }
+
+
+        // 根据id将指定回复举报字段置为False
+        public static bool IgnoreCommentReport(int id)
+        {
+            return CommentDao.IgnoreCommentReport(id);
+        }
     }
 }

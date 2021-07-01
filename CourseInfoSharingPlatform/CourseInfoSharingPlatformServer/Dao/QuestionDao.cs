@@ -79,5 +79,21 @@ namespace EFDemo.Dao
             context.SaveChanges();
             return true;
         }
+
+        // 获取所有被举报问题
+        public static List<Question> GetAllReportedQuestion()
+        {
+            var q = context.Questions.Where(q => q.IsReported == true);
+            return q.ToList();
+        }
+
+        public static bool IgnoreQuestionReport(int id)
+        {
+            var q = context.Questions.SingleOrDefault(q => q.QuestionId.Equals(id) && q.IsReported == true);
+            if (q == null) return false;
+            q.IsReported = false;
+            context.SaveChanges();
+            return true;
+        }
     }
 }

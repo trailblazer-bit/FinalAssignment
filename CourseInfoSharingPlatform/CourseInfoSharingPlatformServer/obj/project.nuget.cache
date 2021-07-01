@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X+3JO4YfNthftI2U56h5IvwufVj3D5JjI7k5i+g42Vh8gvV+TIPssMD4adqS0PWGVWr66P/uyzJthVpdoZxEiw==",
+  "dgSpecHash": "13ewXzsGhl9aFALK2bETsz0EmQMsBXhZpS63b+E11WcWOFhMKuRjAtCTHSqOkW+bOa5cbbiTGiypi0qcLSFGRQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gao\\Desktop\\大作业2\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
+  "projectFilePath": "C:\\Users\\Gao\\Desktop\\大作业4\\CourseInfoSharingPlatform\\CourseInfoSharingPlatformServer\\CourseInfoSharingPlatformServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gao\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Gao\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
