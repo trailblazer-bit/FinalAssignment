@@ -65,8 +65,11 @@ namespace CourseInfoSharingPlatformServer.Service
             return UserDao.AddUser(user);
         }
 
-
-
+        // 删除用户喜爱课程
+        public static bool DeleteFavouriteCourse(string userName, string courseId)
+        {
+            return UserDao.DeleteFavouriteCourse(userName, courseId);
+        }
 
         //更新用户Stu密码
         public static void ResetStuPwd(string name,string password)

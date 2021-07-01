@@ -85,6 +85,13 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             return bool.Parse(result);
         }
+        public static bool ById(string url,int id)
+        {
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("id", id.ToString());
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
         //根据id获取问题
         public static Question GetQuestionById(int id)
         {
@@ -94,6 +101,48 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             Question q = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Question)) as Question;
             return q;
+        }
+        //根据id删除问题
+        public static bool deleteQuestionById(int id)
+        {
+            string url = baseUrl + "/deleteQuestionById";
+            return ById(url, id);
+        }
+        //根据id删除回复
+        public static bool deleteCommentById(int id)
+        {
+            string url = baseUrl + "/deleteCommentById";
+            return ById(url,id);
+        }
+        //忽略被举报的问题
+        public static bool IgnoreQuestionReport(int id)
+        {
+            string url = baseUrl + "/ignoreQuestionReport";
+            return ById(url, id);
+        }
+        //忽略被举报的评论
+        public static bool IgnoreCommentReport(int id)
+        {
+            string url = baseUrl + "/ignoreCommentReport";
+            return ById(url, id);
+        }
+        //查询所有被举报的问题
+        public static List<Question> GetAllQuestionReport()
+        {
+            string url = baseUrl + "/getAllQuestionReport";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            var result = ClientHttp.GET(url, d);
+            List<Question> questions=Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Question>)) as List<Question>;
+            return questions;
+        }
+        //查询所有被举报的回复
+        public static List<Comment> GetAllCommentReport()
+        {
+            string url = baseUrl + "/getAllCommentReport";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            var result = ClientHttp.GET(url, d);
+            List<Comment> comments = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Comment>)) as List<Comment>;
+            return comments;
         }
     }
 }

@@ -52,15 +52,15 @@
             </Border>
             <!--功能选择-->
             <StackPanel Grid.Row="1" Orientation="Vertical" Margin="80,40,80,40">
-                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                <Button Click="addCourseBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
                       Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
                     <TextBlock Text="添加课程" FontSize="20" Foreground="#212121"/>
                 </Button>
-                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                <Button Click="modifyCourseBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
                         Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
                     <TextBlock Text="修改课程" FontSize="20" Foreground="#212121"/>
                 </Button>
-                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                <Button Click="mangementCommentBtn_Click" Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
                         Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
                     <TextBlock Text="管理评论" FontSize="20" Foreground="#212121"/>
                 </Button>

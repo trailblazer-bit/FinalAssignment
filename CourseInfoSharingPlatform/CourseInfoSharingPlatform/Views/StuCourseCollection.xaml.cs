@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CourseInfoSharingPlatform.ClientHttp;
 using CourseInfoSharingPlatform.Models;
 namespace CourseInfoSharingPlatform.Views
 {
@@ -35,7 +36,11 @@ namespace CourseInfoSharingPlatform.Views
         //详情按钮
         private void specificCourseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Course c = btn.DataContext as Course;
+            CourseDetailedInfoView courseDetailedInfoView = new CourseDetailedInfoView(CourseHttpClient.GetCourseById(c.CourseId), this.user);
+            courseDetailedInfoView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            courseDetailedInfoView.Show();
         }
 
         //整个窗口移动按钮
@@ -48,7 +53,11 @@ namespace CourseInfoSharingPlatform.Views
         //取消收藏按钮
         private void cancelCollectBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Course c = btn.DataContext as Course;
+            if (c != null) UserHttpClient.DeleteFavouriteCourse(user.UserName, c.CourseId);
+            user = UserHttpClient.GetUser(user.UserName);
+            this.courseList.ItemsSource = user.LikeCourses;
         }
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)

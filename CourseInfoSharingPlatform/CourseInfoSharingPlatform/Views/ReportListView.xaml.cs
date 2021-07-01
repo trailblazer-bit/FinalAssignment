@@ -29,12 +29,36 @@ namespace CourseInfoSharingPlatform.Views
             this.commentReportList.ItemsSource = commentsReport;
             this.questionReportList.ItemsSource = questionsReport;
         }
+        private void InitDataSource()
+        {
+
+        }
 
         //整个窗口移动按钮
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
+        }
+        //删除回复
+        private void deleteCommentBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //忽略回复
+        private void ignoreCommentBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //删除问题
+        private void deleteQuestionBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //忽略问题
+        private void ignoreQuestionBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

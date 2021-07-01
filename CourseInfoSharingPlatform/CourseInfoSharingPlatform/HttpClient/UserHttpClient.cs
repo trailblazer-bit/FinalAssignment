@@ -110,6 +110,17 @@ namespace CourseInfoSharingPlatform.ClientHttp
             return ClientHttp.POST(url, parameters);
         }
 
+        // 删除用户喜爱课程
+        public static bool DeleteFavouriteCourse(string userName, string courseId)
+        {
+            string url = baseUrl + "/deleteFavouriteCourse"; 
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("userName", userName);
+            d.Add("courseId", courseId.ToString());
+            var result=ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
+
         //修改个人信息,为方便不包括用户名密码的User
         public async Task<bool> ModifyInformation(User NewUser)
         {

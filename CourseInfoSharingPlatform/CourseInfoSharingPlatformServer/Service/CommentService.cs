@@ -84,8 +84,7 @@ namespace CourseInfoSharingPlatformServer.Service
             catch (Exception e)
             {
                 return true;
-            }
-            
+            }           
         }
 
         // 举报评论

@@ -54,13 +54,13 @@
                                     <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="举报理由：涉及黄色暴力内容"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
-                                            <Button  Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">
+                                            <Button Click="deleteCommentBtn_Click" Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">
                                             </Button>
                                             <TextBlock Text="删除" Foreground="#006064" Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>
 
                                         <UniformGrid Columns="2" Margin="5,0,0,0">
-                                            <Button  Template="{StaticResource CommentBtnTemplate}"   Content="&#xe680;"   Margin="10,0,0,5">
+                                            <Button Click="ignoreCommentBtn_Click"  Template="{StaticResource CommentBtnTemplate}"   Content="&#xe680;"   Margin="10,0,0,5">
                                             </Button>
                                             <TextBlock Text="忽略" Foreground="#006064"  Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>
@@ -95,13 +95,13 @@
                                     <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="举报理由：涉及黄色暴力内容"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
-                                            <Button  Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">
+                                            <Button Click="deleteQuestionBtn_Click"  Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">
                                             </Button>
                                             <TextBlock Text="删除" Foreground="#006064" Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>
 
                                         <UniformGrid Columns="2" Margin="5,0,0,0">
-                                            <Button  Template="{StaticResource CommentBtnTemplate}"   Content="&#xe680;"   Margin="10,0,0,5">
+                                            <Button Click="ignoreQuestionBtn_Click"  Template="{StaticResource CommentBtnTemplate}"   Content="&#xe680;"   Margin="10,0,0,5">
                                             </Button>
                                             <TextBlock Text="忽略" Foreground="#006064"  Margin="0,0,10,5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13"/>
                                         </UniformGrid>

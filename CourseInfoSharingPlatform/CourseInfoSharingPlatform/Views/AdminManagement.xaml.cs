@@ -44,6 +44,24 @@ namespace CourseInfoSharingPlatform.Views
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
         }
+        //添加课程
+        private void addCourseBtn_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        //修改课程
+        private void modifyCourseBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //管理评论
+        private void mangementCommentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ReportListView view = new ReportListView();
+            this.Visibility = Visibility.Hidden;
+            view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            view.Show();
+            this.Visibility = Visibility.Visible;
+        }
     }
 }

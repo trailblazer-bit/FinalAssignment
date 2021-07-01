@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatform.Models;
+﻿using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,8 @@ namespace CourseInfoSharingPlatform.Views
         //收藏课程夹
         private void CollectionsBtn_Click(object sender, RoutedEventArgs e)
         {
+            //重查一次用户
+            user = UserHttpClient.GetUser(user.UserName);
             new StuCourseCollection(this.user).Show();
             this.Close();
         }
