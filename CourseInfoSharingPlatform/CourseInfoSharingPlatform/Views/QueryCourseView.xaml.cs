@@ -61,7 +61,7 @@ namespace CourseInfoSharingPlatform.Views
             var o = e.OriginalSource as Button;
             Course c = o.DataContext as Course;
 
-            CourseDetailedInfoView courseDetailedInfoView = new CourseDetailedInfoView(CourseHttpClient.GetCourseById(c.CourseId));
+            CourseDetailedInfoView courseDetailedInfoView = new CourseDetailedInfoView(CourseHttpClient.GetCourseById(c.CourseId),this.user);
             courseDetailedInfoView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.Visibility = Visibility.Hidden;
             courseDetailedInfoView.ShowDialog();

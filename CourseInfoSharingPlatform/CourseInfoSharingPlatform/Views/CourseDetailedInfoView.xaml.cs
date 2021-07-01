@@ -22,14 +22,15 @@ namespace CourseInfoSharingPlatform.Views
     public partial class CourseDetailedInfoView : Window
     {
         public Course Course { get; set; }
-        private User user = new User { UserName = "whuanle" };
+        private User user;
         private List<int> likedQuestionId = new List<int>();
 
-        public CourseDetailedInfoView(Course c)
+        public CourseDetailedInfoView(Course c,User user)
         {
             InitializeComponent();
             this.courseGrid.DataContext = c;
             this.Course = c;
+            this.user = user;
             Init();
             //this.courseGrid.DataContext = Course;
         }
