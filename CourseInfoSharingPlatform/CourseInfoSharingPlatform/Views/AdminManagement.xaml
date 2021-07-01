@@ -8,4 +8,63 @@
         mc:Ignorable="d"
         Title="管理员主界面" Height="550" Width="600" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+
+    <Border Margin="5" Background="White" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0" BlurRadius="5"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--上半部分-->
+            <Border Grid.Row="0" Background="#007DFA" Height="150" VerticalAlignment="Top" CornerRadius="10,10,0,0">
+                <Grid Margin="30,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="../Resources/Images/logo.png"/>
+                        <TextBlock Margin="10,10,0,0" Foreground="White" VerticalAlignment="Center" Text="课程信息分享平台" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" 
+                                 Grid.RowSpan="2" Width="150">
+                        <!--<Button  Margin="20,0,0,0" Template="{StaticResource AdminBtnTemplate}" Content="&#xe600;" FontSize="32"/>-->
+                        <Menu HorizontalAlignment="Center" Height="40"  VerticalAlignment="Center" Foreground="#ff3d00" Width="40" Background="#00F0F0F0">
+                            <MenuItem  Height="40" Width="40" FontFamily="Microsoft YaHei UI">
+                                <MenuItem.Background>
+                                    <ImageBrush ImageSource="../Resources/Images/admin.png"/>
+                                </MenuItem.Background>
+                                <MenuItem  x:Name="SwitchBtn"  Click="SwitchBtn_Click" Header="切换用户"/>
+                                <Separator/>
+                                <MenuItem x:Name="LogoutBtn" Click="LogoutBtn_Click"  Header="退出登录"/>
+                                <Separator/>
+                            </MenuItem>
+                        </Menu>
+                        <TextBlock Margin="5,5,0,0" x:Name="adminNameTB" TextWrapping="Wrap" Width="150"  Foreground="White" VerticalAlignment="Center" FontSize="13"/>
+                    </StackPanel>
+                    <TextBlock Grid.Row="1" Margin="10,4,0,0" Text="我们的目标是让学生更加全面了解自己选择课程的情况，并能提供简单的交流分享心得的功能，帮助学生收集其他人对于课程的不同看法和感受。"
+                          TextWrapping="Wrap" LineHeight="20" FontSize="13" Foreground="#cfdbdc" Opacity=".8" Width="300" HorizontalAlignment="Left"/>
+
+                </Grid>
+            </Border>
+            <!--功能选择-->
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="80,40,80,40">
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                      Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
+                    <TextBlock Text="添加课程" FontSize="20" Foreground="#212121"/>
+                </Button>
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                        Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
+                    <TextBlock Text="修改课程" FontSize="20" Foreground="#212121"/>
+                </Button>
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                        Margin="0,20,0,0" Height="60" Width="200" BorderBrush="#ffcc80" Background="#ffcc80">
+                    <TextBlock Text="管理评论" FontSize="20" Foreground="#212121"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>

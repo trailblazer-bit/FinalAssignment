@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
+=======
+C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
+>>>>>>> 8966fa8eff31d8463ee5a0f2b8fd63dd846aae25
 CourseInfoSharingPlatform
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
 161626478782
 
 421000929204
 162109331297
+=======
+C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
+161626478782
+
+411843288571
+16-2045644900
+>>>>>>> 8966fa8eff31d8463ee5a0f2b8fd63dd846aae25
 Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\AdminPage.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\studMain.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;
 
 True

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminAddCourse.xaml;;
@@ -14,4 +15,22 @@ FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoShari
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\studMain.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuMainPage.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuCourseCollection.xaml;;
+=======
+﻿
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminAddCourse.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminManagement.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminModifyCourse.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminPage.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\ButtonStyle.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CommentView.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CourseDetailedInfoView.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\loginPage.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\LogonPage.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\QueryCourseView.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\SelfMainPage.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\studMain.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuMainPage.xaml;;
+FC:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuCourseCollection.xaml;;
+>>>>>>> 8966fa8eff31d8463ee5a0f2b8fd63dd846aae25
 
