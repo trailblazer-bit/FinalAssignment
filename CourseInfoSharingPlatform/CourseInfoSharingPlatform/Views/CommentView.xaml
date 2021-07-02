@@ -58,7 +58,7 @@
                         <TextBlock Grid.Row="1" FontSize="13" LineHeight="22"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
 
                         <!--问题标签展示-->
-                        <ListBox Grid.Row="2" x:Name="questionTagListLB" PreviewMouseLeftButtonDown="questionTagLikeBtn_Click" Style="{StaticResource MaterialDesignFilterChipOutlineListBox}" Margin="15,-5,0,5" >
+                        <ListBox Grid.Row="2" x:Name="questionTagListLB"  Style="{StaticResource MaterialDesignFilterChipOutlineListBox}" Margin="15,-5,0,5" >
                             <!--<ListBoxItem FontSize="10" Content="{Binding Detail}">
                             </ListBoxItem>-->
                             <!--标签项模板-->

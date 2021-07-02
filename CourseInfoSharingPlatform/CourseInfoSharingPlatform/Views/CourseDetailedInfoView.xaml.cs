@@ -65,6 +65,7 @@ namespace CourseInfoSharingPlatform.Views
         private void quizBtn_Click(object sender, RoutedEventArgs e)
         {
             this.scrollViewer.ScrollToVerticalOffset(scrollViewer.ActualHeight);
+            Keyboard.Focus(this.commentArea);
         }
 
         //按下举报按钮

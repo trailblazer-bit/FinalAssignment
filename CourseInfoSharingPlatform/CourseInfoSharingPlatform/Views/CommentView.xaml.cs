@@ -87,6 +87,7 @@ namespace CourseInfoSharingPlatform.Views
         private void addTagBtn_Click(object sender, RoutedEventArgs e)
         {
             string tagComment = this.addTagTB.Text;
+            if (tagComment == "") return;
             //清空输入框内容，下拉框折叠
             this.addTagTB.Text = null;
             this.tagExpander.IsExpanded = false;
@@ -137,10 +138,6 @@ namespace CourseInfoSharingPlatform.Views
                 c.LikeNum++;
                 if(!likedCommentId.Contains(c.CommentId)) this.likedCommentId.Add(c.CommentId);
             }
-        }
-        //问题标签被点赞
-        private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
-        {           
         }
     }
 }
