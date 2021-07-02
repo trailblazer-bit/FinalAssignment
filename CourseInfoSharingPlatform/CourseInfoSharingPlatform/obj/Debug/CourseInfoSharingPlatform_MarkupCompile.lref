@@ -1,18 +1,19 @@
-﻿D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml;;
+FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\studMain.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminAddCourse.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminManagement.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminModifyCourse.xaml;;
-FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\AdminPage.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\ButtonStyle.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CommentView.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\CourseDetailedInfoView.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\loginPage.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\LogonPage.xaml;;
+FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\MessageBoxView.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\QueryCourseView.xaml;;
+FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\ReportListView.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\SelfMainPage.xaml;;
-FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\studMain.xaml;;
-FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuMainPage.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\StuCourseCollection.xaml;;
 FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\UserPasswordReset.xaml;;
+FD:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\Views\MessageBoxSuccessView.xaml;;
 

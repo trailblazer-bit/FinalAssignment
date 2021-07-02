@@ -102,7 +102,13 @@ namespace CourseInfoSharingPlatform.Views
             //清空回复填写区
             this.commentArea.Text = null;
             //更新回复区,重新查一次该问题
-            CommentHttpClient.AddComments(comment, user.UserName, Question.QuestionId);
+            bool result=CommentHttpClient.AddComments(comment, user.UserName, Question.QuestionId);
+            if(!result)
+            {
+                MessageBoxView view = new MessageBoxView("含敏感词汇，添加失败！");
+                view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view.ShowDialog();
+            }
             this.Question = CommentHttpClient.GetQuestionById(Question.QuestionId);
             Init();
         }

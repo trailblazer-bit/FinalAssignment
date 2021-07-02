@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Converters"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
          Title="举报评论列表" Height="700" Width="500" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <local:CommentReportReasonConverter x:Key="commentReportReason"/>
+    </Window.Resources>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Border Margin="5" Background="White" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
@@ -18,11 +22,11 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="2"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Margin="0,10,10,0" Template="{StaticResource BackBtnTemplate}" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                <Button Grid.Row="0" Click="backBtn_Click" Margin="0,10,10,0" Template="{StaticResource BackBtnTemplate}" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" 
                         Foreground="#263238"   Content="&#xe65f;"/>
                 <TextBlock Grid.Row="1"  Text="举报审核" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="25"/>
                 <Border Grid.Row="2"  Background="{DynamicResource MaterialDesignDivider}" Height="2" HorizontalAlignment="Stretch" 
@@ -51,7 +55,7 @@
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Row="0" Margin="10,10,0,0"  Text="{Binding RelatedUser.UserName}" FontSize="16" VerticalAlignment="Center"/>
                                     <TextBlock Grid.Row="1" FontSize="13" LineHeight="20"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
-                                    <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="举报理由：涉及黄色暴力内容"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="{Binding Reason,Converter={StaticResource commentReportReason}}"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
                                             <Button Click="deleteCommentBtn_Click" Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">
@@ -92,7 +96,7 @@
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Row="0" Margin="10,10,0,0"  Text="{Binding RelatedUser.UserName}" FontSize="16" VerticalAlignment="Center"/>
                                     <TextBlock Grid.Row="1" FontSize="13" LineHeight="20"  Text="{Binding Detail}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="25,5" />
-                                    <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="举报理由：涉及黄色暴力内容"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Row="2" FontSize="10" LineHeight="15" Foreground="#f4511e" Text="{Binding Reason,Converter={StaticResource commentReportReason}}"  VerticalAlignment="Top" Margin="25,0,0,5" TextWrapping="Wrap"/>
                                     <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="-5,-8,0,0">
                                         <UniformGrid Columns="2" Margin="10,0,0,0">
                                             <Button Click="deleteQuestionBtn_Click"  Template="{StaticResource CommentBtnTemplate}"  Content="&#xe615;"  Margin="10,0,0,5">

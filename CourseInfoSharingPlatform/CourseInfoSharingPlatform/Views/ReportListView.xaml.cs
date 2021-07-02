@@ -1,4 +1,5 @@
-﻿using CourseInfoSharingPlatform.Models;
+﻿using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,14 @@ namespace CourseInfoSharingPlatform.Views
         public ReportListView()
         {
             InitializeComponent();
-            
-            this.commentReportList.ItemsSource = commentsReport;
-            this.questionReportList.ItemsSource = questionsReport;
+            InitDataSource();
         }
         private void InitDataSource()
         {
-
+            this.commentsReport = CommentHttpClient.GetAllCommentReport();
+            this.questionsReport = CommentHttpClient.GetAllQuestionReport();
+            this.commentReportList.ItemsSource = commentsReport;
+            this.questionReportList.ItemsSource = questionsReport;
         }
 
         //整个窗口移动按钮
@@ -43,22 +45,51 @@ namespace CourseInfoSharingPlatform.Views
         //删除回复
         private void deleteCommentBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Comment c = btn.DataContext as Comment;
+            if(c!=null)
+            {
+                CommentHttpClient.deleteCommentById(c.CommentId);
+                InitDataSource();
+            }
         }
         //忽略回复
         private void ignoreCommentBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Comment c = btn.DataContext as Comment;
+            if (c != null)
+            {
+                CommentHttpClient.IgnoreCommentReport(c.CommentId);
+                InitDataSource();
+            }
         }
         //删除问题
         private void deleteQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Question q = btn.DataContext as Question;
+            if (q != null)
+            {
+                CommentHttpClient.deleteQuestionById(q.QuestionId);
+                InitDataSource();
+            }
         }
         //忽略问题
         private void ignoreQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = e.OriginalSource as Button;
+            Question q = btn.DataContext as Question;
+            if (q != null)
+            {
+                CommentHttpClient.IgnoreQuestionReport(q.QuestionId);
+                InitDataSource();
+            }
+        }
+        //返回
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

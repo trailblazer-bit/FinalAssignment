@@ -52,10 +52,8 @@ C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoShari
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.g.cs
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\LogonPage.g.cs
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuMainPage.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\LogonPage.baml
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuMainPage.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\StuCourseCollection.baml
 C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe.config
 C:\Users\Gao\Desktop\c#\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe
@@ -116,14 +114,11 @@ D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharin
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminAddCourse.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminManagement.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminModifyCourse.g.cs
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminPage.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ReportListView.g.cs
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminAddCourse.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminManagement.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminModifyCourse.baml
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\AdminPage.baml
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\ButtonStyle.baml
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
 C:\Users\Gao\Desktop\demo\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe.config
 C:\Users\Gao\Desktop\demo\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.exe
 C:\Users\Gao\Desktop\demo\CourseInfoSharingPlatform\CourseInfoSharingPlatform\bin\Debug\CourseInfoSharingPlatform.pdb
@@ -236,3 +231,14 @@ C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoShari
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.g.cs
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.baml
 C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.baml
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.g.cs
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.g.cs
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\SelfMainPage.baml
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\UserPasswordReset.baml
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\studMain.g.cs
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\studMain.baml
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\CourseInfoSharingPlatform.csprojAssemblyReference.cache
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MessageBoxView.g.cs
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MessageBoxView.baml
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MessageBoxSuccessView.g.cs
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\Views\MessageBoxSuccessView.baml

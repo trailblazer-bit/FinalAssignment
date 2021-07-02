@@ -83,7 +83,7 @@ namespace EFDemo.Dao
         // 获取所有被举报问题
         public static List<Question> GetAllReportedQuestion()
         {
-            var q = context.Questions.Where(q => q.IsReported == true);
+            var q = context.Questions.Where(q => q.IsReported == true).Include(q=>q.RelatedUser);
             return q.ToList();
         }
 

@@ -132,6 +132,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
             string url = baseUrl + "/getAllQuestionReport";
             Dictionary<string, string> d = new Dictionary<string, string>();
             var result = ClientHttp.GET(url, d);
+            if (result == null) return null;
             List<Question> questions=Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Question>)) as List<Question>;
             return questions;
         }
@@ -141,6 +142,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
             string url = baseUrl + "/getAllCommentReport";
             Dictionary<string, string> d = new Dictionary<string, string>();
             var result = ClientHttp.GET(url, d);
+            if (result == null) return null;
             List<Comment> comments = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Comment>)) as List<Comment>;
             return comments;
         }

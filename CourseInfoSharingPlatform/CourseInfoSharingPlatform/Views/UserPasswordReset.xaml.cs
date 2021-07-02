@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using CourseInfoSharingPlatform.ClientHttp;
 using System.Globalization;
+using CourseInfoSharingPlatform.Models;
+
 namespace CourseInfoSharingPlatform.Views
 {
     /// <summary>
     /// UserPasswordReset.xaml 的交互逻辑
     /// </summary>
-    public class PassWordConverter
-            : IValueConverter
-    {
+    public class PassWordConverter: IValueConverter
+    {     
         private string realWord = "";
-
         private char replaceChar = '*';
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -35,21 +35,18 @@ namespace CourseInfoSharingPlatform.Views
                     replaceChar = temp.First();
                 }
             }
-
             if (value != null)
             {
                 realWord = value.ToString();
             }
-
-
             string replaceWord = "";
             for (int index = 0; index < realWord.Length; ++index)
             {
                 replaceWord += replaceChar;
             }
-
             return replaceWord;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string backValue = "";
@@ -70,56 +67,43 @@ namespace CourseInfoSharingPlatform.Views
             }
             return backValue;
         }
-
     }
     public partial class UserPasswordReset : Window
     {
-        public UserPasswordReset()
+        private User user;
+        public UserPasswordReset(User user)
         {
             InitializeComponent();
-
-            this.UserNameBlock.Text = UserHttpClient.GetInstance().GetName();
-
-            //密码框黑点
-            this.OldPwdTextBox.TextDecorations = new TextDecorationCollection(new TextDecoration[] {
-                new TextDecoration() {
-                     Location= TextDecorationLocation.Strikethrough,
-                      Pen= new Pen(Brushes.Black, 20f) {
-                          DashCap =  PenLineCap.Round,
-                           StartLineCap= PenLineCap.Round,
-                            EndLineCap= PenLineCap.Round,
-                             DashStyle= new DashStyle(new double[] {0.0,0.8 }, 0.6f)
-                      }
-                }
-
-            });
-            this.NewPwdTextBox.TextDecorations = new TextDecorationCollection(new TextDecoration[] {
-                new TextDecoration() {
-                     Location= TextDecorationLocation.Strikethrough,
-                      Pen= new Pen(Brushes.Black, 20f) {
-                          DashCap =  PenLineCap.Round,
-                           StartLineCap= PenLineCap.Round,
-                            EndLineCap= PenLineCap.Round,
-                             DashStyle= new DashStyle(new double[] {0.0,0.8 }, 0.6f)
-                      }
-                }
-
-            });
-
+            this.user = user;
+            this.UserNameBlock.Text = user.UserName;        
         }
-        private async void ModifyBtn_Click(object sender, RoutedEventArgs e)
+       
+        //整个窗口移动按钮
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (await UserHttpClient.GetInstance().ResetPassword(OldPwdTextBox.Text, NewPwdTextBox.Text) == true)
-            {
-                PwdStatusText.Visibility = Visibility.Visible;
-                PwdStatusText.Text = "成功";
-
-            }
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+        //修改
+        private void ModifyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string oldPassWord = this.OldPwdTextBox.Password;
+            string newPassWord = this.NewPwdTextBox.Password;
+            if (user.Password != oldPassWord) this.PwdStatusText.Text = "原密码错误！";
             else
             {
-                PwdStatusText.Visibility = Visibility.Visible;
-                PwdStatusText.Text = "密码错误，请重新输入！";
+                UserHttpClient.UpdateUserPassword(user.UserName, newPassWord);
+                this.PwdStatusText.Text = "修改成功!";
+                //返回登录界面
+                new loginPage().Show();
+                this.Close();
             }
+        }
+        //返回按钮
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new UserMain(this.user).Show();
+            this.Close();
         }
     }
 }

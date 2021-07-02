@@ -45,14 +45,13 @@ namespace CourseInfoSharingPlatform.Views
             warning.Text = null;
             //提交添加新用户请求
             User user = new User() { UserName = userName, Password = passWord1 };
-            if (!UserHttpClient.AddUser(user)) warning.Text = "注册失败!";
+            if (!UserHttpClient.AddUser(user)) warning.Text = "注册失败!用户已存在或服务器异常";
             else
             {
-                if (MessageBox.Show("注册成功！是否返回登录界面") == MessageBoxResult.OK)
-                {
-                    new loginPage().Show();
-                    this.Close();
-                }
+                MessageBoxSuccessView view = new MessageBoxSuccessView("注册成功！返回登录界面");
+                view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view.ShowDialog();
+                this.Close();
             }
         }
         //返回按钮

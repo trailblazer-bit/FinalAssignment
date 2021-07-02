@@ -43,6 +43,7 @@ namespace CourseInfoSharingPlatformServer.Service
         public static User GetUser(string userName)
         {
             User user = UserDao.SelectUserByUserNameWithCourse(userName);
+            if (user == null) return null;
             CourseService.GetAndSetLikeNum(user.LikeCourses);
             CourseService.SetCourseScore(user.LikeCourses);
             for (int i = 0; i < user.LikeCourses.Count; i++)
@@ -72,9 +73,9 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         //更新用户Stu密码
-        public static void ResetStuPwd(string name,string password)
+        public static bool ResetStuPwd(string name,string password)
         {
-            UserDao.UpdateUserPassword(name, password);
+            return UserDao.UpdateUserPassword(name, password);
         }
 
         //更新admin密码

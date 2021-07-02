@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\obj\Debug\
 CourseInfoSharingPlatform
 none
 false
 DEBUG;TRACE
-C:\Users\84125\Desktop\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
-171967829053
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
+17-1591919869
 
-401060697977
-161727655197
-Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\AdminPage.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\studMain.xaml;Views\StuMainPage.xaml;Views\StuCourseCollection.xaml;Views\UserPasswordReset.xaml;
+44506554657
+162109331297
+studMain.xaml;Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\MessageBoxSuccessView.xaml;Views\MessageBoxView.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\StuCourseCollection.xaml;Views\UserPasswordReset.xaml;
 
 True
 

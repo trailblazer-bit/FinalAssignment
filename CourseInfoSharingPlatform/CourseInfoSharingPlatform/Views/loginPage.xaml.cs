@@ -49,6 +49,7 @@ namespace CourseInfoSharingPlatform.Views
             {
                 if (!isAdmin) StudentLogin(userName, passWord);
                 else AdminLogin(userName, passWord);
+                
             }
             else
                 warning.Text = "用户名或密码未填写";         

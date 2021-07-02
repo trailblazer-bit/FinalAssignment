@@ -37,6 +37,7 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="60"/>
                     <RowDefinition/>
+                    <RowDefinition />
                     <RowDefinition Height="50"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -47,7 +48,8 @@
                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" Width="350" Height="200" TextWrapping="Wrap"
                          VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#b0bec5"
                         x:Name="reportReason" />
-                <Button Grid.Row="3" Click="reportBtn_Click" VerticalAlignment="Bottom" Width="100" BorderBrush="#2962ff"  Background="#2962ff" HorizontalAlignment="Center" Content="举报"/>
+                <TextBlock Grid.Row="3" x:Name="warning" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="red"/>
+                <Button Grid.Row="4" Click="reportBtn_Click" VerticalAlignment="Bottom" Width="100" BorderBrush="#2962ff"  Background="#2962ff" HorizontalAlignment="Center" Content="举报"/>
             </Grid>
 
         </Border>

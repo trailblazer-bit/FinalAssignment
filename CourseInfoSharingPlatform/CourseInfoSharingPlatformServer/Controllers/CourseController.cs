@@ -139,5 +139,12 @@ namespace CourseInfoSharingPlatformServer.Controllers
         {
             return CourseService.GetPageNumByCourseName(name);
         }
+
+        //新添加一门课程
+        [HttpPost("addCourse")]
+        public ActionResult<bool> AddCourse(Course course)
+        {
+            return CourseService.AddCourse(course);
+        }
     }
 }

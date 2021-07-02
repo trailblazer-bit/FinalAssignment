@@ -3,66 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views"
         mc:Ignorable="d"
-        Title="我的主页" Height="820" Width="600" ResizeMode="NoResize">
-    <Grid Height="800">
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="300"></RowDefinition>
-            <RowDefinition Height="500"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Border x:Name="BgBorder" Grid.Row="0" Panel.ZIndex="0" Margin="0,0,0,0" Grid.RowSpan="1">
-            <Border.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="2021-06-30 130424.png"/>
-            </Border.Background>
-            <Button x:Name="ChooseBgPicBtn" Click="ChooseBgPicBtn_Click" Content="更改背景图" Width="80" Height="40" Margin="505,10,9.667,250" Foreground="Black" Background="#7FB4E1E8"></Button>
-        </Border>
-        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,0,-0.333,0" Background="{x:Null}">
-            <Border  Margin="0,0,0,0" Background="#FFFAF8E4">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
-                    <Image x:Name="image" Height="200" Width="200" Margin="10,-80,0,0" Source="null" Stretch="UniformToFill"/>
-                    <StackPanel Orientation="Vertical" Width="280">
-                        <TextBlock  x:Name="UserNameTextBlock" Height = "50" VerticalAlignment="Center" Margin="10,20,0,0" Width="auto" FontSize="28">
-                                        HHH
-                        </TextBlock>
-                        <TextBlock x:Name="selfInstructionTextBlock" Height = "40" VerticalAlignment="Center" Margin="10,0,0,0" Width="auto" FontSize="18">
-                                        testtesttest
-                        </TextBlock>
-                    </StackPanel>
-                    <Button x:Name="ModifyInfoBtn" Click="ModifyInfoBtn_Click" Content="编辑资料" HorizontalAlignment="Right" Width="80" Height="50" Margin ="20,50,0,0" FontSize="16" Background="#7FB4E1E8" BorderBrush="White" Foreground="#FF8B8B7B" />
-                    <Button x:Name="PutChangeBtn" Click="PutChangeBtn_Click"  Content="提交修改" HorizontalAlignment="Right" Width="80" Height="50" Margin ="20,50,0,0" FontSize="16" Background="#7FB4E8C0" BorderBrush="White" Foreground="#FF8B8B7B" Visibility="Collapsed"/>
+        Title="我的主页" Height="650" Width="450" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Border Margin="5" Background="#eceff1" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Template="{StaticResource BackBtnTemplate}" Click="backBtn_Click" Margin="0,10,10,0" Content="&#xe642;" Foreground="Black" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="1" Margin="20,0,0,0" Text="个人主页" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Black" FontSize="22"/>
+            <!--分隔符-->
+            <Border  Grid.Row="1" Margin="0,30,0,0" Background="{DynamicResource MaterialDesignDivider}" Height="2" Opacity=".5" HorizontalAlignment="Stretch" 
+                        SnapsToDevicePixels="True" />
+            <StackPanel Grid.Row="2" Margin="20,10,20,0">
+                <Button x:Name="ModifyInfoBtn" Click="ModifyInfoBtn_Click" Content="编辑资料" Margin="0,-10,-10,0" HorizontalAlignment="Right"   Width="90" Height="30"  FontSize="14" Background="#7FB4E1E8" BorderBrush="White" Foreground="#FF8B8B7B" />
+                <Button x:Name="PutChangeBtn" Click="PutChangeBtn_Click"  Content="提交修改" Margin="0,-10,-10,0" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="90" Height="30"  FontSize="14" Background="#7FB4E8C0" BorderBrush="White" Foreground="#FF8B8B7B" Visibility="Collapsed"/>
+                <StackPanel Orientation="Horizontal" Margin="20,30,0,0">
+                    <Label Margin="30,0,0,0" Content="昵称"  FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
+                    <Border CornerRadius="5"  Height="30" Margin="20,0,0,0" Width="240"  BorderThickness="1" BorderBrush="LightBlue">
+                        <TextBox  Margin="10,0,0,0"  IsReadOnly="True"
+                             Text="啊哈哈" x:Name="userNameTB"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="200" FontSize="13"
+                             VerticalAlignment="Center"  />
+                    </Border>
                 </StackPanel>
-            </Border>
-            <Border VerticalAlignment="Top">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Top" >
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
-                        <Label Content="      昵称" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
-                        <TextBox x:Name="UserNameTextBox" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
-                        <Label Content="      性别" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
-                        <RadioButton Height="30" Width="50"  GroupName="gender" x:Name="male" Content="男" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
-                        <RadioButton Height="30" Width="50" GroupName="gender" x:Name="female" Content="女" VerticalAlignment="Center" FontSize="20" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
-                        <RadioButton Height="30" Width="75" GroupName="gender" x:Name="secret" Content="保密" VerticalAlignment="Center" FontSize="20" Margin="0,20" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
-                        <Label Content="      年级" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
-                        <TextBox x:Name="GradeTextBox" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-
-                    </StackPanel >
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
-                        <Label Content="      专业" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
-                        <TextBox x:Name="Major" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-                    </StackPanel >
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="70">
-                        <Label Content="   个性签名" Width="163" Margin="0,10" FontSize="24" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
-                        <TextBox x:Name="Instruction" TextWrapping="Wrap" Text="TextBox" Width="352" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Margin="0,10" FontSize="24" IsReadOnly="True"/>
-                    </StackPanel >
+                <StackPanel Orientation="Horizontal" Margin="20,30,0,0">
+                    <Label Margin="30,0,0,0" Content="年级"  FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
+                    <Border CornerRadius="5"  Height="30" Margin="20,0,0,0" Width="240"  BorderThickness="1" BorderBrush="LightBlue">
+                        <TextBox  Margin="10,0,0,0"   IsReadOnly="True"
+                             Text="2019" x:Name="gradeTB"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="200" FontSize="13"
+                             VerticalAlignment="Center"  />
+                    </Border>
                 </StackPanel>
-            </Border>
-        </StackPanel>
-    </Grid>
+                <StackPanel Orientation="Horizontal" Margin="20,30,0,0">
+                    <Label Margin="30,0,0,0" Content="专业"  FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
+                    <Border CornerRadius="5"  Height="30" Margin="20,0,0,0" Width="240"  BorderThickness="1" BorderBrush="LightBlue">
+                        <TextBox  Margin="10,0,0,0"  x:Name="majorTB"
+                             Text="计算机学院" IsReadOnly="True"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0"
+                             MinWidth="200" FontSize="13"
+                             VerticalAlignment="Center"  />
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,30,0,0">
+                    <Label Margin="30,0,0,0" Content="性别"  FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
+                    <RadioButton Margin="20,0,0,0"  GroupName="gender" x:Name="male" Content="男" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
+                    <RadioButton Margin="10,0,0,0"  GroupName="gender" x:Name="female" Content="女" VerticalAlignment="Center" FontSize="12" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"/>
+                    <RadioButton Margin="10,0,0,0" GroupName="gender" x:Name="secret" Content="保密" VerticalAlignment="Center" FontSize="12"  UseLayoutRounding="True" ScrollViewer.CanContentScroll="True"/>
+                </StackPanel>
+            </StackPanel>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Margin="40,0,0,0" Content="个人简介"  FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF5F5F5F"/>
+                <TextBox Grid.Column="1" Margin="-15 20 0 0" materialDesign:HintAssist.Hint="什么都没有留下"
+                         x:Name="introductionTB" IsReadOnly="True"
+                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" Width="200" Height="150" TextWrapping="Wrap"
+                         VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="#b0bec5"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible" />
+            </Grid>
+            <!--重置按钮-->
+            <Button Grid.Row="4" Click="resetBtn_Click" VerticalAlignment="Center" Width="80" Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth5"
+                    Content="重置" BorderBrush="#ffecb3"  Background="#ffecb3" Foreground="Black" />
+        </Grid>
+    </Border>
 </Window>

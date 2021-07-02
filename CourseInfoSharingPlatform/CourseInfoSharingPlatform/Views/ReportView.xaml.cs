@@ -47,6 +47,11 @@ namespace CourseInfoSharingPlatform.Views
         private void reportBtn_Click(object sender, RoutedEventArgs e)
         {
             string reason = this.reportReason.Text;
+            if(reason=="")
+            {
+                warning.Text = "举报理由不能为空";
+                return;
+            }
             if (question == null)
                 CommentHttpClient.reportComment(comment.CommentId, reason);
             else CommentHttpClient.reportQuestion(question.QuestionId, reason);

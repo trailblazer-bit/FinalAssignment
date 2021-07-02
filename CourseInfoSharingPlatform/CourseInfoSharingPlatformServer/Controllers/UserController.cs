@@ -79,9 +79,16 @@ namespace CourseInfoSharingPlatformServer.Controllers
         
         // 删除用户喜爱课程
         [HttpGet("deleteFavouriteCourse")]
-        public  ActionResult<bool> DeleteFavouriteCourse(string userName, string courseId)
+        public ActionResult<bool> DeleteFavouriteCourse(string userName, string courseId)
         {
             return UserService.DeleteFavouriteCourse(userName, courseId);
+        }
+
+        // 修改用户密码
+        [HttpGet("updateUserPwd")]
+        public ActionResult<bool> UpdateUserPassword(string userName, string passWord)
+        {
+            return UserService.ResetStuPwd(userName, passWord);
         }
 
         //提交修改

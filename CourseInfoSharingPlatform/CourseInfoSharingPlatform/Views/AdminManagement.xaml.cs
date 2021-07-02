@@ -47,7 +47,11 @@ namespace CourseInfoSharingPlatform.Views
         //添加课程
         private void addCourseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminAddCourse view = new AdminAddCourse();
+            this.Visibility = Visibility.Hidden;
+            view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            view.ShowDialog();
+            this.Visibility = Visibility.Visible;
         }
         //修改课程
         private void modifyCourseBtn_Click(object sender, RoutedEventArgs e)
@@ -60,7 +64,7 @@ namespace CourseInfoSharingPlatform.Views
             ReportListView view = new ReportListView();
             this.Visibility = Visibility.Hidden;
             view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            view.Show();
+            view.ShowDialog();
             this.Visibility = Visibility.Visible;
         }
     }

@@ -184,6 +184,13 @@ namespace CourseInfoSharingPlatform.ClientHttp
             d.Add("name", name);
             return GetTotalPageNum(url, d);
         }
+        //添加课程
+        public static bool AddCourse(Course course)
+        {
+            string url = baseUrl + "/addCourse";
+            string parameters = Newtonsoft.Json.JsonConvert.SerializeObject(course);
+            return ClientHttp.POST(url, parameters);
+        }
 
     }
 }

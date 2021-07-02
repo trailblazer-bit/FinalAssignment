@@ -93,7 +93,6 @@ D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharin
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.dll
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.pdb
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.genruntimeconfig.cache
-D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.csprojAssemblyReference.cache
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\Gao\Desktop\大作业\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\bin\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.exe
@@ -286,3 +285,4 @@ C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\Cou
 C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.dll
 C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.pdb
 C:\Users\23062\Desktop\c#大作业\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.genruntimeconfig.cache
+D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatformServer\obj\Debug\netcoreapp3.0\CourseInfoSharingPlatformServer.csprojAssemblyReference.cache

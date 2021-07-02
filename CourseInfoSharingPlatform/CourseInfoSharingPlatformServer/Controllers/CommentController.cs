@@ -2,7 +2,7 @@
 using CourseInfoSharingPlatformServer.Models;
 using CourseInfoSharingPlatformServer.Service;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Collections.Generic;
 
 namespace CourseInfoSharingPlatformServer.Controllers
 {
@@ -81,6 +81,31 @@ namespace CourseInfoSharingPlatformServer.Controllers
         public ActionResult<bool> DeleteCommentById(int id)
         {
             return CommentService.DeleteCommentById(id);
+        }
+
+        //忽略被举报的问题
+        [HttpGet("ignoreQuestionReport")]
+        public ActionResult<bool> IgnoreQuestionReport(int id)
+        {
+           return  CommentService.IgnoreQuestionReport(id);
+        }
+        //忽略被举报的评论
+        [HttpGet("ignoreCommentReport")]
+        public ActionResult<bool> IgnoreCommentReport(int id)
+        {
+            return CommentService.IgnoreCommentReport(id);
+        }
+        //查询所有被举报的问题
+        [HttpGet("getAllQuestionReport")]
+        public ActionResult<List<Question>> GetAllQuestionReport()
+        {
+            return CommentService.GetAllReportedQuestion();        
+        }
+        //查询所有被举报的回复
+        [HttpGet("getAllCommentReport")]
+        public ActionResult<List<Comment>> GetAllCommentReport()
+        {
+            return CommentService.GetAllReportedComment();
         }
     }
 }

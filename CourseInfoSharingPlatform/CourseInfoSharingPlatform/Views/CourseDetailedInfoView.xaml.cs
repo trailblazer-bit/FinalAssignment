@@ -141,9 +141,17 @@ namespace CourseInfoSharingPlatform.Views
         {
             string detail = this.commentArea.Text;
             if (detail == "") return;
-            CommentHttpClient.AddQuestion(detail,user.UserName,Course.CourseId);
+            bool result=CommentHttpClient.AddQuestion(detail,user.UserName,Course.CourseId);         
             //清空问题填写区
-            this.commentArea.Text = null;
+            this.commentArea.Text = null;           
+            //没有添加成功
+            if (!result)
+            {
+                MessageBoxView view = new MessageBoxView("问题中含有敏感词汇，添加失败");
+                view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view.ShowDialog();
+                return;
+            }
             //展示更新后的问题
             this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
             this.courseGrid.DataContext = Course;

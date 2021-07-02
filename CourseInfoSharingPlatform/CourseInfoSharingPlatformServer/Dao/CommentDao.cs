@@ -70,7 +70,7 @@ namespace EFDemo.Dao
         // 获取所有被举报评论
         public static List<Comment> GetReportedComments()
         {
-            return context.Comments.Where(c => c.IsReported == true).ToList();
+            return context.Comments.Where(c => c.IsReported == true).Include(c=>c.RelatedUser).ToList();
         }
 
         public static bool IgnoreCommentReport(int id)

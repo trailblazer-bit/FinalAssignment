@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseInfoSharingPlatform.ClientHttp;
+using CourseInfoSharingPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,9 +39,9 @@ namespace CourseInfoSharingPlatform.Views
             this.courseNameTB.Text = null;
             this.courseTeacherTB.Text = null;
             this.courseTypeTB.Text = null;
-            this.introduceTB.Text = null;
             this.departmentTB.Text = null;
-            this.departmentTB.Text = null;
+            this.introduceTB.Text = null;      
+            this.bookNameTB.Text = null;
         }
 
         //返回按钮
@@ -54,10 +56,27 @@ namespace CourseInfoSharingPlatform.Views
             if (this.hiddenTB.Text == "")
             {
                 //判断课程是否存在
-                if (MessageBox.Show("添加课程成功！") == MessageBoxResult.OK) ClearAllTextBox();
-                //if (MessageBox.Show("要添加的课程已存在") == MessageBoxResult.OK) ;
+                if (CourseHttpClient.GetCourseById(courseIdTB.Text) != null)
+                {
+                    MessageBoxView view = new MessageBoxView("要填加的课程已经存在,添加失败");
+                    view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    view.ShowDialog();
+                }
+                else
+                {
+                    Course c = new Course { CourseId = courseIdTB.Text, Name = courseNameTB.Text, Type = courseTypeTB.Text,
+                        TeacherName = courseTeacherTB.Text, Introduction = introduceTB.Text, BookName = bookNameTB.Text };
+                    bool result=CourseHttpClient.AddCourse(c);
+                    if (result) 
+                    {
+                        MessageBoxSuccessView view = new MessageBoxSuccessView("添加课程成功！");
+                        view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        view.ShowDialog();                     
+                        ClearAllTextBox(); 
+                    }
+                    //这里不处理数据库操作异常
+                }
             }
-
         }
     }
 }

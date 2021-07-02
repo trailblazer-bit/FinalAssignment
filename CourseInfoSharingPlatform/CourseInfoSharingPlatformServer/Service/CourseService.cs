@@ -398,5 +398,10 @@ namespace CourseInfoSharingPlatformServer.Service
                 courses[i].Score = CUSDao.GetAveScoreByCourseId(courses[i].CourseId);
             }
         }
+        //新添加一门课程
+        public static bool AddCourse(Course course)
+        {
+            return CourseDao.AddCourse(course);
+        }
     }
 }

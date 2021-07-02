@@ -48,13 +48,9 @@ namespace CourseInfoSharingPlatform.ClientHttp
                 CurrentAdmin.AdminName = "testAdmin";
                 CurrentAdmin.Password =  "admin";
                 CurrentStu.UserName = "testStu";
-                CurrentStu.Password = "stu";
-               
-
-
+                CurrentStu.Password = "stu";            
             }
             return UserHttp;
-
         }
 
         private static string baseUrl = "https://localhost:44386/api/user";
@@ -106,6 +102,55 @@ namespace CourseInfoSharingPlatform.ClientHttp
             bool flag = (bool)Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(bool));
             return flag;
         }
+        //根据用户名获取用户   
+        public static User GetUser(string userName)
+        {
+            string url = baseUrl + "/getUser";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("userName", userName);
+            var result = ClientHttp.GET(url, d);
+            User user = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(User)) as User;
+            return user;
+        }
+
+        //根据用户名获取管理员    
+        public static Admin GetAdmin(string adminName)
+        {
+            string url = baseUrl + "/getAdmin";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("adminName", adminName);
+            var result = ClientHttp.GET(url, d);
+            Admin admin = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(Admin)) as Admin;
+            return admin;
+        }
+
+        //添加新用户
+        public static bool AddUser(User user)
+        {
+            string url = baseUrl + "/addUser";
+            string parameters = Newtonsoft.Json.JsonConvert.SerializeObject(user);
+            return ClientHttp.POST(url, parameters);
+        }
+        // 删除用户喜爱课程
+        public static bool DeleteFavouriteCourse(string userName, string courseId)
+        {
+            string url = baseUrl + "/deleteFavouriteCourse";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("userName", userName);
+            d.Add("courseId", courseId.ToString());
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);
+        }
+        // 修改用户密码
+        public static bool UpdateUserPassword(string userName, string passWord)
+        {
+            string url = baseUrl + "/updateUserPwd";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("userName", userName);
+            d.Add("passWord", passWord);
+            var result = ClientHttp.GET(url, d);
+            return bool.Parse(result);        
+        }
 
         //验证用户，并保存信息
         public async Task<bool> AuthenticateAsync(string username,string password,bool isStu)
@@ -144,22 +189,8 @@ namespace CourseInfoSharingPlatform.ClientHttp
             string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.adminUrl;
             bool res = await ClientHttp.PostUser(url, JsonConvert.SerializeObject(admin));
             return res;
-        }
-<<<<<<< HEAD
+        }     
 
-        // 删除用户喜爱课程
-        public static bool DeleteFavouriteCourse(string userName, string courseId)
-        {
-            string url = baseUrl + "/deleteFavouriteCourse"; 
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            d.Add("userName", userName);
-            d.Add("courseId", courseId.ToString());
-            var result=ClientHttp.GET(url, d);
-            return bool.Parse(result);
-        }
-
-=======
->>>>>>> 9ce2c645a6b0486ea6342255a2dc97ff7f466682
         //修改个人信息,为方便不包括用户名密码的User
         public async Task<bool> ModifyInformation(User NewUser)
         {
@@ -171,8 +202,7 @@ namespace CourseInfoSharingPlatform.ClientHttp
                 string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.stuUrl + "/" + CurrentStu.UserName;
                 bool res = await ClientHttp.PutUser(url, JsonConvert.SerializeObject(NewUser));
                 
-                return res;
-                
+                return res;          
             }
             return true;
         }
@@ -187,7 +217,6 @@ namespace CourseInfoSharingPlatform.ClientHttp
                 CurrentStu.Password = newPwd;
                 string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.stuUrl + "/" +CurrentStu.UserName;
                 bool res = await ClientHttp.PutUser(url, JsonConvert.SerializeObject(CurrentStu));
-
                 return res;
             }
             else
@@ -205,39 +234,17 @@ namespace CourseInfoSharingPlatform.ClientHttp
         public async Task<bool> DeleteAccount()
         {
             if (IsStu)
-            {
-              
+            {             
                 string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.stuUrl + "/" + CurrentStu.UserName;
                 bool res = await ClientHttp.DeleteUser(url);
-
                 return res;
             }
             else
             {
                 string url = Properties.Settings.Default.baseUrl + Properties.Settings.Default.adminUrl + "/" + CurrentAdmin.AdminName;
                 bool res = await ClientHttp.DeleteUser(url);
-
                 return res;
             }
-        }
-
-        public User GetUser()
-        {
-            if (IsStu)
-                return CurrentStu;
-            else return null;
-        }
-        public Admin GetAdmin()
-        {
-            if (!IsStu)
-                return CurrentAdmin;
-            else return null;
-        }
-        public string GetName()
-        {
-            if (IsStu)
-                return CurrentStu.UserName;
-            else return CurrentAdmin.AdminName;
         }
     }
 }
