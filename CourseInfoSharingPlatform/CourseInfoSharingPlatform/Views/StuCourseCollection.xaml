@@ -73,6 +73,7 @@
                         Foreground="#263238"   Content="&#xe65f;"/>
                 <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="课程收藏夹" FontWeight="Bold" />
                 <!--课程条目展示部分-->
+                <TextBlock Grid.Row="2" x:Name="hiddenInfoTB" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#e64a19"/>
                 <ItemsControl Grid.Row="2" x:Name="courseList">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

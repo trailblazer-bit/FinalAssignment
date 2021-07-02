@@ -89,16 +89,5 @@ namespace CourseInfoSharingPlatformServer.Service
         {
            return  UserDao.UpdateUserInfo(user);
         }
-
-        //注销账户
-        public static void DeleteStu(String Name)
-        {
-
-        }
-
-        public static void DeleteAdmin(String Name)
-        {
-
-        }
     }
 }

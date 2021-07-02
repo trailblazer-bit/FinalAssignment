@@ -129,13 +129,11 @@ namespace CourseInfoSharingPlatformServer.Service
             return CommentDao.GetReportedComments();
         }
 
-
         // 根据id将指定问题举报字段置为False
         public static bool IgnoreQuestionReport(int id)
         {
             return QuestionDao.IgnoreQuestionReport(id);
         }
-
 
         // 根据id将指定回复举报字段置为False
         public static bool IgnoreCommentReport(int id)

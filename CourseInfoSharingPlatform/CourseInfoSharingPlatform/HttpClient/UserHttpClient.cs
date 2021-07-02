@@ -17,21 +17,8 @@ namespace CourseInfoSharingPlatform.ClientHttp
         private static bool IsStu; 
         private static User CurrentStu { get; set; }
         private static Admin CurrentAdmin { get; set; }
-
-
-
-
-        private UserHttpClient() {
-            //以下为测试代码，实际运行删除
-            /*
-            CurrentAdmin.AdminName = "testAdmin";
-            CurrentAdmin.Password =  "admin";
-            CurrentStu.UserName = "testStu";
-            CurrentStu.Password = "stu";
-            */
-        }
-        
-
+        private UserHttpClient() {}
+ 
         public static UserHttpClient GetInstance()
         {
             //单例模式

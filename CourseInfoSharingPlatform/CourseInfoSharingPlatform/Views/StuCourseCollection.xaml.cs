@@ -30,6 +30,8 @@ namespace CourseInfoSharingPlatform.Views
         private void InitializeCourseList()
         {
             //调用StuADOService,通过Controller请求api
+            if (user.LikeCourses == null||user.LikeCourses.Count==0) this.hiddenInfoTB.Text = "你的收藏夹空空如也..";
+            else this.hiddenInfoTB.Text = null;
             this.courseList.ItemsSource = user.LikeCourses;
         }
 
@@ -57,7 +59,7 @@ namespace CourseInfoSharingPlatform.Views
             Course c = btn.DataContext as Course;
             if (c != null) UserHttpClient.DeleteFavouriteCourse(user.UserName, c.CourseId);
             user = UserHttpClient.GetUser(user.UserName);
-            this.courseList.ItemsSource = user.LikeCourses;
+            InitializeCourseList();
         }
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)

@@ -95,6 +95,7 @@ namespace CourseInfoSharingPlatform.Views
                 UserHttpClient.UpdateUserPassword(user.UserName, newPassWord);
                 this.PwdStatusText.Text = "修改成功!";
                 //返回登录界面
+                new MessageBoxSuccessView("修改密码成功！需重新登录").ShowDialog();
                 new loginPage().Show();
                 this.Close();
             }

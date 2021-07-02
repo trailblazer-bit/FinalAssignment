@@ -78,10 +78,10 @@ namespace CourseInfoSharingPlatform.Views
             user.Introduction = introductionTB.Text;
             user.Grade= this.gradeTB.Text;
             if (this.male.IsChecked == true)
-                user.Gender = "male";
+                user.Gender = "男";
             else if (this.female.IsChecked == true)
-                user.Gender = "female";
-            else user.Gender = "secret";
+                user.Gender = "女";
+            else user.Gender = null;
             //发送修改请求
             bool result=UserHttpClient.UpdateUserInfo(user);
             if(!result)
@@ -104,55 +104,6 @@ namespace CourseInfoSharingPlatform.Views
             Init();
             ModifyInfoBtn.Visibility = Visibility.Visible;
             PutChangeBtn.Visibility = Visibility.Collapsed;
-        }
-        //private void ChooseBgPicBtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog ofd = new OpenFileDialog();
-        //    //设置这个对话框的起始打开路径
-        //    ofd.InitialDirectory = "C:\\";
-        //    //设置打开的文件的类型，注意过滤器的语法
-        //    ofd.Filter = "PNG图片|*.png|JPG图片|*.jpg|JPEG图片|*.jpeg";
-        //    //调用ShowDialog()方法显示该对话框，该方法的返回值代表用户是否点击了确定按钮
-        //    if (ofd.ShowDialog() == true)
-        //    {
-        //        ImageBrush imageBrush = new ImageBrush
-        //        {
-        //            ImageSource = new BitmapImage(new Uri(ofd.FileName)),
-        //            Stretch = Stretch.UniformToFill
-        //        };
-        //        this.BgBorder.Background = imageBrush;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("没有选择图片");
-        //    }
-        //}
-
-        //private void ModifyInfoBtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //UserNameTextBox.IsReadOnly = false;
-        //    GradeTextBox.IsReadOnly = false;
-        //    Major.IsReadOnly = false;
-        //    Instruction.IsReadOnly = false;
-        //    ModifyInfoBtn.Visibility = Visibility.Collapsed;
-        //    PutChangeBtn.Visibility = Visibility.Visible;
-        //}
-
-        //private void PutChangeBtn_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (this.male.IsChecked == true)
-        //        user.Gender = "male";
-        //    else if (this.female.IsChecked == true)
-        //        user.Gender = "female";
-        //    else user.Gender = "secret";
-
-        //    user.Grade = this.GradeTextBox.Text;
-        //    user.Major = this.Major.Text;
-        //    user.Introduction = this.Instruction.Text;
-        //    UserHttpClient userHttpClient = UserHttpClient.GetInstance();
-        //    userHttpClient.ModifyInformation(user);
-        //    ModifyInfoBtn.Visibility = Visibility.Collapsed;
-        //    ModifyInfoBtn.Visibility = Visibility.Visible;
-        //}
+        }      
     }
 }

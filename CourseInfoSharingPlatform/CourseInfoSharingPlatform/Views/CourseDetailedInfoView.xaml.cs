@@ -31,7 +31,7 @@ namespace CourseInfoSharingPlatform.Views
             this.courseGrid.DataContext = c;
             this.Course = c;
             this.user = user;
-            Init();
+            Init();        
             //this.courseGrid.DataContext = Course;
         }
         //窗口初始化
@@ -108,10 +108,9 @@ namespace CourseInfoSharingPlatform.Views
             else
             {
                 q.LikeNum++;
-                this.likedQuestionId.Add(q.QuestionId);
+                if(!likedQuestionId.Contains(q.QuestionId)) this.likedQuestionId.Add(q.QuestionId);
             }
         }
-
         //返回按钮
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -155,6 +154,7 @@ namespace CourseInfoSharingPlatform.Views
             //展示更新后的问题
             this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
             this.courseGrid.DataContext = Course;
-        }
+            //重新设置所有点赞的问题checkBox         
+        }  
     }
 }

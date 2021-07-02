@@ -95,65 +95,6 @@ namespace CourseInfoSharingPlatformServer.Controllers
         public ActionResult<bool> UpdateUserInfo(User user)
         {
             return UserService.UpdateInformation(user);
-        }
-
-        //提交修改
-        [HttpPut("stu")]
-        public ActionResult<bool> UpdateUser(User user)
-        {
-            try
-            {
-                UserService.UpdateInformation(user);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
-        [HttpPut("admin")]
-        public ActionResult<bool> UpdateAdminPwd(Admin admin)
-        {
-            try
-            {
-                UserService.ResetAdminPwd(admin.AdminName, admin.Password);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }      
-
-        //注销账户
-        [HttpDelete("stu")]
-        public ActionResult<bool> DeleteStuAccount(string UserName)
-        {
-            try
-            {
-                UserService.DeleteStu(UserName);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
-        [HttpDelete("admin")]
-        public ActionResult<bool> DeleteAdminAccount(string UserName)
-        {
-            try
-            {
-                UserService.DeleteAdmin(UserName);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
+        }       
     }
 }

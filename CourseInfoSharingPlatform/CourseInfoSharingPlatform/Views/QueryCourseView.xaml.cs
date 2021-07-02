@@ -65,7 +65,7 @@ namespace CourseInfoSharingPlatform.Views
             courseDetailedInfoView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.Visibility = Visibility.Hidden;
             courseDetailedInfoView.ShowDialog();
-            this.Visibility = Visibility.Visible;
+            this.Visibility = Visibility.Visible;     
             //this.Close();
         }
 
@@ -77,16 +77,15 @@ namespace CourseInfoSharingPlatform.Views
             this.Close();
         }
 
-        //查询按钮
-        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        private void search()
         {
-            string searchCondition=null;
+            string searchCondition = null;
             ComboBoxItem item = this.searchConditionCB.SelectedItem as ComboBoxItem;
             if (item != null)
                 searchCondition = item.Content.ToString();
             string sortCondition = (this.sortConditionLB.SelectedItem as ListBoxItem).Content.ToString();
             var totalPageNum = 0;
-            if(searchCondition==null)
+            if (searchCondition == null)
             {
                 //当查询条件为空时，查询所有的课程的总页数
                 totalPageNum = CourseHttpClient.GetTotalPageNum();
@@ -104,7 +103,7 @@ namespace CourseInfoSharingPlatform.Views
                 //只按课程号查询时
                 if (searchCondition.Equals("课头号"))
                 {
-                    var course= CourseHttpClient.GetCourseById(input);
+                    var course = CourseHttpClient.GetCourseById(input);
                     if (course == null) { SetPaginationBtn(0); courses = new List<Course>(); }
                     else
                     {
@@ -177,6 +176,11 @@ namespace CourseInfoSharingPlatform.Views
                 }
             }
             this.listBoxCourses.ItemsSource = courses;
+        }
+        //查询按钮
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            search();
         }
 
         //根据总页数，设置分页相关按钮,和初始分页数据显示

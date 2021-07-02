@@ -40,7 +40,7 @@
                                 <Separator/>
                                 <MenuItem x:Name="SwitchBtn" Click="SwitchBtn_Click" Header="切换用户"/>
                                 <Separator/>
-                                <MenuItem x:Name="LogoutBtn" Click="LogoutBtn_Click"  Header="退出登录"/>
+                                <MenuItem x:Name="LogoutBtn" Click="LogoutBtn_Click"  Header="退出应用"/>
                                 <Separator/>
                             </MenuItem>
                         </Menu>

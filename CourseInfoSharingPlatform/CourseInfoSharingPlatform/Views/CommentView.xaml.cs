@@ -135,10 +135,9 @@ namespace CourseInfoSharingPlatform.Views
             else
             {
                 c.LikeNum++;
-                this.likedCommentId.Add(c.CommentId);
+                if(!likedCommentId.Contains(c.CommentId)) this.likedCommentId.Add(c.CommentId);
             }
         }
-
         //问题标签被点赞
         private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
         {           

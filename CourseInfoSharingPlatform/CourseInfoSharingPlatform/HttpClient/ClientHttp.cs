@@ -79,9 +79,6 @@ namespace CourseInfoSharingPlatform.ClientHttp
         }
         public static async Task<bool> DeleteUser(string url)
         {
-            //StringContent content = new StringContent(info);
-            //content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
             using (HttpResponseMessage response = await GetInstance().DeleteAsync(url))
             {
                 response.EnsureSuccessStatusCode();

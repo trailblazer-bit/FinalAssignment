@@ -36,8 +36,8 @@ namespace CourseInfoSharingPlatform.Views
 
         //关闭按钮
         private void closeBtn_Click(object sender, RoutedEventArgs e)
-        {        
-            this.Close();
+        {
+            Environment.Exit(0);
         }
         //登录
         private void loginBtn_Click(object sender, RoutedEventArgs e)
