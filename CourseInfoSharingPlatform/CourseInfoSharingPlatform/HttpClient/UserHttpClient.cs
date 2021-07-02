@@ -151,6 +151,14 @@ namespace CourseInfoSharingPlatform.ClientHttp
             var result = ClientHttp.GET(url, d);
             return bool.Parse(result);        
         }
+        //修改个人信息
+        public static bool UpdateUserInfo(User user)
+        {
+            string url = baseUrl + "/updateUserInfo";
+            string parameters = Newtonsoft.Json.JsonConvert.SerializeObject(user);
+            var result = ClientHttp.POST(url, parameters);
+            return result;
+        }
 
         //验证用户，并保存信息
         public async Task<bool> AuthenticateAsync(string username,string password,bool isStu)

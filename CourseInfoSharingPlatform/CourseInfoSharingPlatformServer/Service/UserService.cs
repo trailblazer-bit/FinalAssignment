@@ -85,9 +85,9 @@ namespace CourseInfoSharingPlatformServer.Service
         }
 
         //更新其他信息
-        public static void UpdateInformation(User user)
+        public static bool UpdateInformation(User user)
         {
-            UserDao.UpdateUserInfo(user);
+           return  UserDao.UpdateUserInfo(user);
         }
 
         //注销账户

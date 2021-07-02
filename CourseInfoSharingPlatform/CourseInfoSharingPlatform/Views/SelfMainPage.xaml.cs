@@ -83,7 +83,20 @@ namespace CourseInfoSharingPlatform.Views
                 user.Gender = "female";
             else user.Gender = "secret";
             //发送修改请求
-
+            bool result=UserHttpClient.UpdateUserInfo(user);
+            if(!result)
+            {
+                MessageBoxView view1 = new MessageBoxView("修改个人信息失败！");
+                view1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view1.ShowDialog();
+                return;
+            }
+            MessageBoxSuccessView view2 = new MessageBoxSuccessView("修改个人信息成功！");
+            view2.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            view2.ShowDialog();
+            Init();
+            ModifyInfoBtn.Visibility = Visibility.Visible;
+            PutChangeBtn.Visibility = Visibility.Collapsed;
         }
         //重置
         private void resetBtn_Click(object sender, RoutedEventArgs e)

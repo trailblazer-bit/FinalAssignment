@@ -58,7 +58,7 @@ namespace CourseInfoSharingPlatform.Views
                 //判断课程是否存在
                 if (CourseHttpClient.GetCourseById(courseIdTB.Text) != null)
                 {
-                    MessageBoxView view = new MessageBoxView("要填加的课程已经存在,添加失败");
+                    MessageBoxView view = new MessageBoxView("要填加的课程已经存在,添加失败!");
                     view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     view.ShowDialog();
                 }

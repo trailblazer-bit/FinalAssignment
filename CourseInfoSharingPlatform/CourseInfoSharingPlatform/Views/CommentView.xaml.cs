@@ -23,12 +23,13 @@ namespace CourseInfoSharingPlatform.Views
     {
         //private List<Comment> comments;
         private Question Question { get; set; }
-        private User user = new User { UserName = "啊哈哈" };
+        private User user;
         private List<int> likedCommentId = new List<int>();
         private List<int> likedTagId = new List<int>();
-        public CommentView(Question question)
+        public CommentView(Question question,User user)
         {
-            InitializeComponent();           
+            InitializeComponent();
+            this.user = user;
             this.Question = question;
             Init();
         }
@@ -89,7 +90,14 @@ namespace CourseInfoSharingPlatform.Views
             //清空输入框内容，下拉框折叠
             this.addTagTB.Text = null;
             this.tagExpander.IsExpanded = false;
-            TagHttpClient.AddTag(tagComment, this.Question.QuestionId);
+            bool result=TagHttpClient.AddTag(tagComment, this.Question.QuestionId);
+            if(!result)
+            {
+                MessageBoxView view = new MessageBoxView("含敏感词汇，添加失败！");
+                view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view.ShowDialog();
+                return;
+            }
             this.Question = CommentHttpClient.GetQuestionById(this.Question.QuestionId);
             Init();
         }
@@ -108,6 +116,7 @@ namespace CourseInfoSharingPlatform.Views
                 MessageBoxView view = new MessageBoxView("含敏感词汇，添加失败！");
                 view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 view.ShowDialog();
+                return;
             }
             this.Question = CommentHttpClient.GetQuestionById(Question.QuestionId);
             Init();
@@ -132,23 +141,7 @@ namespace CourseInfoSharingPlatform.Views
 
         //问题标签被点赞
         private void questionTagLikeBtn_Click(object sender, MouseButtonEventArgs e)
-        {
-            //var tb = e.OriginalSource as TextBlock;
-            //Tag tag = null;
-            //if (tb != null) tag = tb.DataContext as Tag;
-            //if (tag != null)
-            //{
-            //    if (likedTagId.Contains(tag.TagId))
-            //    {
-            //        tag.LikeNum--;
-            //        likedTagId.Remove(tag.TagId);
-            //    }
-            //    else
-            //    {
-            //        tag.LikeNum++;
-            //        likedTagId.Add(tag.TagId);
-            //    }
-            //}
+        {           
         }
     }
 }

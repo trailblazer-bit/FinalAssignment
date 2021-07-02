@@ -16,9 +16,9 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="imageTB" Margin="40" Foreground="Red" Text="&#xe649;" FontSize="30" FontFamily="../Resources/Fonts/#iconfont" VerticalAlignment="Center" />
-                <TextBlock x:Name="infoTB" Margin="-30,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Text="含敏感词汇，添加失败！"/>
+            <StackPanel Orientation="Horizontal" Margin="20,0,40,0">
+                <TextBlock x:Name="imageTB" Margin="40"  Foreground="Red"  Text="&#xe649;" FontSize="30" FontFamily="../Resources/Fonts/#iconfont" VerticalAlignment="Center" />
+                <TextBlock x:Name="infoTB" Margin="-20,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" TextWrapping="Wrap" Width="180" Text="问题中含敏感词汇,无法添加!"/>
             </StackPanel>
             <Button Grid.Row="1" Margin="0,-40,0,0" Click="okBtn_Click" Foreground="Black"  VerticalAlignment="Center" Width="80" BorderBrush="#e0f7fa"  Background="#e0f7fa" HorizontalAlignment="Center" Content="确认"/>
         </Grid>

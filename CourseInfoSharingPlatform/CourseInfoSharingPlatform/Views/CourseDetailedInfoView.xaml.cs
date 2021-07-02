@@ -84,7 +84,7 @@ namespace CourseInfoSharingPlatform.Views
         {
             var btn = e.OriginalSource as Button;
             Question q = btn.DataContext as Question;
-            CommentView commentView = new CommentView(q);
+            CommentView commentView = new CommentView(q,this.user);
             commentView.WindowStartupLocation = this.WindowStartupLocation;
             //传具体的问题对象
             //this.Visibility = Visibility.Hidden;
@@ -147,7 +147,7 @@ namespace CourseInfoSharingPlatform.Views
             //没有添加成功
             if (!result)
             {
-                MessageBoxView view = new MessageBoxView("问题中含有敏感词汇，添加失败");
+                MessageBoxView view = new MessageBoxView("问题中含有敏感词汇，添加失败!");
                 view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 view.ShowDialog();
                 return;

@@ -401,7 +401,9 @@ namespace CourseInfoSharingPlatformServer.Service
         //新添加一门课程
         public static bool AddCourse(Course course)
         {
-            return CourseDao.AddCourse(course);
+            if (!CourseDao.AddCourse(course)) return false;
+            SetDefaultQuestionToDataBase(course);
+            return true;
         }
     }
 }

@@ -90,6 +90,12 @@ namespace CourseInfoSharingPlatformServer.Controllers
         {
             return UserService.ResetStuPwd(userName, passWord);
         }
+        //修改个人信息
+        [HttpPost("updateUserInfo")]
+        public ActionResult<bool> UpdateUserInfo(User user)
+        {
+            return UserService.UpdateInformation(user);
+        }
 
         //提交修改
         [HttpPut("stu")]
