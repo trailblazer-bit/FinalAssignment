@@ -405,5 +405,37 @@ namespace CourseInfoSharingPlatformServer.Service
             SetDefaultQuestionToDataBase(course);
             return true;
         }
+
+        // 获得三个相似课程
+        public static List<Course> GetSimilarCourses(string id)
+        {
+            List<User> usersWhoLikeThisCourse = CourseDao.SelectCourseByIdWithUserWhoLikeIt(id).UserWhoLikedCourse;
+            Dictionary<string, int> likeNum = new Dictionary<string, int>();
+            foreach (User user in usersWhoLikeThisCourse)
+            {
+                User u = UserDao.SelectUserByUserNameWithCourse(user.UserName);
+                foreach (Course course in u.LikeCourses)
+                {
+                    if (likeNum.ContainsKey(course.CourseId)) likeNum[course.CourseId]++;
+                    else likeNum.Add(course.CourseId, 1);
+                }
+            }
+
+            // 按照收藏量排序
+            likeNum = likeNum.OrderBy(d => d.Value).ToDictionary(p => p.Key, o => o.Value);
+            List<Course> result = new List<Course>();
+            List<string> keyList = new List<string>();
+            foreach (string key in likeNum.Keys)
+            {
+                keyList.Add(key);
+            }
+
+            for (int i = 0; i < 3 && i < likeNum.Keys.Count; i++)
+            {
+                result.Add(CourseDao.SelectCourseById(keyList[i]);
+            }
+
+            return result;
+        }
     }
 }
