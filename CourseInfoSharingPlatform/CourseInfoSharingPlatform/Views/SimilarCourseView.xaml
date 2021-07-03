@@ -13,6 +13,8 @@
         <local:CNoConverter x:Key="cnoC"/>
         <local:CTYpeConverter x:Key="ctypeC"/>
         <local:TeacherNameConverter x:Key="tnC"/>
+        <local:LikeNumConverter x:Key="likeNumC"/>
+        <local:HeatNumConverter x:Key="heatNumC"/>
     </Window.Resources>
     
     <Border Margin="5" Background="#fbe8e7" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
@@ -51,8 +53,8 @@
                                     <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Width="80" Margin="200,0,0,0" Foreground="#ff3d00"  FontSize="16" VerticalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Orientation="Vertical"  Margin="370,-5,0,0">
-                                    <TextBlock Text="收藏量:123"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
-                                    <TextBlock Text="热度:12" Margin="0,5,0,0"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding HeatNum,Converter={StaticResource heatNumC}}"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding LikeNum,Converter={StaticResource likeNumC}}" Margin="0,5,0,0"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Grid.Row="2" Orientation="Horizontal"  Margin="380,0,3,10">
                                     <Button Template="{StaticResource BackBtnTemplate}" Content="&#xe604;" FontSize="18" Foreground="#ff9800"  VerticalAlignment="Center" Click="specificCourseBtn_Click"/>

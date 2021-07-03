@@ -435,6 +435,7 @@ namespace CourseInfoSharingPlatformServer.Service
             {
                 result.Add(CourseDao.SelectCourseById(keyList[i]));
             }
+            SetCourseScore(result);
             return result;
         }
     }
