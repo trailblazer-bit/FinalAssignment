@@ -416,6 +416,7 @@ namespace CourseInfoSharingPlatformServer.Service
                 User u = UserDao.SelectUserByUserNameWithCourse(user.UserName);
                 foreach (Course course in u.LikeCourses)
                 {
+                    if (course.CourseId == id)continue;
                     if (likeNum.ContainsKey(course.CourseId)) likeNum[course.CourseId]++;
                     else likeNum.Add(course.CourseId, 1);
                 }
