@@ -422,7 +422,7 @@ namespace CourseInfoSharingPlatformServer.Service
             }
 
             // 按照收藏量排序
-            likeNum = likeNum.OrderBy(d => d.Value).ToDictionary(p => p.Key, o => o.Value);
+            likeNum = likeNum.OrderByDescending(d => d.Value).ToDictionary(p => p.Key, o => o.Value);
             List<Course> result = new List<Course>();
             List<string> keyList = new List<string>();
             foreach (string key in likeNum.Keys)
@@ -432,9 +432,8 @@ namespace CourseInfoSharingPlatformServer.Service
 
             for (int i = 0; i < 3 && i < likeNum.Keys.Count; i++)
             {
-                result.Add(CourseDao.SelectCourseById(keyList[i]);
+                result.Add(CourseDao.SelectCourseById(keyList[i]));
             }
-
             return result;
         }
     }

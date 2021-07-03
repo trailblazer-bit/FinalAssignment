@@ -191,6 +191,16 @@ namespace CourseInfoSharingPlatform.ClientHttp
             string parameters = Newtonsoft.Json.JsonConvert.SerializeObject(course);
             return ClientHttp.POST(url, parameters);
         }
+        //获得三个相似课程
+        public static List<Course> GetSimilarCourses(string id)
+        {
+            string url = baseUrl + "/getSimilarCourses";
+            Dictionary<string, string> d = new Dictionary<string, string>();
+            d.Add("id", id);
+            var result = ClientHttp.GET(url, d);
+            List<Course> courses = Newtonsoft.Json.JsonConvert.DeserializeObject(result, typeof(List<Course>)) as List<Course>;
+            return courses;
+        }
 
     }
 }

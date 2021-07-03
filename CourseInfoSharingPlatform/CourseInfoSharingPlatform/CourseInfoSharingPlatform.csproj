@@ -95,7 +95,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="studMain.xaml.cs">
+    <Compile Include="Views\studMain.xaml.cs">
       <DependentUpon>studMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminAddCourse.xaml.cs">
@@ -143,7 +143,7 @@
     <Compile Include="Views\UserPasswordReset.xaml.cs">
       <DependentUpon>UserPasswordReset.xaml</DependentUpon>
     </Compile>
-    <Page Include="studMain.xaml">
+    <Page Include="Views\studMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

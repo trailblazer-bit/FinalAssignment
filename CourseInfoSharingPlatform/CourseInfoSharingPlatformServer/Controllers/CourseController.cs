@@ -148,7 +148,7 @@ namespace CourseInfoSharingPlatformServer.Controllers
         }
 
         //获得三个相似课程
-        [HttpPost("getSimilarCourses")]
+        [HttpGet("getSimilarCourses")]
         public ActionResult<List<Course>> GetSimilarCourses(string id)
         {
             return CourseService.GetSimilarCourses(id);

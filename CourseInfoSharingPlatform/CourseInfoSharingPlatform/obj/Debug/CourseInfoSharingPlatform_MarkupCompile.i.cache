@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programming-language-program\vs2019 projects\FinalAssignment\CourseInfoSharingPlatform\CourseInfoSharingPlatform\App.xaml
-18-457819690
+18-806925088
 
-451358934115
+451040508025
 162109331297
-studMain.xaml;Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\MessageBoxSuccessView.xaml;Views\MessageBoxView.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\SimilarCourseView.xaml;Views\StuCourseCollection.xaml;Views\UserPasswordReset.xaml;
+Views\studMain.xaml;Views\AdminAddCourse.xaml;Views\AdminManagement.xaml;Views\AdminModifyCourse.xaml;Views\ButtonStyle.xaml;Views\CommentView.xaml;Views\CourseDetailedInfoView.xaml;Views\loginPage.xaml;Views\LogonPage.xaml;Views\MessageBoxSuccessView.xaml;Views\MessageBoxView.xaml;Views\QueryCourseView.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SelfMainPage.xaml;Views\SimilarCourseView.xaml;Views\StuCourseCollection.xaml;Views\UserPasswordReset.xaml;
 
-True
+False
 

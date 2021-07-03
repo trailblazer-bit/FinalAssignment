@@ -54,13 +54,20 @@ namespace CourseInfoSharingPlatform.Views
         //个人信息
         private void SelfInfoBtn_Click(object sender, RoutedEventArgs e)
         {
-            new SelfMainPage().Show();
+            SelfMainPage view = new SelfMainPage(this.user);
+            this.Visibility = Visibility.Hidden;
+            view.ShowDialog();
+            this.Visibility = Visibility.Visible;
+            this.user = UserHttpClient.GetUser(user.UserName);
         }
 
         //修改密码
         private void RestPwdBtn_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(user);
+            UserPasswordReset view = new UserPasswordReset(this.user);
+            view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            view.Show();
+            this.Close();
         }
         //切换用户
         private void SwitchBtn_Click(object sender, RoutedEventArgs e)

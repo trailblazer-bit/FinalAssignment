@@ -24,6 +24,7 @@ namespace CourseInfoSharingPlatform.Views
         public Course Course { get; set; }
         private User user;
         private List<int> likedQuestionId = new List<int>();
+        private string courseId;
 
         public CourseDetailedInfoView(Course c,User user)
         {
@@ -134,9 +135,29 @@ namespace CourseInfoSharingPlatform.Views
             this.collectBtn.IsEnabled = false;
             this.collectBtn.Content = "已收藏";
             this.collectBtn.Opacity = .4;
+
+            List<Course> courses = CourseHttpClient.GetSimilarCourses(Course.CourseId);
+            if(courses!=null)
+            {
+                SimilarCourseView view = new SimilarCourseView(user, courses);
+                view.getCourseId = this.GetCourseId;
+                view.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                view.ShowDialog();
+                //转到新的课程
+                if (this.courseId != null)
+                {
+                    this.Course = CourseHttpClient.GetCourseById(this.courseId);
+                    this.courseGrid.DataContext = Course;
+                }
+            }
         }
 
-        //提出问题
+        public void GetCourseId(string courseId)
+        {
+            this.courseId = courseId;
+        }
+
+         //提出问题
         private void askQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
             string detail = this.commentArea.Text;

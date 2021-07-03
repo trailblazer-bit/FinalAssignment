@@ -3,10 +3,85 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Views"
+        xmlns:local="clr-namespace:CourseInfoSharingPlatform.Converters"
         mc:Ignorable="d"
-        Title="SimilarCourseView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="SimilarCourseView"  Height="650" Width="500" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}"
+         >
+    <Window.Resources>
+        <local:ScoreConverter x:Key="scoreC"/>
+        <local:CNoConverter x:Key="cnoC"/>
+        <local:CTYpeConverter x:Key="ctypeC"/>
+        <local:TeacherNameConverter x:Key="tnC"/>
+    </Window.Resources>
+    
+    <Border Margin="5" Background="#fbe8e7" CornerRadius="10" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Click="backBtn_Click" Margin="0,10,10,0" Template="{StaticResource BackBtnTemplate}" Height="30" Width="30" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                        Foreground="#263238"   Content="&#xe65f;"/>
+            <Border Grid.Row="1">
+                <TextBlock Text="收藏了该课程的学生还收藏了" Foreground="#ffa000" FontSize="25"  VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Border>
+            <ItemsControl Grid.Row="2" x:Name="courseList">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" Margin="20,-20,20,0" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border  Margin="0,10,0,0" Height="128" CornerRadius="10" Background="LightBlue"  BorderBrush="#EEE" BorderThickness="0,0,0,3">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="4*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontWeight="Black" Width="150" FontSize="18" Margin="20 0 0 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Score,Converter={StaticResource scoreC}}" Width="80" Margin="200,0,0,0" Foreground="#ff3d00"  FontSize="16" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Orientation="Vertical"  Margin="370,-5,0,0">
+                                    <TextBlock Text="收藏量:123"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
+                                    <TextBlock Text="热度:12" Margin="0,5,0,0"  Foreground="#fb8c00"  FontSize="12" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="2" Orientation="Horizontal"  Margin="380,0,3,10">
+                                    <Button Template="{StaticResource BackBtnTemplate}" Content="&#xe604;" FontSize="18" Foreground="#ff9800"  VerticalAlignment="Center" Click="specificCourseBtn_Click"/>
+                                    <TextBlock Text="详情" VerticalAlignment="Center" FontSize="12" Margin="2,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1">
+                                    <TextBlock  Text="{Binding CourseId,Converter={StaticResource cnoC}}" FontSize="10" Margin="20,0,0,0"/>
+                                    <TextBlock Text="{Binding Type,Converter={StaticResource ctypeC}}" FontSize="10" Margin="10,0,0,0"/>
+                                    <TextBlock  Text="{Binding TeacherName,Converter={StaticResource tnC}}" FontSize="10" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <ItemsControl ItemsSource="{Binding tags}" Grid.Row="2">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="15,0,0,0"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#EEE" Margin="5,5"   CornerRadius="5">
+                                                <TextBlock Text="{Binding Detail}" Foreground="#607d8b"  Margin="12,3"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Border>
 </Window>
