@@ -164,7 +164,7 @@ namespace CourseInfoSharingPlatform.Views
             if (detail == "") return;
             bool result=CommentHttpClient.AddQuestion(detail,user.UserName,Course.CourseId);         
             //清空问题填写区
-            this.commentArea.Text = null;           
+            //this.commentArea.Text = null;           
             //没有添加成功
             if (!result)
             {
@@ -173,6 +173,8 @@ namespace CourseInfoSharingPlatform.Views
                 view.ShowDialog();
                 return;
             }
+            //清空问题填写区
+            this.commentArea.Text = null;
             //展示更新后的问题
             this.Course = CourseHttpClient.GetCourseById(Course.CourseId);
             this.courseGrid.DataContext = Course;
