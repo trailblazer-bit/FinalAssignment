@@ -3,5 +3,5 @@
 # 小组成员及分工
 - 孟佳卫  
 - 左嘉龙 github账号：trailblazer-bit
-- 高佳濠
+- 高佳濠 github账号：gao356
 - 柏安比特 
